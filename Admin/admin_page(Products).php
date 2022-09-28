@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+<?php
+require("connections.php");
+
+
+if(isset($_GET['delete'])){
+    $prod_id=$_GET['delete'];
+    mysqli_query($conn,"DELETE FROM tbl_product WHERE product_id=$prod_id");
+    header('location:admin_page(Products).php');
+}
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -51,7 +60,7 @@
 
 <div style="margin: 0 auto" class="container">
     <div class="admin-product-form-container">
-     <form action="" method="post" enctype="multipart/form-data">
+     <form action="productaddition.php" method="post" enctype="multipart/form-data">
       <h3>Add new product</h3>
       <input type="text" placeholder="enter product name" name="product_name" class="box">
       <input type="int" placeholder="enter product price" name="product_price" class="box">
@@ -68,11 +77,19 @@
             <option value="Others">Others</option>
        </select><br>
       <select type="text" class="box" name="category_name" >
-            <option value="" disabled selected hidden>enter category name</option>
-            <option value="Men">Men</option>
-            <option value="Women">Women</option>
-            <option value="Children">Children</option>
-            <option value="Pets">Pets</option>
+      <option value="" disabled selected hidden>enter category name</option>
+      <?php
+                    require_once("connections.php");
+                    while($row = mysqli_fetch_array($result))
+                     {
+                    $cat_option = $row['category_name'];
+                    
+                   
+                    echo "<option value=' $cat_option' > $cat_option </option>";
+
+                     }
+                     ?>
+            
        </select><br>
       <input type="text" placeholder="enter product keywords" name="product_keywords" class="box">
       <input type="file" accept="image/png, image/jpeg, image/jpg, image/webp" name="product_image" class="box">
@@ -97,21 +114,34 @@
          </tr>
          </thead>
 
-         <tr>
-            <td></td>
-            <td><img src="uploaded_img/" height="100" alt=""></td><!------>
-            <td></td>
-            <td></td>
-            <td>Ksh /-</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+         <?php
+                require_once("connections.php");
+                
+                
+
+                
+                while($row = mysqli_fetch_array($sql)){
+                    
+                ?>
+            <tr>
+        
+            <td><?php echo $row["product_id"]?></td>
+            <td><img src="uploaded_image/<?php echo $row["product_image"]; ?>" height="100" alt=""></td><!------>
+            <td><?php echo $row["product_name"]?></td>
+            <td><?php echo $row["product_description"]?></td>
+            <td>Ksh /-<?php echo $row["unit_price"]?></td>
+            <td><?php echo $row["subcategory_name"]?></td>
+            <td><?php echo $row["category_name"]?></td>
+            <td><?php echo $row["available_quantity"]?></td>
+            <td><?php echo $row["product_keywords"]?></td>
             <td>
-               <a href="admin_update(Products).php" class="btn"> edit </a>
-               <a href="admin_page(Products).php" class="btn"> delete </a>
+               <a href="admin_update(Products).php?edit=<?php echo $row["product_id"];?>" class="btn"> edit </a>
+               <a href="admin_page(Products).php?delete=<?php echo $row["product_id"];?>" class="btn"> delete </a>
             </td>
          </tr>
+         <?php 
+            }
+                ?>
 
       </table>
    </div>
