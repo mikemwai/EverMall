@@ -84,7 +84,7 @@
             <td></td>---->
             <td><?php echo $data['responce']?></td>
             <td>
-               <a href="admin_update(Complains).php" class="btn"> edit </a>
+               <a href="admin_update(Complains).php?edit=<?php echo $data['complain_id']; ?>" class="btn"> edit </a>
                <!---<a href="admin_page(Orders).php" class="btn"> delete </a>--->
             </td>
          </tr>

@@ -68,8 +68,6 @@ if ($query){
     
 
 }
-
-
 else{
     //http_respose_code(400);
     echo"404 ERROR.Fill All Fields";

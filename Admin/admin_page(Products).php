@@ -7,7 +7,8 @@ if(isset($_GET['delete'])){
     mysqli_query($conn,"DELETE FROM tbl_product WHERE product_id=$prod_id");
     header('location:admin_page(Products).php');
 }
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

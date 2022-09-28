@@ -1,3 +1,7 @@
+<?php
+require("connections.php");
+$complain_id = $_GET['edit'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,18 +20,21 @@
 ?>
 
 <div class="container">
-
+<?php
+   $select = mysqli_query($conn,"SELECT * FROM tbl_complain WHERE complain_id=$complain_id");
+   while($row = mysqli_fetch_assoc($select)){    
+?>
 
 <div class="admin-product-form-container centered">   
    <form action="complains_update.php" method="post" enctype="multipart/form-data"><!-----specifies how form data should be encoded----->
       <h3 class="title">update the complain</h3>
-      <input type="int" class="box" name="complain_id" value="" placeholder="enter complain id">
-      <input type="int" class="box" name="user_id" value="" placeholder="enter user id">
-      <input type="double" class="box" name="complain" value="" placeholder="enter complain">
+      <input type="int" class="box" name="complain_id" value="<?php echo $row['complain_id'];?>" placeholder="enter complain id">
+      <input type="int" class="box" name="user_id" value="<?php echo $row['user_id'];?>" placeholder="enter user id">
+      <input type="double" class="box" name="complain" value="<?php echo $row['complain'];?>" placeholder="enter complain">
       <select type="text" class="box" name="responce" placeholder="enter response status">
             <option></option>
-            <option value="Pending">Not Responded</option>
-            <option value="Paid">Responded</option>
+            <option value="Not Responded">Not Responded</option>
+            <option value="Responded">Responded</option>
        </select><br>
       <!---<select type="text" class="box" name="payment_type" placeholder="enter payment type">
             <option></option>
@@ -38,7 +45,9 @@
       <input type="submit" value="update complain" name="update_complain" class="btn">
       <a href="admin_page(Complains).php" class="btn">go back!</a>
    </form>
-
+   <?php
+    };
+   ?>
 </div>
 
 </div>
