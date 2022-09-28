@@ -8,6 +8,12 @@
 </head>
 <body>
 
+<?php
+    require_once("complains.php");
+   
+    ?>
+
+
 <!---------Navigation Bar--------->
 <div class="hero">
 <div style="margin: 0 auto" class="header">
@@ -62,19 +68,38 @@
             <th>action</th>
          </tr>
          </thead>
+            
+         <?php
+                            if(is_array($fetchData)){
+                                $sn=1;
+                                foreach($fetchData as $data){
+                            
+                            ?>
 
          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><?php echo $data['complain_id']?></td>
+            <td><?php echo $data['user_id']?></td>
+            <td><?php echo $data['complain']?></td>
             <!--<td>Ksh /-</td>
             <td></td>---->
-            <td></td>
+            <td><?php echo $data['responce']?></td>
             <td>
                <a href="admin_update(Complains).php" class="btn"> edit </a>
                <!---<a href="admin_page(Orders).php" class="btn"> delete </a>--->
             </td>
          </tr>
+
+         <?php
+                            $sn++;}}else{?>
+                            <tr>
+                                <td colspan="8">
+                                    <?php echo $fetchData; ?>
+                                </td>
+                                <tr>
+                                    <?php
+                                }?>
+
+
       </table>
    </div>
 </div>
