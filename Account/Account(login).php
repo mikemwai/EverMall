@@ -4,7 +4,8 @@ if ($conn==false){
     die("ERROR:Could not connect.".mysqli_connect_error());
 }
 
-if (isset($_POST["Email"])){
+if (isset($_POST["Email"]))
+{
     $email=$_POST['Email'];
     $pass=$_POST['password'];
 
@@ -12,13 +13,28 @@ if (isset($_POST["Email"])){
     
     $result=mysqli_query($conn,$sql);
 
-    if(mysqli_num_rows($result)==1){
-        //echo "<h3>You have succesfully logged in</h3>";
-        header('location:../Index.php'); 
-        // this part can be replaced to redirect to the homepage
-        exit();
-    }else{
-        echo "<h3>You have entered incorrect password or email</h3>";
+    $row = mysqli_fetch_array($result);
+
+    if(empty($email) || empty($pass))
+    {
+       $error[] = 'Please fill out all details!';
+    }
+    else
+    {
+    if($row['role'] == '1')
+    {
+        
+       header('location:../Admin/admin_page(Products).php');
+
+    }
+    elseif($row['role'] == '3')
+    {
+       /*$_SESSION['first_name'] = $row['first_name'];
+       $_SESSION['last_name'] = $row['last_name'];
+       $_SESSION['user_id']=$row['user_id'];*/
+       header('location:../Index.php'); 
+
+    }
     }
 }
 ?>

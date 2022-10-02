@@ -10,10 +10,10 @@ if($con == false){
  $sex=$_REQUEST['gender'];
 
  $sql="INSERT INTO tbl_users(first_name,last_name,email,password,gender) VALUES('$fname','$lname','$email','$pwd','$sex')";
- if (mysqli_query($con,$sql)){
+ if (mysqli_query($con,$sql))
+ {
     //echo "<h3> You have successfily registered</h3>";
     header('location:Account.php'); 
-
  }
  else{
     echo "ERROR: Hush! Sorry $sql."
