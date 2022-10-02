@@ -64,7 +64,7 @@
         </div>--->
 
         <!------------Login Form-------------->
-        <form id="login" action="../Admin/admin_page(Products).php" method="" class="input-group">              
+        <form id="login" action="Account(login).php" method="post" class="input-group">              
                   <input type="email" id="Email" name="Email" placeholder="Email" class="input-field"></p>
                   <input type="password" id="password" name="password" placeholder="Password" class="input-field"></p>
                    <input type="submit" value="Login" name="Login" class="submit-btn"><br>
@@ -76,12 +76,12 @@
         </form>
 
         <!-----------Registration Form------->
-        <form id="register" action="" method="" class="input-group">    
+        <form id="register" action="Account(register).php" method="" class="input-group">    
              <input type="text" id="fname" name="first_name" placeholder="FirstName" class="input-field"><p>
              <input type="varchar" id="lname" name="last_name" placeholder="LastName" class="input-field"></p>
-             <input type="email" id="Email" name="Email" placeholder="Email" class="input-field"><p>
+             <input type="email" id="Email" name="email" placeholder="Email" class="input-field"><p>
              <input type="password" id="password" name="password" placeholder="Password" class="input-field"></p>
-             <input type="varchar" id="sex" name="sex" placeholder="Gender" class="input-field"></p>
+             <input type="varchar" id="sex" name="gender" placeholder="Gender" class="input-field"></p>
              <!--<input type="checkbox" class="chech-box">I agree to the Terms and Conditions--->
    
              <input type="submit" value="Register" name="registration" class="submit-btn"><br></br>
