@@ -11,6 +11,12 @@ body{
 	box-sizing:border-box;
 }
 
+h1
+{
+	font-size:50px;
+	color:LightSlateGray;
+}
+
 header{
 	background-color:LightSlateGray;
 	padding: 50px;
@@ -64,7 +70,7 @@ header ul #contact a:hover{
 	background-color:BlanchedAlmond ; 
 }
 
-                  /*CALL TO ACTION*/
+/*CALL TO ACTION*/
 .callToAction{
 	background-image:url("call to action.jpg");
 	height:100vh;
@@ -111,7 +117,7 @@ header ul #contact a:hover{
 	border:1px solid Maroon;
 }
 
-                            /*OFFERS & DISCOUNTS*/
+/*----OFFERS & DISCOUNTS----*/
 button.white{
 		font-size:13px;
 		font-weight:600;
@@ -128,6 +134,17 @@ button.white{
 	display:flex;
 	justify-content:space-around;
 	flex-wrap:wrap;
+}
+
+.crazydeals hr
+{
+	width: 15%;
+	height:5px;
+	border:none;
+	background:#26ccca;
+	margin:auto;
+	margin-top:10px;
+	margin-bottom:30px;
 }
 
 #sm-banner .banner-box{
@@ -227,15 +244,15 @@ button.white{
 
 
 
-                                 /*------------TESTIMONIALS------------------*/
+/*------------TESTIMONIALS--------------*/
 .testimonials {
-	width:90%;
+	width:auto;
 	height:auto;
 	text-align:center;
 }
 .testimonials h1{
-	font-size:60px;
-	color:#555;
+	font-size:50px;
+	color:LightSlateGray;
 }
 .testimonials h2{
 	font-size:30px;
@@ -248,7 +265,7 @@ button.white{
 	border:none;
 	background:#26ccca;
 	margin:auto;
-	margin-top:30px;
+	margin-top:10px;
 	margin-bottom:30px;
 }
 .testimonial-row{
@@ -297,15 +314,14 @@ button.white{
 
 
 
-                             /*BRANDS*/
-							 
+/*-----BRANDS-----*/						 
 .client-wrap{
-	width:90%;
+	width:auto;
 	height:auto;
 	text-align:center;
 }
 .client-wrap h1{
-	font-size:60px;
+	font-size:50px;
 	color:LightSlateGray;
 }
 .client-wrap hr{
@@ -314,7 +330,7 @@ button.white{
 	border:none;
 	background:#26ccca;
 	margin:auto;
-	margin-top:30px;
+	margin-top:10px;
 	margin-bottom:30px;
 }
 .client-in{
@@ -348,6 +364,7 @@ button.white{
 	transform:translateY(0);
 	transition: .5s;
 }
+
 /*Hover section*/
 
 .client-in ul li:hover img:nth-child(1){
@@ -361,7 +378,7 @@ button.white{
 
 
 
-       /*---------FOOTER----------*/	 
+/*---------FOOTER----------*/	 
 .footer {
 	 margin:0;
 	 padding:0;
@@ -379,7 +396,7 @@ button.white{
 	 margin-bottom:30px;
  }
  .Copyright{
-	text-align: left;
+	text-align: center;
 } 
 .social-links{
 	font-size:20px;
