@@ -13,13 +13,13 @@
 		<title> EVERMALL|| IndexPage </title>
 	</head>
 	
-	<body>
+<body>
 		<header>
 			
 			<ul>
 			<li><img src="Logo.jpeg" alt="logo"></li>
 
-			<li><b> <a href="#"><i class="fa fa-home"></i> HOME </a></b>
+			<li><b> <a href="Index.php"><i class="fa fa-home"></i> HOME </a></b>
 
 			<li><b> <a href="#"> ABOUT </a></b>
 <ul>
@@ -45,12 +45,11 @@
             	<li><a href="#"> COMING SOON... </a></li>
             </ul>
 			</li>
-			<li><b> <a href="#"><i class="fa fa-user"></i> ACCOUNT </a></b>
-				<ul>
+			<li><b> <a href="../Account/Account.php"><i class="fa fa-user"></i> ACCOUNT </a></b>
+<!--<ul>
 	<li><a href="#"> LogIn </a></li>
 	<li><a href="#"> Register/Sign Up </a></li>
-
-</ul>
+</ul>--->
 			</li>
 				<li id="contact"><b> <a href="#"> CONTACT US  </a></b>
 
@@ -60,7 +59,7 @@
 		
 		
 		
-		                               <!----------------CALL TO ACTION--------------->
+<!----------------CALL TO ACTION--------------->
 		 <div class="callToAction">
 		
 		      <h1><b> Order from us Today <br> Get You Quality Products!</b></h1>
@@ -122,7 +121,7 @@
 
 
 
-      <!---------------TESTIMONIALS------------------>
+<!---------------TESTIMONIALS------------------>
 	<div class="testimonials">
 	<h2><u>Customer Reviews </u></h2>
 	<h2> What Clients say... </h2>
@@ -163,8 +162,8 @@
 	</div>
 
 
-				       <!-----------------BRANDS------------->
-     <div class="client-wrap">
+<!-----------------BRANDS------------->
+<div class="client-wrap">
 
   <h1> Partnered Brands</h1>
   <hr/>
@@ -187,10 +186,11 @@
 	</ul>
 	   </div>
 
-	</div> <br>
-                                                                     <!------------FOOTER------------------>
+</div> <br>
+
+<!------------FOOTER------------------>
 	
-        <br><div class="footer">
+<br><div class="footer">
 	           
 		          <div class="footer-col"> 
 		       <img src="Logo.jpeg" class="logo">
@@ -239,14 +239,10 @@
 			  <p><a href="#">Privacy Policy  </a></p>
 			  
 		
-		  <div/>
+</div>
 
-		</div>
+</div>
 		 <p class="Copyright"> <i>Copyright 2022 - EVERMALL</i></p>
-		
-		</footer>
-
-
-
-	</body>
+</div>
+</body>
 </html>

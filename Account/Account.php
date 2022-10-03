@@ -22,7 +22,7 @@
                 <img src="../close.png" class="menu-icon"
                  onclick="hideMenu()">
                 <ul id="MenuItems">
-                    <li><a href="../Homepage/home.php">Home</a></li>
+                    <li><a href="../Index/Index.php">Home</a></li>
                     <li><a href="../Homepage/Shoppage.php">Shop</a></li>
                     <li><a href="../About/About.php">About</a></li>
                     <li><a href="../Contact%20Us/Contact.php">Contact</a></li>
