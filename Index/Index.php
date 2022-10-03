@@ -16,13 +16,14 @@
 <body>
 
 <!----Navigation Bar---->
-<header>
-			
- <ul>
-			<li><img src="Logo.jpeg" alt="logo"></li>
+<header>	
 
-			<li><b> <a href="Index.php"><i class="fa fa-home"></i> HOME </a></b></li>
+  <ul>
+	 <li><img src="Logo.jpeg" alt="logo"></li>
 
+	 <div class="nav-links" id="navLinks">
+	 <img src="../close.png" class="menu-icon" onclick="hideMenu()">
+	 <li><b> <a href="Index.php"><i class="fa fa-home"></i> HOME </a></b></li>
 	 <li><b> <a href="#"> ABOUT </a></b>
        <ul>
 	       <li><a href="#"> Our Team </a></li>
@@ -53,7 +54,9 @@
         </ul>--->
 	</li>
 	<li id="contact"><b> <a href="#"> CONTACT US  </a></b></li>
+    </div>
  </ul>
+ <img src="../menu.png" class="menu-icon" onclick="showMenu()">
 </header><br>
 		
 		
@@ -127,7 +130,7 @@
 <div class="testimonials">
 	<h1>Customer Reviews</h1>
 	<hr/>
-	<h2> What Clients say... </h2>
+	<!---<h2> What Clients say... </h2>---->
 	</hr>
 	<div class="testimonial-row">
 	   <div class="testimonial-col">
@@ -236,6 +239,20 @@
      <p class="Copyright"> <i>&#169; 2022 EVERMALL</i></p>
 </div>
 </div>
+
+<!--------------JavaScript for Toggle Menu----------------->
+<script>
+    var navLinks=document.getElementById("navLinks");
+    function showMenu()
+    {
+        navLinks.style.right="0px";
+    }
+
+    function hideMenu()
+    {
+        navLinks.style.right="-1000px";
+    }
+</script>
 
 </body>
 </html>

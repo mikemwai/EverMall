@@ -70,7 +70,7 @@ header ul #contact a:hover{
 	background-color:BlanchedAlmond ; 
 }
 
-/*CALL TO ACTION*/
+/*----CALL TO ACTION-----*/
 .callToAction{
 	background-image:url("call to action.jpg");
 	height:100vh;
@@ -169,6 +169,7 @@ button.white{
 	font-size:28px;
 	font-weight:800;
 }
+
 #sm-banner span{
 	color:#fff;
 	font-size:14px;
@@ -183,13 +184,14 @@ button.white{
 	background-image:url("microwave.jpg");
 }
 
+#banner3
+{
+	display:flex;
+	justify-content:space-around;
+	flex-wrap:wrap;
+	padding:0 60px;	
+}
 
-#banner3{
-		display:flex;
-		justify-content:space-around;
-		flex-wrap:wrap;
-		padding:0 60px;	
-	}
 #banner3 h1{
 	font-size:60px;
 	font-weight:800;
@@ -365,7 +367,7 @@ button.white{
 	transition: .5s;
 }
 
-/*Hover section*/
+/*---Hover section---*/
 
 .client-in ul li:hover img:nth-child(1){
 	transform:translateY(-100%);
@@ -401,4 +403,51 @@ button.white{
 .social-links{
 	font-size:20px;
 	color:Tan;
+}
+
+.menu-icon {
+    width: 28px;
+    margin-left: 20px;
+    display: none;
+}
+
+@media(max-width:700px)
+{
+	.nav-links ul li
+    {
+       display:block;
+       margin-bottom:10px;
+       margin-top: 5px;
+	   font-size: 14px;
+    }
+
+    header ul #contact a{
+		border-radius:50px;
+		float: center;
+		position: absolute;
+		top: -10px;
+		transition:  .3s ease;
+	}	
+
+    .nav-links
+    {
+        position:absolute;
+		background-color: LightSlateGray;
+        height:150vh;
+        width:650px;
+        top:0;
+        right:-200px;
+        text-align:center;
+        z-index:1;
+        transition: 1s;
+    }
+
+	.menu-icon
+    {
+        display:block;
+        color:#fff;
+        margin:10px;
+        font-size:15px;
+        cursor:pointer;
+    }
 }
