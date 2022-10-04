@@ -33,7 +33,7 @@ elseif (isset($_POST["Login"]))
        /*$_SESSION['first_name'] = $row['first_name'];
        $_SESSION['last_name'] = $row['last_name'];
        $_SESSION['user_id']=$row['user_id'];*/
-       header('location:../Index.php'); 
+       header('location:../Index/Index.php'); 
 
     }
     }
