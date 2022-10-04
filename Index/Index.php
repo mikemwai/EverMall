@@ -19,7 +19,9 @@
 <header>	
 
   <ul>
+	<a href="Index.php">
 	 <li><img src="../Evermall(White).png" width="300px"></li>
+    </a>
 
 	 <div class="nav-links" id="navLinks">
 	 <img src="../close.png" class="menu-icon" onclick="hideMenu()">
