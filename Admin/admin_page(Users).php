@@ -1,3 +1,46 @@
+<?php
+   require("connection.php");
+
+   if(isset($_POST['add_user']))
+   {
+      $FName=$_POST['first_name'];
+      $LName=$_POST['last_name'];
+      $Email=$_POST['Email'];
+      $Password=$_POST['password'];
+      $Sex=$_POST['sex'];
+      $role=$_POST['role'];
+ 
+    if(empty($FName) || empty($LName) || empty($Email) || empty($Password)  || empty($Sex) || empty($role))
+    {
+       $message[] = 'please fill out all';
+    }else{
+       $insert ="INSERT INTO  tbl_users(first_name,last_name,email,password,gender,role)
+       VALUES ('$FName','$LName','$Email','$Password','$Sex','$role')";
+       $upload = mysqli_query($conn,$insert);
+       if($upload){
+         $message[] = 'new user added successfully';
+       }else{
+          $message[] = 'could not add the user';
+       }
+    }
+   };
+
+   if(isset($_GET['delete'])){
+    $user_id = $_GET['delete'];
+    mysqli_query($conn, "DELETE  FROM tbl_users WHERE user_id = $user_id");
+    header('location:admin_page(Users).php');
+ };
+ ?>
+
+<?php
+
+if(isset($message)){
+   foreach($message as $message){
+      echo '<span class="message">'.$message.'</span>';
+   }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,7 +94,7 @@
 
 <div style="margin: 0 auto" class="container">
     <div style="margin: 0 auto" class="admin-product-form-container">
-     <form action="" method="post" enctype="multipart/form-data">
+     <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
       <h3>Add new user</h3>
       <input type="text" id="fname" name="first_name" placeholder="enter first name" class="box"><p>
 
@@ -68,6 +111,13 @@
      </form>
     </div><br>
 
+   
+    <?php
+
+   $select = mysqli_query($conn, "SELECT * FROM tbl_users");
+   
+   ?>
+
    <div style="margin: 0 auto" class="product-display">
       <table style="margin: 0 auto" class="product-display-table">
          <thead>
@@ -82,21 +132,21 @@
             <th>action</th>
          </tr>
          </thead>
-
+         <?php while($row = mysqli_fetch_assoc($select)){ ?>
          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><?php echo $row['user_id']; ?></td>
+            <td><?php echo $row['first_name']; ?></td>
+            <td><?php echo $row['last_name']; ?></td>
+            <td><?php echo $row['email']; ?></td>
+            <td><?php echo $row['password']; ?></td>
+            <td><?php echo $row['gender']; ?></td>
+            <td><?php echo $row['role']; ?></td>
             <td>
-               <a href="admin_update(Users).php" class="btn"> edit </a>
-               <a href="admin_page(Users).php" class="btn"> delete </a>
+            <a href="admin_update(Users).php?edit=<?php echo $row['user_id']; ?>" class="btn"> edit </a>
+            <a href="admin_page(Users).php?delete=<?php echo $row['user_id']; ?>" class="btn"> delete </a>
             </td>
          </tr>
-
+         <?php } ?>
       </table>
    </div>
 </div>
