@@ -3,10 +3,12 @@ $conn= mysqli_connect("localhost","root","","ecommerce");
 if ($conn==false){
     die("ERROR:Could not connect.".mysqli_connect_error());
 }
-elseif (isset($_POST["Login"]))
+
+session_start();
+
+if (isset($_POST["Login"]))
 {
-   session_start();
-   
+      
     $email=$_POST['Email'];
     $pass=$_POST['password'];
 
@@ -30,9 +32,9 @@ elseif (isset($_POST["Login"]))
     }
     elseif($row['role'] == '3')
     {
-       /*$_SESSION['first_name'] = $row['first_name'];
+       $_SESSION['first_name'] = $row['first_name'];
        $_SESSION['last_name'] = $row['last_name'];
-       $_SESSION['user_id']=$row['user_id'];*/
+       $_SESSION['user_id']=$row['user_id'];
        header('location:../Vendor/dashboard.php'); 
 
     }
