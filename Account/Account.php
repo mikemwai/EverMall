@@ -11,7 +11,7 @@
     <div class="header">
         <div class="container">
             <div class="navbar">
-                <a href="../Homepage/home.php">
+                <a href="../Index/Index.php">
                 <div class="logo">
                     <img src="../Evermall(White).png" width="200px">
                 </div>
