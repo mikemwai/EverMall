@@ -27,7 +27,7 @@ if(isset($_GET['delete'])){
                 </div>
                 <nav>
                     <ul id="MenuItems">
-                        <li><a href="Logout.php">Logout</a></li>
+                        <li><a href="../Account/Logout.php">Logout</a></li>
                     </ul>
             </nav>
     

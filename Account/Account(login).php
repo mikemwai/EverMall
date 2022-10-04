@@ -3,9 +3,10 @@ $conn= mysqli_connect("localhost","root","","ecommerce");
 if ($conn==false){
     die("ERROR:Could not connect.".mysqli_connect_error());
 }
-
-if (isset($_POST["Email"]))
+elseif (isset($_POST["Login"]))
 {
+   session_start();
+   
     $email=$_POST['Email'];
     $pass=$_POST['password'];
 
