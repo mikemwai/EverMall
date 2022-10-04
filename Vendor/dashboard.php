@@ -11,27 +11,27 @@
 <body>
 	<section id="sidebar">
 		<a href=" class="brand">
-			<a href="#">
-				<img src="" alt="logo">
+			<a href="../Index/Index.php">
+      <img src="../Evermall(Black).png" width="200px">
 			</a>
   </a>
 
 		<ul class="side-menu top">
 			<li class="active">
-			<a href="https://localhost/EverMall/Vendor/dashboard.php">
+			<a href="dashboard.php">
 			<i class="fa fa-bars"></i>
 		    <span class="text">Dashboard</span>
 		    </a></li>
 
 
 			<li>
-			<a href="https://localhost/EverMall/Vendor/productpage.php">
+			<a href="productpage.php">
 		    <i class="fa fa-tag"></i>
 		    <span class="text"> Products</span>
 		    </a></li>
 
 			<li>
-			<a href="https://localhost/EverMall/Vendor/orders.php">
+			<a href="orders.php">
 			<i class="fa fa-bell"></i>
 			<span class="text">Orders</span>
 		    </a></li>

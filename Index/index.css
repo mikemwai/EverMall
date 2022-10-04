@@ -20,10 +20,11 @@ h1
 header{
 	background-color:LightSlateGray;
 	padding: 50px;
+	padding-bottom: 80px;
 	box-shadow: 20px 15px 15px Gray;
 }
 header li img{
-	width: 180px;
+	width: 200px;
 	float: left;
 	margin-top: -20px;
 }

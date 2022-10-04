@@ -29,8 +29,8 @@
 <body>
     <section id="sidebar">
         <a href=" class="brand">
-            <a href="#">
-                <img src="" alt="logo">
+            <a href="../Index/Index.php">
+            <img src="../Evermall(Black).png" width="200px">
             </a>
   </a>
 
@@ -49,7 +49,7 @@
             </a></li>
 
             <li>
-            <a href="https://localhost/EverMall/Vendor/orders.php">
+            <a href="orders.php">
             <i class="fa fa-bell"></i>
             <span class="text">Orders</span>
             </a></li>

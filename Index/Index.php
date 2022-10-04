@@ -19,7 +19,7 @@
 <header>	
 
   <ul>
-	 <li><img src="Logo.jpeg" alt="logo"></li>
+	 <li><img src="../Evermall(White).png" width="300px"></li>
 
 	 <div class="nav-links" id="navLinks">
 	 <img src="../close.png" class="menu-icon" onclick="hideMenu()">
@@ -48,10 +48,10 @@
         </ul>
 	</li>
 	<li><b> <a href="../Account/Account.php"><i class="fa fa-user"></i> ACCOUNT </a></b>
-        <!--<ul>
-	       <li><a href="#"> LogIn </a></li>
-	       <li><a href="#"> Register/Sign Up </a></li>
-        </ul>--->
+        <ul>
+	       <li><a href="../Account/Account.php"> Login </a></li>
+	       <li><a href="../Vendor/dashboard.php"> Vendor </a></li>
+        </ul>
 	</li>
 	<li id="contact"><b> <a href="#"> CONTACT US  </a></b></li>
     </div>
@@ -193,7 +193,7 @@
 <!------------FOOTER------------------>
 <br><div class="footer">
 	<div class="footer-col"> 
-	    <img src="Logo.jpeg" class="logo">
+	   <img src="../Evermall(White).png" width="300px">
 	     <p> <i>We are an online store serving you with all quality products from different brands around the world. <br> 
 	     We have all you need to make life comfortable  from original beauty products, clothes,office equipment and many more.<br>Our aim is to provide the best and bring things closer to you and easier to purchase by the click of a button.<br>We have partnered with 
 	     at least 100 brands from Nike, Gucci, Louis Vouton , even thrifting apparels and many more renown brands.</i> </p>
