@@ -50,9 +50,9 @@ $conn->close();
 <body>
     <section id="sidebar">
         <a href=" class="brand">
-            <a href="#">
-                <img src="" alt="logo">
-            </a>
+        <a href="../Index/Index.php">
+      <img src="../Evermall(Black).png" width="200px">
+			</a>
   </a>
 
         <ul class="side-menu top">
@@ -100,7 +100,7 @@ $conn->close();
             </a></li>
 
             <li>
-            <a href="../Account/Logout.php" class="logout">
+        <a href="../Account/Logout.php" class="logout">
           <i class="fa fa-user"></i>
           <span class="text">Logout</span>
         </a>
@@ -125,21 +125,14 @@ $conn->close();
           <button type="submit" class="search-btn">
             <i class='fa fa-arrow-right' ></i></button>
         </div>
-      </form>  
-          
-      <?php
-
-$select = mysqli_query($conn, "SELECT * FROM tbl_users");
-
-?>
-
-			<ul>
-			<li class="profile">
-			<a href="javascript:void(0)" class="dropbtn"><?php echo $_SESSION['first_name']; echo" "; echo $_SESSION['last_name']?></a>
-    <!--<div class="dropdown-content">
-      <a href="#">Account</a><br>
-      <a href="../Account/Logout.php">Logout</a>
-  </div>--->
+      </form>       
+            <ul>
+            <li class="profile">
+            <a href="javascript:void(0)" class="dropbtn">seller XXX</a>
+    <div class="dropdown-content">
+      <a href="#">Account</a>
+      <a href="#">Logout</a>
+  </div>
 </li>
 </ul>
 
