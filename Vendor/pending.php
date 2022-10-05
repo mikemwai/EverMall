@@ -70,7 +70,7 @@ $conn->close();
             </a></li>
 
             <li>
-            <a href="https://localhost/E-buy/orders.php">
+            <a href="orders.php">
             <i class="fa fa-bell"></i>
             <span class="text">Orders</span>
             </a></li>
@@ -142,12 +142,12 @@ $conn->close();
 
         <div class="card-header">
             <h1>ORDER LIST</h1>
-             <button type="button" onclick="window.location.href='https://localhost/E-buy/orders.php';">All</button>
-            <button type="button" onclick="window.location.href='https://localhost/E-buy/pending.php';">Pending</button>
-            <button type="button" onclick="window.location.href='https://localhost/E-buy/orderconfirmed.php';">Confirmed</button>
-            <button type="button" onclick="window.location.href='https://localhost/E-buy/orderpickup.php';">Pickup</button>
-            <button type="button" onclick="window.location.href='https://localhost/E-buy/ordercompleted.php';">Completed</button>
-            <button type="button" onclick="window.location.href='https://localhost/E-buy/cancelledorders.php';">Cancelled</button>
+             <button type="button" onclick="window.location.href='orders.php';">All</button>
+            <button type="button" onclick="window.location.href='pending.php';">Pending</button>
+            <button type="button" onclick="window.location.href='orderconfirmed.php';">Confirmed</button>
+            <button type="button" onclick="window.location.href='orderpickup.php';">Pickup</button>
+            <button type="button" onclick="window.location.href='ordercompleted.php';">Completed</button>
+            <button type="button" onclick="window.location.href='cancelledorders.php';">Cancelled</button>
         </div>
         <table class="table" style= "width: 100%">
             <thead>
