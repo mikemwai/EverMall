@@ -97,7 +97,7 @@ if(!isset($_SESSION['last_name'])){
             </a></li>
 
             <li>
-        <a href="#" class="logout">
+        <a href="../Account/Logout.php" class="logout">
           <i class="fa fa-user"></i>
           <span class="text">Logout</span>
         </a>
