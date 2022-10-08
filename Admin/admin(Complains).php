@@ -143,7 +143,7 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
 
 			<ul>
 			<li class="profile">
-			<a href="javascript:void(0)" class="nav-link">Welcome<br><?php echo $_SESSION['first_name']; echo" "; echo $_SESSION['last_name']?> (Admin)</a>
+			<a href="javascript:void(0)" class="nav-link"><i class="fa fa-user"> </i><?php echo"  "; echo $_SESSION['first_name']; echo" "; echo $_SESSION['last_name']?></a>
     <!--<div class="dropdown-content">
       <a href="#">Account</a><br>
       <a href="../Account/Logout.php">Logout</a>

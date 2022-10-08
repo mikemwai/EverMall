@@ -43,19 +43,19 @@ if(!isset($_SESSION['last_name'])){
 
 
 			<li>
-			<a href="productpage.php">
+			<a href="admin(Products).php">
 		    <i class="fa fa-tag"></i>
 		    <span class="text"> Products</span>
 		    </a></li>
 
 			<li>
-			<a href="orders.php">
+			<a href="admin(Complains).php">
 			<i class="fa fa-bell"></i>
 			<span class="text">Complains</span>
 		    </a></li>
 
 		    <li>
-			<a href="">
+			<a href="admin(Users)">
 			<i class="fa fa-user"></i>
 			<span class="text">Users</span>
 		    </a></li>
@@ -114,7 +114,7 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
 
 			<ul>
 			<li class="profile">
-			<a href="javascript:void(0)" class="dropbtn">Welcome <?php echo $_SESSION['first_name']; echo" "; echo $_SESSION['last_name']?>(Admin)</a>
+			<a href="javascript:void(0)" class="nav-link"><i class="fa fa-user"> </i><?php echo"  "; echo $_SESSION['first_name']; echo" "; echo $_SESSION['last_name']?></a>
     <!--<div class="dropdown-content">
       <a href="#">Account</a><br>
       <a href="../Account/Logout.php">Logout</a>

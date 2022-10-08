@@ -51,8 +51,8 @@
 	</li>
 	<li><b> <a href="../Account/Account.php"><i class="fa fa-user"></i> ACCOUNT </a></b>
         <ul>
-	       <li><a href="../Account/Account.php"> Login </a></li>
-	       <li><a href="../Vendor/dashboard.php"> Vendor </a></li>
+	       <li><a href="../Vendor/productpage.php"> Vendor </a></li>
+	       <li><a href="../Vendor/Cart.php"> Cart </a></li>
         </ul>
 	</li>
 	<li id="contact"><b> <a href="#"> CONTACT US  </a></b></li>

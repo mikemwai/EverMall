@@ -28,9 +28,6 @@ if ($conn->query($sql) === TRUE) {
         $message[]= 'Product cannot be deleted!';
     };
 };
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -61,6 +58,7 @@ if ($conn->query($sql) === TRUE) {
     </style>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="dashing.css">
+	<link rel="stylesheet" href="../Admin/Admin.css">
 </head>
 
 <body>
@@ -92,12 +90,12 @@ if ($conn->query($sql) === TRUE) {
 		    </a></li>
 
 		    <li>
-			<a href="">
-			<i class="fa fa-money"></i>
-			<span class="text">Withdrawals</span>
+			<a href="Cart.php">
+			<i class="fa fa-shopping-basket"></i>
+			<span class="text">Cart</span>
 		    </a></li>
 
-		    <li>
+		    <!--<li>
 			<a href="">
 			<i class="fa fa-thumbs-up"></i>
 			<span class="text">Review &amp; Ratings</span>
@@ -113,7 +111,7 @@ if ($conn->query($sql) === TRUE) {
 			<a href="">
 			<i class="fa fa-user"></i>
 			<span class="text">Customer Dashboard</span>
-		    </a></li>
+		    </a></li>---->
 
 		    <li>
 		<a href="../Account/Logout.php" class="logout">
@@ -151,7 +149,7 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
 
 			<ul>
 			<li class="profile">
-			<a href="javascript:void(0)" class="dropbtn"><?php echo $_SESSION['first_name']; echo" "; echo $_SESSION['last_name']?></a>
+			<a href="javascript:void(0)" class="nav-link"><i class="fa fa-user"> </i><?php echo"  "; echo $_SESSION['first_name']; echo" "; echo $_SESSION['last_name']?></a>
     <!--<div class="dropdown-content">
       <a href="#">Account</a><br>
       <a href="../Account/Logout.php">Logout</a>
@@ -166,16 +164,16 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
 				<button type="button" onclick="window.location.href='addnewproduct.php';">Add New</button>
 	        </div>
 			
-<h1>AVAILABLE PRODUCTS</h1>
+<!---<h1>AVAILABLE PRODUCTS</h1>---->
 		
 		<table class="table" style= "width: 100%">
 			<thead>
-				<th>PRODUCT ID</th>
-				<th>NAME</th>
-				<th>DESCRIPTION</th>
-				<th>IMAGE</th>
-				<th>PRICE($)</th>
-				<th>STATUS</th>
+				<th>Product id</th>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Image</th>
+				<th>Price</th>
+				<th>Status</th>
 				<th>Action</th>
 			</thead>
 			<tbody>
@@ -189,15 +187,16 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
 						<td><?php echo $value["name"] ?></td>
 						<td><?php echo $value["description"] ?></td>
 						<td>
-						<img src="./image/<?php echo $value['image_path']; ?> "width="40" height="40"">
-					</td>
-						<td><?php echo $value["price"] ?></td>
+						<img src="./image/<?php echo $value['image_path']; ?>" height="100">
+					    </td>
+						<td>Ksh <?php echo $value["price"] ?>/-</td>
 
 						<td><?php echo $value["status"] ?></td>
 
-						<td> <a href="productpage.php?edit=<?php echo $value['id']; ?>"  onClick="edit(this);" title="Edit" >  <input type="image" src="Images/edit.png" title="Edit"> </a></td>
-
-                        <td><a href="productpage.php?delete=<?php echo $value['id']; ?>" onclick="return confirm('are your sure you want to delete this?');" title="Delete" ><input type="image" src="Images/trash.png" title="Trash">  </a></td>
+						<td> 
+						<a href="productpage.php?edit=<?php echo $value['id']; ?>"  onClick="edit(this);" title="Edit" class="btn"><!--<input type="image" src="Images/edit.png" title="Edit">--->edit</a>
+                        <a href="productpage.php?delete=<?php echo $value['id']; ?>" onclick="return confirm('are your sure you want to delete this?');" title="Delete" class="btn"><!---input type="image" src="Images/trash.png" title="Trash">-->delete</a>
+					    </td>
 						
 					</tr>
 					<?php
@@ -266,6 +265,7 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
             <input type="date" name="updatetime" id="updatetime"  class="input-box" required>
       
             <input type="submit" value="update the product" name="update" class="btn">
+			<a href="productpage.php" class="btn">Go back!</a>
       
             <input type="hidden" name="id" value=<?php echo $edit_id;?>>
 

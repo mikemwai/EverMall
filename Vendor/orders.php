@@ -72,29 +72,29 @@ if(!isset($_SESSION['last_name'])){
             <span class="text">Orders</span>
             </a></li>
 
-            <li>
-            <a href="">
-            <i class="fa fa-money"></i>
-            <span class="text">Withdrawals</span>
-            </a></li>
+		    <li>
+			<a href="Cart.php">
+			<i class="fa fa-shopping-basket"></i>
+			<span class="text">Cart</span>
+		    </a></li>
 
-            <li>
-            <a href="">
-            <i class="fa fa-thumbs-up"></i>
-            <span class="text">Review &amp; Ratings</span>
-            </a></li>
+		    <!--<li>
+			<a href="">
+			<i class="fa fa-thumbs-up"></i>
+			<span class="text">Review &amp; Ratings</span>
+		    </a></li>
 
-            <li>
-            <a href="">
-            <i class="fa fa-gears"></i>
-            <span class="text">Settings</span>
-            </a></li>
+		    <li>
+			<a href="">
+			<i class="fa fa-gears"></i>
+			<span class="text">Settings</span>
+		    </a></li>
 
-            <li>
-            <a href="">
-            <i class="fa fa-user"></i>
-            <span class="text">Customer Dashboard</span>
-            </a></li>
+		    <li>
+			<a href="">
+			<i class="fa fa-user"></i>
+			<span class="text">Customer Dashboard</span>
+		    </a></li>---->
 
             <li>
         <a href="../Account/Logout.php" class="logout">
@@ -132,7 +132,7 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
 
 			<ul>
 			<li class="profile">
-			<a href="javascript:void(0)" class="dropbtn"><?php echo $_SESSION['first_name']; echo" "; echo $_SESSION['last_name']?></a>
+			<a href="javascript:void(0)" class="nav-link"><i class="fa fa-user"> </i><?php echo"  "; echo $_SESSION['first_name']; echo" "; echo $_SESSION['last_name']?></a>
     <!--<div class="dropdown-content">
       <a href="#">Account</a><br>
       <a href="../Account/Logout.php">Logout</a>
@@ -145,7 +145,7 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
 
 
         <div class="card-header">
-            <h1>ORDER LIST</h1>
+            <!--<h1>ORDER LIST</h1>--->
             
             <button type="button" onclick="window.location.href='orders.php';">All</button>
             <button type="button" onclick="window.location.href='pending.php';">Pending</button>

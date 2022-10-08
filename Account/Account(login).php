@@ -26,9 +26,10 @@ if (isset($_POST["Login"]))
     {
     if($row['role'] == '1')
     {
-        
-       header('location:../Admin/admin_page(Products).php');
-
+      $_SESSION['first_name'] = $row['first_name'];
+      $_SESSION['last_name'] = $row['last_name'];
+      $_SESSION['user_id']=$row['user_id'];
+       header('location:../Admin/admin.php');
     }
     elseif($row['role'] == '3')
     {

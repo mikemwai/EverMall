@@ -129,81 +129,8 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
 			<!-- main Section -->
 
 	 <main>
-      <div class="head-title">
-        
-        <a href="#" class="btn-download">
-          <i class='fa fa-download' ></i>
-          <span class="text">Download report</span>
-        </a>
-      </div>
-
-      <ul class="box-info">
-        <li>
-          <i class='' ></i>
-          <span class="text">
-          	 <p>Total Orders</p>           
-            <h3>#</h3> 
-          </span>
-        </li>
-
-        <li>
-          <i class='' ></i>
-          <span class="text">
-          	<p>Orders awaiting processing</p>
-            <h3>#</h3>
-          </span>
-        </li>
-
-        <li>
-          <i class='' ></i>
-          <span class="text">
-          	<p>Orders Processing</p>
-            <h3>#</h3>           
-          </span>
-        </li>
-
-         <li>
-          <i class='' ></i>
-          <span class="text">
-          	<p>Ready for pickup</p>
-            <h3>#</h3>           
-          </span>
-        </li>
-
-         <li>
-          <i class='' ></i>
-          <span class="text">
-          	<p>Orders completed</p>
-            <h3>#</h3>           
-          </span>
-        </li>
-
-         <li>
-          <i class='' ></i>
-          <span class="text">
-          	<p>Orders Cancelled</p>
-            <h3>#</h3>           
-          </span>
-        </li>
-
-         <li>
-          <i class='' ></i>
-          <span class="text">
-          	<p>Published products</p>
-            <h3>#</h3>           
-          </span>
-        </li>
-
-         <li>
-          <i class='' ></i>
-          <span class="text">
-          	<p>Review &amp; Ratings</p>
-            <h3>#</h3>           
-          </span>
-        </li>
-      </ul>
-
-</main>
+ 
+    </main>
 </section>
 </body>/
 </html>
