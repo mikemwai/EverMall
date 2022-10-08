@@ -21,9 +21,9 @@ if(!isset($_SESSION['last_name'])){
 <head>
 	<meta name="viewport" content="with=device-width, initial-scle=1.0">
 	<meta charset="utf-8">
-	<title>EVERMALL SELLER DASHBOARD</title>	
+	<title>EVERMALL ADMIN DASHBOARD</title>	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="dashing.css">
+	<link rel="stylesheet" href="../Vendor/dashing.css">
 </head>
 
 <body>
@@ -38,7 +38,7 @@ if(!isset($_SESSION['last_name'])){
 			<li class="active">
 			<a href="dashboard.php">
 			<i class="fa fa-bars"></i>
-		    <span class="text">User Dashboard</span>
+		    <span class="text">Admin Dashboard</span>
 		    </a></li>
 
 
@@ -51,16 +51,16 @@ if(!isset($_SESSION['last_name'])){
 			<li>
 			<a href="orders.php">
 			<i class="fa fa-bell"></i>
-			<span class="text">Orders</span>
+			<span class="text">Complains</span>
 		    </a></li>
 
 		    <li>
 			<a href="">
-			<i class="fa fa-money"></i>
-			<span class="text">Withdrawals</span>
+			<i class="fa fa-user"></i>
+			<span class="text">Users</span>
 		    </a></li>
 
-		    <li>
+		    <!--<li>
 			<a href="">
 			<i class="fa fa-thumbs-up"></i>
 			<span class="text">Review &amp; Ratings</span>
@@ -76,10 +76,10 @@ if(!isset($_SESSION['last_name'])){
 			<a href="">
 			<i class="fa fa-user"></i>
 			<span class="text">Customer Dashboard</span>
-		    </a></li>
+		    </a></li>---->
 
 		    <li>
-        <a href="../Account/Logout.php" class="logout">
+          <a href="../Account/Logout.php" class="logout">
           <i class="fa fa-user"></i>
           <span class="text">Logout</span>
         </a>
@@ -114,7 +114,7 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
 
 			<ul>
 			<li class="profile">
-			<a href="javascript:void(0)" class="dropbtn"><?php echo $_SESSION['first_name']; echo" "; echo $_SESSION['last_name']?></a>
+			<a href="javascript:void(0)" class="dropbtn">Welcome <?php echo $_SESSION['first_name']; echo" "; echo $_SESSION['last_name']?>(Admin)</a>
     <!--<div class="dropdown-content">
       <a href="#">Account</a><br>
       <a href="../Account/Logout.php">Logout</a>
@@ -128,7 +128,7 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
 			<!--Main Body-->
 			<!-- main Section -->
 
-	 <main>
+	<main>
       <div class="head-title">
         
         <a href="#" class="btn-download">
@@ -202,8 +202,7 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
           </span>
         </li>
       </ul>
-
-</main>
+   </main>
 </section>
-</body>/
+</body>
 </html>
