@@ -27,13 +27,13 @@
 	 <img src="../close.png" class="menu-icon" onclick="hideMenu()">
 	 <li><b> <a href="Index.php"><i class="fa fa-home"></i> HOME </a></b></li>
 	 <li><b> <a href="#"> ABOUT </a></b>
-       <ul>
+       <!--<ul>
 	       <li><a href="#"> Our Team </a></li>
 	       <li><a href="#"> Mission and Vision</a></li>
 	       <li><a href="#"> Engage with Us  </a></li>
-       </ul>
+       </ul>--->
 	 </li>
-	<li><b> <a href="#"> CATEGORY </a></b>
+	<li><b> <a href="../Shop/Shop.php"> CATEGORY </a></b>
         <ul>
 	       <li><a href="#">Health and Beauty </a></li>
 	       <li><a href="#"> Home and Office </a></li>

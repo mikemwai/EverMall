@@ -10,6 +10,24 @@ body
     background-color: #FFEBCD;
 }
 
+h1
+{
+	font-size:50px;
+	color:LightSlateGray;
+    text-align: center;
+}
+
+hr
+{
+    width: 15%;
+	height:5px;
+	border:none;
+	background:#778899;
+	margin:auto;
+	margin-top:10px;
+	margin-bottom:30px;
+}
+
 .hero
 {
     height:100%;
@@ -24,7 +42,7 @@ body
     font-size: 120%;
     width: 95%;
     margin: auto;
-    padding: 35px 0;
+    padding: 3px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;

@@ -27,7 +27,7 @@
                     <li><a href="../About/About.php">About</a></li>
                     <li><a href="../Contact%20Us/Contact.php">Contact</a></li>
                     <li><a href="../Account/Account.php">Account</a></li>
-                    <li><a href="../Account/Cart.php">Cart</a></li>
+                    <li><a href="../Vendor/Cart.php">Cart</a></li>
                 </ul>
                 </div>
                 </nav>
