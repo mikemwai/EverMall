@@ -49,7 +49,10 @@ body {
 	 background-image: radial-gradient(teal,grey);
 }
 
-
+thead
+{
+	background:#D2B48C;
+}
 
 
 

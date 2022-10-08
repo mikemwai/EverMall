@@ -164,6 +164,7 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
 			<!-- main Section -->
 			<div>
 				<button type="button" onclick="window.location.href='addnewproduct.php';">Add New</button>
+	        </div>
 			
 <h1>AVAILABLE PRODUCTS</h1>
 		

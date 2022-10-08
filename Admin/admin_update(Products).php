@@ -55,7 +55,7 @@ if ($query){
    $upload= mysqli_query($conn,$sql2);
    if($upload){
        move_uploaded_file($p_image_tmp_name,$file_type);
-       header('location:admin_page(Products).php');
+       header('location:admin(Products).php');
    }
 
    else{ 
@@ -123,8 +123,8 @@ else{
       <input type="int" placeholder="enter available quantity" name="available_quantity" value="<?php echo $row['available_quantity'];?>" class="box">
       <input type="text" placeholder="enter product keywords" name="product_keywords" value="<?php echo $row['product_keywords'];?>" class="box">
       <input type="file" class="box" name="product_image"  accept="image/png, image/jpeg, image/jpg, image/webp" value="<?php echo $row['product_image'];?>">
-      <input type="submit" value="update product" name="update_product" class="btn">
-      <a href="admin_page(Products).php" class="btn">go back!</a>
+      <input type="submit" value="Update product" name="pdate_product" class="btn">
+      <a href="admin(Products).php" class="btn">Go back!</a>
    </form> 
 
    
