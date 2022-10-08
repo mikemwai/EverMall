@@ -2,6 +2,20 @@
  
 require("connection.php");
 
+session_start();
+
+$user_id=$_SESSION['user_id'];
+
+if(!isset($_SESSION['first_name'])){
+   header('location:../Account/Account.php');
+}
+if(!isset($_SESSION['last_name'])){
+    header('location:../Account/Account.php');
+ }
+ if(!isset($_SESSION['user_id'])){
+    header('location:../Account/Account.php');
+ }
+
 if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
@@ -17,7 +31,7 @@ if (isset($_GET["shop now"])) {
 
 
 
-$conn->close();
+//$conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -125,14 +139,21 @@ $conn->close();
           <button type="submit" class="search-btn">
             <i class='fa fa-arrow-right' ></i></button>
         </div>
-      </form>       
-            <ul>
-            <li class="profile">
-            <a href="javascript:void(0)" class="dropbtn">seller XXX</a>
-    <div class="dropdown-content">
-      <a href="#">Account</a>
-      <a href="#">Logout</a>
-  </div>
+      </form>      
+
+<?php
+
+$select = mysqli_query($conn, "SELECT * FROM tbl_users");
+
+?>
+
+			<ul>
+			<li class="profile">
+			<a href="javascript:void(0)" class="nav-link"><i class="fa fa-user"> </i><?php echo"  "; echo $_SESSION['first_name']; echo" "; echo $_SESSION['last_name']?></a>
+    <!--<div class="dropdown-content">
+      <a href="#">Account</a><br>
+      <a href="../Account/Logout.php">Logout</a>
+  </div>--->
 </li>
 </ul>
 

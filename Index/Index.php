@@ -14,10 +14,8 @@
 </head>
 	
 <body>
-
 <!----Navigation Bar---->
 <header>	
-
   <ul>
 	<a href="Index.php">
 	 <li><img src="../Evermall(White).png" width="300px"></li>
