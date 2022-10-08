@@ -11,10 +11,10 @@
 <?php
     require_once("complains.php");
    
-    ?>
+?>
 
 
-<!---------Navigation Bar--------->
+<!---------Navigation Bar---------
 <div class="hero">
 <div style="margin: 0 auto" class="header">
    <div class="container1">
@@ -28,7 +28,7 @@
                     </ul>
                 </nav>
     
-                <!--<img src="../eShopping/images/cart.png" width="30px" height="30px">--->
+                <!--<img src="../eShopping/images/cart.png" width="30px" height="30px">---
                 <img src="../eShopping/images/menu.png" class="menu-icon"
                      onclick="menu-toggle()">
         </div>
@@ -45,7 +45,7 @@
                 <nav>
                     <ul id="MenuItems">
                         <!--<li><a href="admin.php">Categories</a></li>
-                        <li><a href="admin_page(Subcategory).php">Subcategories</a></li>---->
+                        <li><a href="admin_page(Subcategory).php">Subcategories</a></li>----
                         <li><a href="admin_page(Products).php">Products</a></li>
                         <li><a href="admin_page(Users).php">Users</a></li>
                         <li><a href="admin_page(Complains).php">Complains</a></li>
@@ -85,7 +85,7 @@
             <td><?php echo $data['responce']?></td>
             <td>
                <a href="admin_update(Complains).php?edit=<?php echo $data['complain_id']; ?>" class="btn"> edit </a>
-               <!---<a href="admin_page(Orders).php" class="btn"> delete </a>--->
+               <!---<a href="admin_page(Orders).php" class="btn"> delete </a>
             </td>
          </tr>
 
@@ -102,7 +102,7 @@
 
       </table>
    </div>
-</div>
+</div>---->
 
 </div>
 

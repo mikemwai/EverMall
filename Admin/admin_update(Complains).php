@@ -42,8 +42,8 @@ $complain_id = $_GET['edit'];
             <option value="Bank Account">Bank Account</option>
             <option value="Cash on Delivery">Cash on Delivery</option>
       </select><br>---->
-      <input type="submit" value="update complain" name="update_complain" class="btn">
-      <a href="admin_page(Complains).php" class="btn">go back!</a>
+      <input type="submit" value="Update complain" name="update_complain" class="btn">
+      <a href="admin(Complains).php" class="btn">Go back!</a>
    </form>
    <?php
     };

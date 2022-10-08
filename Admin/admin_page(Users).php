@@ -51,7 +51,7 @@ if(isset($message)){
 </head>
 <body>
 
-<!---------Navigation Bar--------->
+<!---------Navigation Bar---------
 <div style="margin: 0 auto" class="header">
    <div class="container1">
         <div class="navbar">
@@ -64,7 +64,7 @@ if(isset($message)){
                     </ul>
             </nav>
     
-                <!--<img src="../eShopping/images/cart.png" width="30px" height="30px">--->
+                <!--<img src="../eShopping/images/cart.png" width="30px" height="30px">
                 <img src="../eShopping/images/menu.png" class="menu-icon"
                      onclick="menu-toggle()">
             </div>
@@ -81,7 +81,7 @@ if(isset($message)){
                 <nav>
                     <ul id="MenuItems">
                         <!--<li><a href="admin.php">Categories</a></li>
-                        <li><a href="admin_page(Subcategory).php">Subcategories</a></li>---->
+                        <li><a href="admin_page(Subcategory).php">Subcategories</a></li>
                         <li><a href="admin_page(Products).php">Products</a></li>
                         <li><a href="admin_page(Users).php">Users</a></li>
                         <li><a href="admin_page(Complains).php">Complains</a></li>
@@ -90,7 +90,7 @@ if(isset($message)){
             </div>
         </div>
     </div>
-</div>
+</div>---->
 
 <div style="margin: 0 auto" class="container">
     <div style="margin: 0 auto" class="admin-product-form-container">
@@ -107,11 +107,12 @@ if(isset($message)){
       <input type="varchar" id="sex" name="sex" placeholder="enter gender" class="box"></p>
 
       <input type="int" id="role" name="role" placeholder="enter role id" class="box"></p>
-      <input type="submit" class="btn" name="add_user" value="add user">
+      <input type="submit" class="btn" name="add_user" value="Add user">
+      <a href="admin(Users).php" class="btn">Go back!</a>
      </form>
     </div><br>
 
-   
+<!--
     <?php
 
    $select = mysqli_query($conn, "SELECT * FROM tbl_users");
@@ -149,7 +150,7 @@ if(isset($message)){
          <?php } ?>
       </table>
    </div>
-</div>
+</div>---->
 
 <!--------------footer------
 <div class="footer">

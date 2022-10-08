@@ -16,10 +16,10 @@ if(!isset($_SESSION['last_name'])){
  }
 
  if(isset($_GET['delete'])){
-    $prod_id=$_GET['delete'];
-    mysqli_query($conn,"DELETE FROM tbl_product WHERE product_id=$prod_id");
-    header('location:admin_page(Products).php');
-}
+    $user_id = $_GET['delete'];
+    mysqli_query($conn, "DELETE  FROM tbl_users WHERE user_id = $user_id");
+    header('location:admin(Users).php');
+ };
  ?>
 
 <!DOCTYPE html>
@@ -27,7 +27,7 @@ if(!isset($_SESSION['last_name'])){
 <head>
 	<meta name="viewport" content="with=device-width, initial-scle=1.0">
 	<meta charset="utf-8">
-	<title>EVERMALL | Admin page(Products)</title>	
+	<title>EVERMALL | Admin page(Users)</title>	
     <style>
      button {
         display: inline-block;
@@ -158,55 +158,44 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
 	<main>
  
     <div>
-		<button type="button" onclick="window.location.href='admin_page(Products).php';">Add New</button>
+		<button type="button" onclick="window.location.href='admin_page(Users).php';">Add New</button>
 	</div>
 
+   <?php
+
+   $select = mysqli_query($conn, "SELECT * FROM tbl_users");
+   
+   ?>
+
     <table class="table" style= "width: 100%">
-    <thead>
+     <thead>
          <tr>
-            <th>Product id</th>
-            <th>Product image</th>
-            <th>Product name</th>
-            <th>Product description</th>
-            <th>Product price</th>
-            <th>Subcategory name</th>
-            <th>Category name</th>
-            <th>Available quantity</th>
-            <th>Product keywords</th>
+            <th>User id</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Gender</th>
+            <th>Role</th>
             <th>Action</th>
          </tr>
          </thead>
-
-         <?php
-                require_once("connections.php");
-                
-                
-
-                
-                while($row = mysqli_fetch_array($sql)){
-                    
-                ?>
-            <tr>
-        
-            <td><?php echo $row["product_id"]?></td>
-            <td><img src="uploaded_image/<?php echo $row["product_image"]; ?>" height="100" alt=""></td>
-            <td><?php echo $row["product_name"]?></td>
-            <td><?php echo $row["product_description"]?></td>
-            <td>Ksh <?php echo $row["unit_price"]?>/-</td>
-            <td><?php echo $row["subcategory_name"]?></td>
-            <td><?php echo $row["category_name"]?></td>
-            <td><?php echo $row["available_quantity"]?></td>
-            <td><?php echo $row["product_keywords"]?></td>
+         <?php while($row = mysqli_fetch_assoc($select)){ ?>
+         <tr>
+            <td><?php echo $row['user_id']; ?></td>
+            <td><?php echo $row['first_name']; ?></td>
+            <td><?php echo $row['last_name']; ?></td>
+            <td><?php echo $row['email']; ?></td>
+            <td><?php echo $row['password']; ?></td>
+            <td><?php echo $row['gender']; ?></td>
+            <td><?php echo $row['role']; ?></td>
             <td>
-               <a href="admin_update(Products).php?edit=<?php echo $row["product_id"];?>" class="btn"> edit </a>
-               <a href="admin_page(Products).php?delete=<?php echo $row["product_id"];?>" class="btn"> delete </a>
+            <a href="admin_update(Users).php?edit=<?php echo $row['user_id']; ?>" class="btn"> edit </a>
+            <a href="admin(Users).php?delete=<?php echo $row['user_id']; ?>" class="btn"> delete </a>
             </td>
          </tr>
-         <?php 
-            }
-                ?>
-			
-		</table>
+         <?php } ?>
+      </table>
 
    </main>
 </section>

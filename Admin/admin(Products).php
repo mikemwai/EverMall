@@ -18,7 +18,7 @@ if(!isset($_SESSION['last_name'])){
  if(isset($_GET['delete'])){
     $prod_id=$_GET['delete'];
     mysqli_query($conn,"DELETE FROM tbl_product WHERE product_id=$prod_id");
-    header('location:admin_page(Products).php');
+    header('location:admin(Products).php');
 }
  ?>
 
@@ -199,7 +199,7 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
             <td><?php echo $row["product_keywords"]?></td>
             <td>
                <a href="admin_update(Products).php?edit=<?php echo $row["product_id"];?>" class="btn"> edit </a>
-               <a href="admin_page(Products).php?delete=<?php echo $row["product_id"];?>" class="btn"> delete </a>
+               <a href="admin(Products).php?delete=<?php echo $row["product_id"];?>" class="btn"> delete </a>
             </td>
          </tr>
          <?php 

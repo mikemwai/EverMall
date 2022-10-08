@@ -22,7 +22,7 @@ if(isset($_POST['update_user'])){
       $upload = mysqli_query($conn, $update_data);
 
       if($upload){
-         header('location:admin_page(Users).php');
+         header('location:admin(Users).php');
       }else{
          $message[] = 'please fill out all!'; 
       }
@@ -73,10 +73,13 @@ if(isset($_POST['update_user'])){
 
       <input type="int" id="role" name="role" value="<?php echo $row['role']; ?>" placeholder="enter role id" class="box"></p>
 
-      <input type="submit" class="btn" name="update_user" value="update user">
-      <a href="admin_page(Users).php" class="btn">go back!</a>
+      <input type="submit" class="btn" name="update_user" value="Update user">
+      <a href="admin(Users).php" class="btn">Go back!</a>
    </form>
 </div>
+<?php
+      }
+?>
 
 </div>
 
