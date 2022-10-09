@@ -1,6 +1,6 @@
 body{
 	width:100%;
-	background:url("Background cover.jpeg");
+	background:url("BACKGROUND.png");
 	background-size: cover;
 	background-position:center;
 	padding: 0;
@@ -11,26 +11,13 @@ body{
 	box-sizing:border-box;
 }
 
-.image
-{
-	width:400px;
-	height:300px;
-}
-
-h1
-{
-	font-size:50px;
-	color:LightSlateGray;
-}
-
 header{
 	background-color:LightSlateGray;
 	padding: 50px;
-	padding-bottom: 80px;
 	box-shadow: 20px 15px 15px Gray;
 }
 header li img{
-	width: 200px;
+	width: 180px;
 	float: left;
 	margin-top: -20px;
 }
@@ -47,6 +34,7 @@ header ul li{
 	opacity:  .9;
 	line-height: 40px;
 	text-align: center;
+	
 
 }
 header ul li a{
@@ -77,9 +65,9 @@ header ul #contact a:hover{
 	background-color:BlanchedAlmond ; 
 }
 
-/*----CALL TO ACTION-----*/
+                  /*CALL TO ACTION*/
 .callToAction{
-	background-image:url("call to action.jpg");
+	background-image:url("Winning eCommerce Web Design Ideas.jpg");
 	height:100vh;
 	width:100%;
 	background-size:cover;
@@ -124,7 +112,7 @@ header ul #contact a:hover{
 	border:1px solid Maroon;
 }
 
-/*----OFFERS & DISCOUNTS----*/
+                            /*OFFERS & DISCOUNTS*/
 button.white{
 		font-size:13px;
 		font-weight:600;
@@ -143,23 +131,12 @@ button.white{
 	flex-wrap:wrap;
 }
 
-.crazydeals hr
-{
-	width: 15%;
-	height:5px;
-	border:none;
-	background:#26ccca;
-	margin:auto;
-	margin-top:10px;
-	margin-bottom:30px;
-}
-
 #sm-banner .banner-box{
 	display:flex;
 	flex-direction:column;
 	justify-content:center;
 	align-items:flex-start;
-	background-image:url("Fashion Sexy Solid Slit Turndown Collar Long Sleeve Two Pieces - Green _ S.jpg");
+	background-image:url("Believe In Me Yellow Floral Print Two-Piece Midi Dress.jpg");
 	min-width:580px;
 	height:60vh;
 	background-size:cover;
@@ -176,7 +153,6 @@ button.white{
 	font-size:28px;
 	font-weight:800;
 }
-
 #sm-banner span{
 	color:#fff;
 	font-size:14px;
@@ -188,17 +164,16 @@ button.white{
 	border:1px solid Maroon;
 }
 #sm-banner  .banner-box2{
-	background-image:url("microwave.jpg");
+	background-image:url("LG NeoChef, 42L Smart Inverter Microwave Oven _ LG Australia.jpg");
 }
 
-#banner3
-{
-	display:flex;
-	justify-content:space-around;
-	flex-wrap:wrap;
-	padding:0 60px;	
-}
 
+#banner3{
+		display:flex;
+		justify-content:space-around;
+		flex-wrap:wrap;
+		padding:0 60px;	
+	}
 #banner3 h1{
 	font-size:60px;
 	font-weight:800;
@@ -210,9 +185,9 @@ button.white{
 	flex-direction:column;
 	justify-content:center;
 	align-items:flex-start;
-	background-image:url("GYM Wear.jpg");
+	background-image:url("Women's Activewear Leggings & Gym Tights _ P_E Nation.jpg");
 	min-width:30%;
-	height:50vh;
+	height:30vh;
 	background-size:cover;
 	background-position:center;
 	padding:20px;
@@ -223,20 +198,20 @@ button.white{
 	border:1px solid Maroon;
 }
 #banner3 .banner-box2{
-	background-image:url("15 Really Dumb Gardening Mistakes.jpg");
+	background-image:url("Felco Garden Pinchers.jpg");
 
 }
 #banner3 .banner-box3{
-	background-image:url("23 Best Tinted Sunscreens to Blur and Protect Your Face.jpg");
+	background-image:url("Review of Drunk Elephant Skincare products - Sarah Tucker.jpg");
 
 }
 
 #banner3 .banner-box4{
-	background-image:url("[ ⚠️ want more ❓ - Follow @xocub_ on Pinterest….jpg");
+	background-image:url("Preparing for Our Baby Girl_ CYBEX Cloud Q Infant Car Seat.jpg");
 
 }
 #banner3 .banner-box5{
-	background-image:url("Praia Desk - White.jpg");
+	background-image:url("office decor.jpg");
 
 }
 #banner3 h2{
@@ -253,15 +228,15 @@ button.white{
 
 
 
-/*------------TESTIMONIALS--------------*/
+                                 /*------------TESTIMONIALS------------------*/
 .testimonials {
-	width:auto;
+	width:90%;
 	height:auto;
 	text-align:center;
 }
 .testimonials h1{
-	font-size:50px;
-	color:LightSlateGray;
+	font-size:60px;
+	color:#555;
 }
 .testimonials h2{
 	font-size:30px;
@@ -274,7 +249,7 @@ button.white{
 	border:none;
 	background:#26ccca;
 	margin:auto;
-	margin-top:10px;
+	margin-top:30px;
 	margin-bottom:30px;
 }
 .testimonial-row{
@@ -323,14 +298,15 @@ button.white{
 
 
 
-/*-----BRANDS-----*/						 
+                             /*BRANDS*/
+							 
 .client-wrap{
-	width:auto;
+	width:90%;
 	height:auto;
 	text-align:center;
 }
 .client-wrap h1{
-	font-size:50px;
+	font-size:60px;
 	color:LightSlateGray;
 }
 .client-wrap hr{
@@ -339,7 +315,7 @@ button.white{
 	border:none;
 	background:#26ccca;
 	margin:auto;
-	margin-top:10px;
+	margin-top:30px;
 	margin-bottom:30px;
 }
 .client-in{
@@ -373,8 +349,7 @@ button.white{
 	transform:translateY(0);
 	transition: .5s;
 }
-
-/*---Hover section---*/
+/*Hover section*/
 
 .client-in ul li:hover img:nth-child(1){
 	transform:translateY(-100%);
@@ -387,7 +362,7 @@ button.white{
 
 
 
-/*---------FOOTER----------*/	 
+       /*---------FOOTER----------*/	 
 .footer {
 	 margin:0;
 	 padding:0;
@@ -405,56 +380,14 @@ button.white{
 	 margin-bottom:30px;
  }
  .Copyright{
-	text-align: center;
+	text-align: left;
 } 
 .social-links{
 	font-size:20px;
 	color:Tan;
 }
+	 
+                        
 
-.menu-icon {
-    width: 28px;
-    margin-left: 20px;
-    display: none;
-}
 
-@media(max-width:700px)
-{
-	.nav-links ul li
-    {
-       display:block;
-       margin-bottom:10px;
-       margin-top: 5px;
-	   font-size: 14px;
-    }
-
-    header ul #contact a{
-		border-radius:50px;
-		float: center;
-		position: absolute;
-		top: -10px;
-		transition:  .3s ease;
-	}	
-
-    .nav-links
-    {
-        position:absolute;
-		background-color: LightSlateGray;
-        height:150vh;
-        width:650px;
-        top:0;
-        right:-200px;
-        text-align:center;
-        z-index:1;
-        transition: 1s;
-    }
-
-	.menu-icon
-    {
-        display:block;
-        color:#fff;
-        margin:10px;
-        font-size:15px;
-        cursor:pointer;
-    }
-}
+        
