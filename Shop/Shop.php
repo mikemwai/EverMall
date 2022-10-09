@@ -21,7 +21,7 @@
             <li><img src="../Evermall(White).png" width="300px"></li>
             </a>
 
-			<li><b> <a href="#"><i class="fa fa-home"></i> HOME </a></b>
+			<li><b> <a href="../Index/Index.php"><i class="fa fa-home"></i> HOME </a></b>
 
 			<li><b> <a href="#"> ABOUT </a></b>
 <ul>
