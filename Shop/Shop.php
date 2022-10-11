@@ -1,3 +1,15 @@
+<?php
+
+
+require_once('../Admin/connections.php');
+
+
+$sql="SELECT * FROM tbl_product";
+$all_product = $conn->query($sql);
+
+
+?>
+
 <html>
     <head>
         <title>Evermall Product page</title>
@@ -64,9 +76,12 @@
         <hr/>
         </div>
         <div class="row">
-            <div class="col-md-3">
+            
+		<?php
+		while($row=mysqli_fetch_assoc($all_product)){
+		?><div class="col-md-3">
             <div class="product-top">
-            <img src = "images/category6.jpg" width="200px" height="200px"alt = "product image">
+            <img src="../Admin/uploaded_image/<?php echo $row["product_image"]; ?>" width="200px" height="200px"alt = "product image">
             <div class="overlay" >
                 <button type="button" class="btn btn-secondary" title="Quick shop">
                     <i class="fa fa-eye"></i></button>
@@ -84,66 +99,17 @@
 <i class="fa fa-star" ></i>
 <i class="fa fa-star-half-o" ></i>
 <i class="fa fa-star-o"></i>
-<h3> Green skirt </h3>
-<h5> Ksh.600 </h5>
+<h3><?php echo $row["product_name"]; ?></h3>
+<h5> Ksh.<?php echo $row["unit_price"]; ?></h5>
 
 </div>
 
 </div>
+<?php
+};
+?>
 
-<div class="col-md-3">
-            <div class="product-top">
-            <img src = "images/category6.jpg" width="200px" height="200px"alt = "product image">
-            <div class="overlay" >
-                <button type="button" class="btn btn-secondary" title="Quick shop">
-                    <i class="fa fa-eye"></i></button>
-                    
-                    <button type="button" class="btn btn-secondary" title="Add to Cart">
-                    <i class="fa fa-shopping-cart"></i></button>
 
-            </div>
-
-</div>
-<div class="product-bottom text-center">
-<i class="fa fa-star" ></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star" ></i>
-<i class="fa fa-star" ></i>
-<i class="fa fa-star-half-o" ></i>
-<i class="fa fa-star-o"></i>
-<h3> Green skirt </h3>
-<h5> Ksh.600 </h5>
-
-</div>
-
-</div>
-
-<div class="col-md-3">
-            <div class="product-top">
-            <img src = "images/category6.jpg" width="200px" height="200px"alt = "product image">
-            <div class="overlay" >
-                <button type="button" class="btn btn-secondary" title="Quick shop">
-                    <i class="fa fa-eye"></i></button>
-                    
-                    <button type="button" class="btn btn-secondary" title="Add to Cart">
-                    <i class="fa fa-shopping-cart"></i></button>
-
-            </div>
-
-</div>
-<div class="product-bottom text-center">
-<i class="fa fa-star" ></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star" ></i>
-<i class="fa fa-star" ></i>
-<i class="fa fa-star-half-o" ></i>
-<i class="fa fa-star-o"></i>
-<h3> Green skirt </h3>
-<h5> Ksh.600 </h5>
-
-</div>
-
-</div>
 
 
 </div>
