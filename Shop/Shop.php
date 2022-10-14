@@ -81,7 +81,7 @@ $all_product = $conn->query($sql);
 		while($row=mysqli_fetch_assoc($all_product)){
 		?><div class="col-md-3">
             <div class="product-top">
-            <img src="../Admin/uploaded_image/<?php echo $row["product_image"]; ?>" width="200px" height="200px"alt = "product image">
+            <img class="image" src="../Admin/uploaded_image/<?php echo $row["product_image"]; ?>" width="200px" height="200px"alt = "product image">
             <div class="overlay" >
                 <button type="button" class="btn btn-secondary" title="Quick shop">
                     <i class="fa fa-eye"></i></button>
