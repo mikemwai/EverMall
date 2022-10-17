@@ -7,9 +7,12 @@ if(isset($_POST['submit'])){
    $cat = mysqli_real_escape_string($conn, $_POST['Category']);
    $name = mysqli_real_escape_string($conn, $_POST['name']);
    $desc = mysqli_real_escape_string($conn, $_POST['description']);
-   $filename=$_FILES["image"]["name"];
-   $tempname = $_FILES["image"]["tmp_name"];
-    $folder = "./image/" . $filename;
+   $subcategory_name=$_POST['subcategory_name'];
+   $available_quantity=$_POST['available_quantity'];
+   $product_keywords=$_POST['product_keywords'];
+   $filename=$_FILES["product_image"]["name"];
+   $tempname = $_FILES["product_image"]["tmp_name"];
+    $folder = "../Admin/uploaded_image/" . $filename;
    
 
    if (move_uploaded_file($tempname, $folder)) {
@@ -20,12 +23,12 @@ if(isset($_POST['submit'])){
    $price = mysqli_real_escape_string($conn, $_POST['price']);
    $stats = mysqli_real_escape_string($conn, $_POST['status']);
 
-   $insert = "INSERT INTO `product_list`(`category_id`,`name`,`description`,`image_path`, `price`, `status`) VALUES('$cat', '$name', '$desc', '$filename','$price','$stats')";
+   $insert = "INSERT INTO `tbl_product`(product_name,unit_price,product_image,product_description,available_quantity,subcategory_name,category_name,product_keywords) VALUES('$name', '$price', '$filename', '$desc', '$available_quantity', '$subcategory_name', '$cat', '$product_keywords')";
   
 if ($conn->query($insert) === TRUE) {
    echo 'Product added successfully';
   
-  header('location: addnewproduct.php');
+  header('location: productpage.php');
 }else {
    echo 'Failed to add product';
 
@@ -66,16 +69,16 @@ $conn->close();
        <select name="Category" id="category" class="box" placeholder="Category" required>
             <?php 
                 require("connection.php");
-                $sql = "SELECT id, name FROM `category_list`";
+                $sql = "SELECT category_id,category_name FROM `tbl_categories`";
                 $all_categories = mysqli_query($conn,$sql);
 
                 while ($category = mysqli_fetch_array(
                         $all_categories,MYSQLI_ASSOC)):; 
             ?>
-                <option value="<?php echo $category["id"];
+                <option value="<?php echo $category["category_id"];
                     // The value we usually set is the primary key
                 ?>">
-                    <?php echo $category["name"];
+                    <?php echo $category["category_name"];
                         // To show the category name to the user
                     ?>
                 </option>
@@ -86,21 +89,28 @@ $conn->close();
         </select>
 
       <input type="text" name="name" placeholder="Product name" class="box" required>
+      <input type="text" name="description" placeholder="Description" class="box" required>     
+      <input class="box" type= "file" name="product_image" id="image" required>
+      <input type="int" name="price" placeholder="Product Price" class="box" required>
+      <input type="int" placeholder="enter available quantity" name="available_quantity" class="box">
+      <select type="text" class="box" name="subcategory_name" >
+            <option value="" disabled selected hidden>enter subcategory name</option>
+            <option value="Formal">Formal</option>
+            <option value="Casual">Casual</option>
+            <option value="Sports">Sports</option>
+            <option value="Dogs">Dogs</option>
+            <option value="Cats">Cats</option>
+            <option value="Others">Others</option>
+       </select><br>
+       <input type="text" placeholder="enter product keywords" name="product_keywords" class="box">
 
-       <input type="text" name="description" placeholder="Description" class="box" required>     
-
-      <input class="box" type= "file" name="image" id="image" required>
-
-      <input type="text" name="price" placeholder="Price" class="box" required>
-
-      <label for="status" class="control-label">Status</label>
+      <!--<label for="status" class="control-label">Status</label>
       <select name="status" id="status" class="box" placeholder="Status" required>
                <option value="1" <?php echo isset($status) && $status == 1 ? 'selected' : '' ?>>Active</option>
                <option value="0" <?php echo isset($status) && $status == 0 ? 'selected' : '' ?>>Inactive</option>
-        </select>
-
+        </select>--->
       <input type="submit" name="submit" value="Add to List" class="btn">
-      <p><a href="productpage.php">BACK</a></p>
+      <p><a href="productpage.php">Back!</a></p>
      
    </form>
 

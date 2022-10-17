@@ -63,7 +63,7 @@ if ($conn->query($sql) === TRUE) {
 
 <body>
 	<section id="sidebar">
-		<a href=" class="brand">
+		<a href=" " class="">
 			<a href="../Index/Index.php">
 			<img src="../Evermall(Black).png" width="200px">
 			</a>
@@ -168,13 +168,16 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
 		
 		<table class="table" style= "width: 100%">
 			<thead>
-				<th>Product id</th>
-				<th>Name</th>
-				<th>Description</th>
-				<th>Image</th>
-				<th>Price</th>
-				<th>Status</th>
-				<th>Action</th>
+            <th>product id</th>
+            <th>product image</th>
+            <th>product name</th>
+            <th>product description</th>
+            <th>product price</th>
+            <th>subcategory name</th>
+            <th>category name</th>
+            <th>available quantity</th>
+            <th>product keywords</th>
+            <th>action</th>
 			</thead>
 			<tbody>
 				<?php
@@ -183,19 +186,19 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
 				{
 					?>
 					<tr>
-						<td><?php echo $value["id"] ?></td>
-						<td><?php echo $value["name"] ?></td>
-						<td><?php echo $value["description"] ?></td>
-						<td>
-						<img src="./image/<?php echo $value['image_path']; ?>" height="100">
-					    </td>
-						<td>Ksh <?php echo $value["price"] ?>/-</td>
-
-						<td><?php echo $value["status"] ?></td>
+					<td><?php echo $value['product_id']; ?></td>
+                    <td><img src="../Admin/uploaded_image/<?php echo $value['product_image']; ?>" height="100" alt=""></td><!------>
+                    <td><?php echo $value['product_name']; ?></td>
+                    <td><?php echo $value['product_description']; ?></td>
+                    <td>Ksh<?php echo $value['unit_price']; ?>/-</td>
+                    <td><?php echo $value['subcategory_name']; ?></td>
+                    <td><?php echo $value['category_name']; ?></td>
+                    <td><?php echo $value['available_quantity']; ?></td>
+                    <td><?php echo $value['product_keywords']; ?></td>
 
 						<td> 
-						<a href="productpage.php?edit=<?php echo $value['id']; ?>"  onClick="edit(this);" title="Edit" class="btn"><!--<input type="image" src="Images/edit.png" title="Edit">--->edit</a>
-                        <a href="productpage.php?delete=<?php echo $value['id']; ?>" onclick="return confirm('are your sure you want to delete this?');" title="Delete" class="btn"><!---input type="image" src="Images/trash.png" title="Trash">-->delete</a>
+						<a href="productpage.php?edit=<?php echo $value['product_id']; ?>"  onClick="edit(this);" title="Edit" class="btn"><!--<input type="image" src="Images/edit.png" title="Edit">--->edit</a>
+                        <a href="productpage.php?delete=<?php echo $value['product_id']; ?>" onclick="return confirm('are your sure you want to delete this?');" title="Delete" class="btn"><!---input type="image" src="Images/trash.png" title="Trash">-->delete</a>
 					    </td>
 						
 					</tr>
@@ -214,66 +217,64 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
    if(isset($_GET['edit'])){
    	require("connection.php");
       $edit_id = $_GET['edit'];
-      $edit_query = mysqli_query($conn, "SELECT * FROM `product_list` WHERE id = $edit_id");
+      $edit_query = mysqli_query($conn, "SELECT * FROM `tbl_product` WHERE product_id = $edit_id");
       if(mysqli_num_rows($edit_query) > 0){
          while($fetch_edit = mysqli_fetch_assoc($edit_query)){
    ?>
 
 	<form action="productupdate.php" method="post" enctype="multipart/form-data">
-		<link rel="stylesheet" href="updateprod.css">
-
+	<link rel="stylesheet" href="updateprod.css"> 
             <h3>UPDATE PRODUCT</h3>
-
-            <select name="Category" id="category" class="input-box" placeholder="Category" required>
-            <?php 
-                
-                $sql = "SELECT id, name FROM `category_list`";
+			<input type="text" name="name" id="name" value="<?php echo $fetch_edit['product_name']; ?>" class="input-box" placeholder="Product Name" required>
+			<textarea name="description" id="description" value="" class="input-box" placeholder="Product Description" required><?php echo $fetch_edit['product_description']; ?></textarea>
+			<select type="text" class="input-box" name="subcategory_name">
+            <option value="<?php //echo $row['subcategory_name']; ?>" disabled selected hidden>enter subcategory name</option>
+            <option value="Formal">Formal</option>
+            <option value="Casual">Casual</option>
+            <option value="Sports">Sports</option>
+            <option value="Dogs">Dogs</option>
+            <option value="Cats">Cats</option>
+            <option value="Others">Others</option>
+       </select><br>
+      <select type="text" class="input-box" name="category_name">
+            <option value="<?php //echo $row['category_name']; ?>" disabled selected hidden>enter category name</option>
+            <option value="Men">Men</option>
+            <option value="Women">Women</option>
+            <option value="Children">Children</option>
+            <option value="Pets">Pets</option>
+      </select><br>
+            <!--<p>Product Image:</p>--->
+            <input type= "file" name="image" class="input-box" required>
+            <input type="text" name="price" id="price"  value="<?php echo $fetch_edit['unit_price']; ?>"class="input-box" placeholder="Product Price" required>
+			     		<input type="int" placeholder="Available quantity" name="available_quantity" value="<?php echo $fetch_edit['available_quantity']; ?>" class="input-box">
+            <input type="text" placeholder="Product keywords" name="product_keywords" value="<?php echo $fetch_edit['product_keywords']; ?>" class="input-box">
+            <input type="submit" value="update the product" name="update" class="btn">
+			<a href="productpage.php" class="btn">Go back!</a>
+            <input type="hidden" name="id" value=<?php echo $edit_id;?>>
+			<!--<select name="Category" id="category" class="input-box" placeholder="Category" required>
+			<?php                 
+                /*$sql = "SELECT id, name FROM `category_list`";
                 $all_categories = mysqli_query($conn,$sql);
-
                 while ($category = mysqli_fetch_array(
                         $all_categories,MYSQLI_ASSOC)):; 
             ?>
-                <option value="<?php echo $category["id"];
+            <option value="<?php echo $category["id"];
                     // The value we usually set is the primary key
-                ?>">
-                    <?php echo $category["name"];
+            ?>">
+            <?php echo $category["name"];
                         // To show the category name to the user
-                    ?>
-                </option>
-            <?php 
-                endwhile; 
-               
             ?>
-        </select>
-
-            <input type="text" name="name" id="name" value="<?php echo $fetch_edit['name']; ?>" class="input-box" placeholder="Product Name" required>
-
-            <textarea name="description" id="description" rows="4" cols="60" value="<?php echo $fetch_edit['description']; ?>" class="input-box" placeholder="Description" required></textarea>
-
-            <p>Product Image:</p>
-            <input type= "file" name="image" class="input-box" required>
-
-            <input type="text" name="price" id="price"  value="<?php echo $fetch_edit['price']; ?>"class="input-box" placeholder="Unit_Price" required>
-
-            <label for="status" class="control-label">Status</label>
-      <select name="status" id="status" class="input-box" placeholder="Status" value="<?php echo $fetch_edit['status']; ?>" required>
-               <option value="1" <?php echo isset($status) && $status == 1 ? 'selected' : '' ?>>Active</option>
-               <option value="0" <?php echo isset($status) && $status == 0 ? 'selected' : '' ?>>Inactive</option>
-        </select>
-
-            
-            <input type="date" name="updatetime" id="updatetime"  class="input-box" required>
-      
-            <input type="submit" value="update the product" name="update" class="btn">
-			<a href="productpage.php" class="btn">Go back!</a>
-      
-            <input type="hidden" name="id" value=<?php echo $edit_id;?>>
-
-            <p><a href="productpage.php">CANCEL</a></p>
-     
-
-
-
+            </option>
+            <?php 
+                endwhile;*/ 
+            ?>
+            </select>---->
+            <!--<label for="status" class="control-label">Status</label>
+      <select name="status" id="status" class="input-box" placeholder="Status" value="<?php ///echo $fetch_edit['status']; ?>" required>
+               <option value="1" <?php //echo isset($status) && $status == 1 ? 'selected' : '' ?>>Active</option>
+               <option value="0" <?php //echo isset($status) && $status == 0 ? 'selected' : '' ?>>Inactive</option>
+        </select>--->
+            <!--<p><a href="productpage.php">CANCEL</a></p>--->  
 </form>
 <?php
             };

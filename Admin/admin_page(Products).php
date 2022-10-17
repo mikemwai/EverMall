@@ -127,9 +127,9 @@ if(isset($_GET['delete'])){
                 ?>
             <tr>
         
-            <td><?php echo $row["product_id"]?></td>
-            <td><img src="uploaded_image/<?php echo $row["product_image"]; ?>" height="100" alt=""></td>
-            <td><?php echo $row["product_name"]?></td>
+            <td><?php echo $row["product_id"]?></td>--->
+            <img src="../Admin/uploaded_image/<?php echo $row["product_image"]; ?>" height="100" alt="">
+            <!--<td><?php echo $row["product_name"]?></td>
             <td><?php echo $row["product_description"]?></td>
             <td>Ksh /-<?php echo $row["unit_price"]?></td>
             <td><?php echo $row["subcategory_name"]?></td>

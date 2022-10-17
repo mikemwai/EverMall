@@ -12,7 +12,7 @@ if (!$conn) {
 
 if (isset($_GET["shop now"])) {
  $id=$GET["shop now"];
- $sql= "SELECT id, name, description, image_path, price FROM product_listWHERE vendor_id=$id";
+ $sql= "SELECT id, name, description, image_path, price FROM product_list WHERE vendor_id=$id";
 }
 
 
