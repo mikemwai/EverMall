@@ -100,7 +100,7 @@ $all_product = $conn->query($sql);
 <i class="fa fa-star-half-o" ></i>
 <i class="fa fa-star-o"></i>
 <h3><?php echo $row["product_name"]; ?></h3>
-<h5> Ksh.<?php echo $row["unit_price"]; ?></h5>
+<h5> Ksh.<?php echo $row["unit_price"]; ?></h5><br>
 
 </div>
 
