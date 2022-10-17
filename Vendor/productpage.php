@@ -20,7 +20,7 @@ if(!isset($_SESSION['last_name'])){
 $delete=$_GET['delete'];
 
 // sql to delete a record
-$sql = "DELETE FROM product_list WHERE id=".$delete."";
+$sql = "DELETE FROM tbl_product WHERE product_id=".$delete."";
 
 if ($conn->query($sql) === TRUE) {
   $message[]= 'Product has been deleted!';
