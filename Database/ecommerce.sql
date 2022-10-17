@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 06, 2022 at 02:10 PM
+-- Generation Time: Oct 17, 2022 at 07:59 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -467,6 +467,7 @@ CREATE TABLE `tbl_paymenttypes` (
 
 CREATE TABLE `tbl_product` (
   `product_id` int(11) NOT NULL,
+  `vendor_id` int(30) NOT NULL,
   `product_name` varchar(25) DEFAULT NULL,
   `product_description` text DEFAULT NULL,
   `product_image` varchar(40) DEFAULT NULL,
@@ -485,35 +486,35 @@ CREATE TABLE `tbl_product` (
 -- Dumping data for table `tbl_product`
 --
 
-INSERT INTO `tbl_product` (`product_id`, `product_name`, `product_description`, `product_image`, `unit_price`, `available_quantity`, `subcategory_name`, `category_name`, `product_keywords`, `created_at`, `updated_at`, `added_by`, `is_deleted`) VALUES
-(1, 'Blue T-Shirt', 'The shirt is blue in color', 'product-4.jpg', 1200, 25, 'Casual', 'Men', 'blue, t-shirt, casual, ladies', '2022-06-21 22:47:53', '2022-06-21 22:47:53', NULL, NULL),
-(2, 'White T-Shirt', 'The shirt is white in color. A product of Calvin Klein.', '24.jpg', 1500, 20, 'Casual', 'Men', 'white, t-shirt, casual, children', '2022-06-21 22:48:41', '2022-06-21 22:48:41', NULL, NULL),
-(3, 'Purple Trenchcoat', 'The trenchcoat is purple. ', '6.jpg', 3000, 10, 'Formal', 'Children', 'purple, trenchcoat, formal, children', '2022-06-21 22:49:39', '2022-06-21 22:49:39', NULL, NULL),
-(4, 'Dark green T-Shirt', 'The shirt is dark green in color. A product of Lacoste.', '26.jpg', 500, 50, 'Casual', 'Men', 'dark-green, t-shirt, casual, men', '2022-06-21 22:51:25', '2022-06-21 22:51:25', NULL, NULL),
-(5, 'Purple T-shirt', 'The t-shirt is purple in color', '16.jpg', 500, 50, 'Casual', 'Ladies', 'purple, casual, ladies', '2022-06-28 10:47:32', '2022-06-28 10:47:32', NULL, NULL),
-(6, 'Black Sweater', 'The sweater is black in color. A product of polo.', '21.jpg', 2000, 15, 'Formal', 'Men', 'black, sweater, formal, men', '2022-06-28 10:50:59', '2022-06-28 10:50:59', NULL, NULL),
-(7, 'Blue Jacket', 'The puff jacket is blue in color.', '8.jpg', 3000, 25, 'Formal', 'Ladies', 'blue, jacket, formal, ladies', '2022-06-28 10:53:22', '2022-06-28 10:53:22', NULL, NULL),
-(8, 'Black Suit', 'The suit is black in color.', 'pexels-teddy-joseph-2955375.jpg', 5000, 10, 'Formal', 'Men', 'black, suit, formal, men', '2022-06-28 10:55:36', '2022-06-28 10:55:36', NULL, NULL),
-(9, 'Black Socks', 'The socks are black.', 'pexels-ryutaro-tsukata-5746098.jpg', 100, 50, 'Sports', 'Children', 'black, socks, sports, children', '2022-06-28 10:56:48', '2022-06-28 10:56:48', NULL, NULL),
-(10, 'Sweater', 'The sweater is red in color that can be worn by pets.', 'Pets1.jpg', 1000, 20, 'Dogs', 'Pets', 'sweater, dogs, pets', '2022-06-28 10:59:06', '2022-06-28 10:59:06', NULL, NULL),
-(11, 'Cream Shirt', 'The shirt is cream in color. The product is from Lacoste.', 'pexels-brenner-oliveira-10495156.jpg', 1500, 30, 'Formal', 'Men', 'cream, shirt, formal, men', '2022-06-28 12:26:44', '2022-06-28 12:26:44', NULL, NULL),
-(12, 'Blue Sweater', 'The sweater is blue in color.', 'pexels-teddy-tavan-4890733.jpg', 5500, 15, 'Casual', 'Men', 'blue, sweater, casual, men', '2022-06-28 12:27:31', '2022-06-28 12:27:31', NULL, NULL),
-(13, 'Kitenge Shirt', 'The shirt is a kitenge best for hot weather.', 'pexels-mikhail-nilov-7624298.jpg', 800, 35, 'Casual', 'Men', 'kitenge, shirt, casual, men', '2022-06-28 12:29:43', '2022-06-28 12:29:43', NULL, NULL),
-(14, 'Red T-Shirt', 'The red T-shirt is best for sports. Product from Nike.', 'pexels-pnw-production-8979858.jpg', 1300, 20, 'Sports', 'Men', 'red, t-shirt, sports, men', '2022-06-28 12:35:39', '2022-06-28 12:35:39', NULL, NULL),
-(15, 'White Trouser', 'The white trouser is best for hot weather and can be worn in beaches. ', 'pexels-mwabonje-5875803.jpg', 900, 15, 'Casual', 'Men', 'white, trouser, casual, men', '2022-06-28 12:37:53', '2022-06-28 12:37:53', NULL, NULL),
-(16, 'Orange Dress', 'The orange dress is a product from Zara.', 'pexels-mikhail-nilov-7682670.jpg', 1200, 25, 'Casual', 'Ladies', 'orange, dress, casual, ladies', '2022-06-28 12:47:23', '2022-06-28 12:47:23', NULL, NULL),
-(17, 'White Sweatpants', 'The white sweatpants is a product from Nike.', 'pexels-styves-exantus-8514111.jpg', 1100, 30, 'Sports', 'Ladies', 'white, sweatpants, sports, ladies', '2022-06-28 12:48:28', '2022-06-28 12:48:28', NULL, NULL),
-(18, 'White Dress', 'The white dress is best for official environments.', 'WhiteDress.jpg', 2000, 30, 'Formal', 'Ladies', 'white, dress, formal, ladies', '2022-06-28 12:50:38', '2022-06-28 12:50:38', NULL, NULL),
-(19, 'White wedding Gown', 'The wedding gown is white in color.', '4.jpg', 10000, 15, 'Casual', 'Ladies', 'white, wedding, gown, casual, ladies', '2022-06-28 12:58:36', '2022-06-28 12:58:36', NULL, NULL),
-(20, 'White Suit', 'The white suit is best for official environments.', '5.jpg', 5000, 15, 'Formal', 'Ladies', 'white, suit, formal, ladies', '2022-06-28 12:59:43', '2022-06-28 12:59:43', NULL, NULL),
-(21, 'Black Sweatpants', 'The product is from Adidas.', 'product-12.jpg', 2000, 20, 'Casual', 'Children', 'black, sweatpants, casual, children', '2022-06-28 13:02:28', '2022-06-28 13:02:28', NULL, NULL),
-(22, 'Sweater', 'The product is from Polo.', 'pexels-amina-filkins-5559985.jpg', 1300, 50, 'Casual', 'Children', 'sweater, casual, children', '2022-06-28 13:05:45', '2022-06-28 13:05:45', NULL, NULL),
-(23, 'Turquoise T-Shirt', 'The T-Shirt is long sleeved. The product is best for cold weather.', 'pexels-norma-mortenson-7303182.jpg', 2000, 20, 'Casual', 'Children', 'turquoise t-shirt, casual, children', '2022-06-28 13:07:54', '2022-06-28 13:07:54', NULL, NULL),
-(24, 'Orange Tracksuit', 'The product is from Adidas.', 'category-2.jpg', 1500, 30, 'Sports', 'Children', 'orange, tracksuit, sports, children  ', '2022-06-28 13:11:38', '2022-06-28 13:11:38', NULL, NULL),
-(25, 'Grey Sweatpants', 'The tracksuit is best for sports.', 'buy-3.jpg', 1500, 20, 'Casual', 'Children', 'grey, sweatpants, casual, children', '2022-06-28 13:13:20', '2022-06-28 13:13:20', NULL, NULL),
-(26, 'Sweater', 'The sweater is black and white that cats can wear.', 'Cat1.jpg', 1500, 15, 'Cats', 'Pets', 'sweater, cats, pets', '2022-06-28 21:32:18', '2022-06-28 21:32:18', NULL, NULL),
-(27, 'Dress', 'The dress is small enough to be worn by rabbits.', 'Rabbit1.webp', 2000, 20, 'Others', 'Pets', 'dress, others, pets', '2022-06-28 21:40:25', '2022-06-28 21:40:25', NULL, NULL),
-(28, 'Basketball Vest', 'The product is best for basketball games and can also be worn as a casual cloth.', 'Basketball Vest.jpg', 5000, 28, 'Sports', 'Men', 'basketball, vest, sports, men', '2022-06-29 08:40:22', '2022-06-29 08:40:22', NULL, NULL);
+INSERT INTO `tbl_product` (`product_id`, `vendor_id`, `product_name`, `product_description`, `product_image`, `unit_price`, `available_quantity`, `subcategory_name`, `category_name`, `product_keywords`, `created_at`, `updated_at`, `added_by`, `is_deleted`) VALUES
+(1, 1, 'Blue T-Shirt', 'The shirt is blue in color', 'product-4.jpg', 1200, 25, 'Casual', 'Men', 'blue, t-shirt, casual, ladies', '2022-06-21 22:47:53', '2022-06-21 22:47:53', NULL, NULL),
+(2, 2, 'White T-Shirt', 'The shirt is white in color. A product of Calvin Klein.', '24.jpg', 1500, 20, 'Casual', 'Men', 'white, t-shirt, casual, children', '2022-06-21 22:48:41', '2022-06-21 22:48:41', NULL, NULL),
+(3, 3, 'Purple Trenchcoat', 'The trenchcoat is purple. ', '6.jpg', 3000, 10, 'Formal', 'Children', 'purple, trenchcoat, formal, children', '2022-06-21 22:49:39', '2022-06-21 22:49:39', NULL, NULL),
+(4, 4, 'Dark green T-Shirt', 'The shirt is dark green in color. A product of Lacoste.', '26.jpg', 500, 50, 'Casual', 'Men', 'dark-green, t-shirt, casual, men', '2022-06-21 22:51:25', '2022-06-21 22:51:25', NULL, NULL),
+(5, 5, 'Purple T-shirt', 'The t-shirt is purple in color', '16.jpg', 500, 50, 'Casual', 'Ladies', 'purple, casual, ladies', '2022-06-28 10:47:32', '2022-06-28 10:47:32', NULL, NULL),
+(6, 13, 'Black Sweater', 'The sweater is black in color. A product of polo.', '21.jpg', 2000, 15, 'Formal', 'Men', 'black, sweater, formal, men', '2022-06-28 10:50:59', '2022-06-28 10:50:59', NULL, NULL),
+(7, 21, 'Blue Jacket', 'The puff jacket is blue in color.', '8.jpg', 3000, 25, 'Formal', 'Ladies', 'blue, jacket, formal, ladies', '2022-06-28 10:53:22', '2022-06-28 10:53:22', NULL, NULL),
+(8, 22, 'Black Suit', 'The suit is black in color.', 'pexels-teddy-joseph-2955375.jpg', 5000, 10, 'Formal', 'Men', 'black, suit, formal, men', '2022-06-28 10:55:36', '2022-06-28 10:55:36', NULL, NULL),
+(9, 26, 'Black Socks', 'The socks are black.', 'pexels-ryutaro-tsukata-5746098.jpg', 100, 50, 'Sports', 'Children', 'black, socks, sports, children', '2022-06-28 10:56:48', '2022-06-28 10:56:48', NULL, NULL),
+(10, 27, 'Sweater', 'The sweater is red in color that can be worn by pets.', 'Pets1.jpg', 1000, 20, 'Dogs', 'Pets', 'sweater, dogs, pets', '2022-06-28 10:59:06', '2022-06-28 10:59:06', NULL, NULL),
+(11, 28, 'Cream Shirt', 'The shirt is cream in color. The product is from Lacoste.', 'pexels-brenner-oliveira-10495156.jpg', 1500, 30, 'Formal', 'Men', 'cream, shirt, formal, men', '2022-06-28 12:26:44', '2022-06-28 12:26:44', NULL, NULL),
+(12, 29, 'Blue Sweater', 'The sweater is blue in color.', 'pexels-teddy-tavan-4890733.jpg', 5500, 15, 'Casual', 'Men', 'blue, sweater, casual, men', '2022-06-28 12:27:31', '2022-06-28 12:27:31', NULL, NULL),
+(13, 30, 'Kitenge Shirt', 'The shirt is a kitenge best for hot weather.', 'pexels-mikhail-nilov-7624298.jpg', 800, 35, 'Casual', 'Men', 'kitenge, shirt, casual, men', '2022-06-28 12:29:43', '2022-06-28 12:29:43', NULL, NULL),
+(14, 31, 'Red T-Shirt', 'The red T-shirt is best for sports. Product from Nike.', 'pexels-pnw-production-8979858.jpg', 1300, 20, 'Sports', 'Men', 'red, t-shirt, sports, men', '2022-06-28 12:35:39', '2022-06-28 12:35:39', NULL, NULL),
+(15, 33, 'White Trouser', 'The white trouser is best for hot weather and can be worn in beaches. ', 'pexels-mwabonje-5875803.jpg', 900, 15, 'Casual', 'Men', 'white, trouser, casual, men', '2022-06-28 12:37:53', '2022-06-28 12:37:53', NULL, NULL),
+(16, 34, 'Orange Dress', 'The orange dress is a product from Zara.', 'pexels-mikhail-nilov-7682670.jpg', 1200, 25, 'Casual', 'Ladies', 'orange, dress, casual, ladies', '2022-06-28 12:47:23', '2022-06-28 12:47:23', NULL, NULL),
+(17, 35, 'White Sweatpants', 'The white sweatpants is a product from Nike.', 'pexels-styves-exantus-8514111.jpg', 1100, 30, 'Sports', 'Ladies', 'white, sweatpants, sports, ladies', '2022-06-28 12:48:28', '2022-06-28 12:48:28', NULL, NULL),
+(18, 1, 'White Dress', 'The white dress is best for official environments.', 'WhiteDress.jpg', 2000, 30, 'Formal', 'Ladies', 'white, dress, formal, ladies', '2022-06-28 12:50:38', '2022-06-28 12:50:38', NULL, NULL),
+(19, 2, 'White wedding Gown', 'The wedding gown is white in color.', '4.jpg', 10000, 15, 'Casual', 'Ladies', 'white, wedding, gown, casual, ladies', '2022-06-28 12:58:36', '2022-06-28 12:58:36', NULL, NULL),
+(20, 3, 'White Suit', 'The white suit is best for official environments.', '5.jpg', 5000, 15, 'Formal', 'Ladies', 'white, suit, formal, ladies', '2022-06-28 12:59:43', '2022-06-28 12:59:43', NULL, NULL),
+(21, 4, 'Black Sweatpants', 'The product is from Adidas.', 'product-12.jpg', 2000, 20, 'Casual', 'Children', 'black, sweatpants, casual, children', '2022-06-28 13:02:28', '2022-06-28 13:02:28', NULL, NULL),
+(22, 5, 'Sweater', 'The product is from Polo.', 'pexels-amina-filkins-5559985.jpg', 1300, 50, 'Casual', 'Children', 'sweater, casual, children', '2022-06-28 13:05:45', '2022-06-28 13:05:45', NULL, NULL),
+(23, 4, 'Turquoise T-Shirt', 'The T-Shirt is long sleeved. The product is best for cold weather.', 'pexels-norma-mortenson-7303182.jpg', 2000, 20, 'Casual', 'Children', 'turquoise t-shirt, casual, children', '2022-06-28 13:07:54', '2022-06-28 13:07:54', NULL, NULL),
+(31, 4, 'Black Shirt', 'This shirt is black in colour.', 'user-2.png', 1000, 20, 'Casual', 'Men', 'Black Shirt, Men, Casual', '2022-10-17 11:50:04', '2022-10-17 11:50:04', NULL, NULL),
+(33, 28, 'Pink Marvin', 'The marvin is pink in colour', 'Marvin.jpg', 2000, 20, 'Casual', 'Women', 'Pink, Pink Marvin, Casual, Ladies', '2022-10-17 17:58:34', '2022-10-17 17:58:34', NULL, NULL),
+(34, 33, 'Royal blue shirt', 'The shirt is royal blue in color', 'Professor.jpg', 2000, 5, 'Formal', 'Men', 'Royal Blue, Royal Blue shirt, Casual, Men', '2022-10-17 20:12:27', '2022-10-17 20:12:27', NULL, NULL),
+(35, 33, 'Cod Liver oil', 'The supplement helps children gain great immunity and brain growth.', 'Health.jpg', 2500, 30, 'Others', 'Children', 'Cod Liver oil, Others, Children', '2022-10-17 20:25:18', '2022-10-17 20:25:18', NULL, NULL),
+(36, 33, 'Antibiotics', 'The antibiotics are very strong in treating diseases', 'Health1.jpg', 500, 10, 'Others', 'Children', 'Antibiotics, Children, Others', '2022-10-17 20:29:17', '2022-10-17 20:29:17', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -663,7 +664,7 @@ INSERT INTO `tbl_users` (`user_id`, `first_name`, `last_name`, `email`, `passwor
 (1, 'Lori', 'Harvey', 'lharvey@gmail.com', 'lharvey', 'female', 3, 0),
 (2, 'Evans', 'Otieno', 'eotieno@gmail.com', 'eotieno', 'male', 3, 0),
 (3, 'Filly', 'Jimmy', 'fjimmy@gmail.com', 'fjimmy', 'male', 3, 0),
-(4, 'Selina', 'Atieno', 'sotieno@gmail.com', 'sotieno', 'female', 3, 0),
+(4, 'Selina', 'Otieno', 'sotieno@gmail.com', 'sotieno', 'female', 3, 0),
 (5, 'Mwai', 'Michael', 'gathirumwai@gmail.com', 'root', 'male', 1, 0),
 (13, 'Grace', 'Pendo', 'gpendo@gmail.com', 'gpendo', 'female', 3, 0),
 (21, 'Calvin', 'Kinyanjui', 'ckinyanjui@gmail.com', 'ckinyajui', 'male', 3, 0),
@@ -1037,7 +1038,7 @@ ALTER TABLE `tbl_orderdetails`
 -- AUTO_INCREMENT for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `tbl_productimages`
