@@ -169,6 +169,7 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
 		<table class="table" style= "width: 100%">
 			<thead>
             <th>product id</th>
+            <th>vendor id</th>
             <th>product image</th>
             <th>product name</th>
             <th>product description</th>
@@ -187,6 +188,7 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
 					?>
 					<tr>
 					<td><?php echo $value['product_id']; ?></td>
+                    <td><?php echo $value['vendor_id']; ?></td>
                     <td><img src="../Admin/uploaded_image/<?php echo $value['product_image']; ?>" height="100" alt=""></td><!------>
                     <td><?php echo $value['product_name']; ?></td>
                     <td><?php echo $value['product_description']; ?></td>
@@ -214,10 +216,11 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
 <section class="edit-form-container">
 	<?php
    
-   if(isset($_GET['edit'])){
+   if(isset($_GET['edit']))
+   {
    	require("connection.php");
       $edit_id = $_GET['edit'];
-      $edit_query = mysqli_query($conn, "SELECT * FROM `tbl_product` WHERE product_id = $edit_id");
+      $edit_query = mysqli_query($conn, "SELECT * FROM `tbl_product` WHERE product_id='$edit_id'");
       if(mysqli_num_rows($edit_query) > 0){
          while($fetch_edit = mysqli_fetch_assoc($edit_query)){
    ?>
@@ -246,11 +249,11 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
             <!--<p>Product Image:</p>--->
             <input type= "file" name="image" class="input-box" required>
             <input type="text" name="price" id="price"  value="<?php echo $fetch_edit['unit_price']; ?>"class="input-box" placeholder="Product Price" required>
-			     		<input type="int" placeholder="Available quantity" name="available_quantity" value="<?php echo $fetch_edit['available_quantity']; ?>" class="input-box">
+			<input type="int" placeholder="Available quantity" name="available_quantity" value="<?php echo $fetch_edit['available_quantity']; ?>" class="input-box">
             <input type="text" placeholder="Product keywords" name="product_keywords" value="<?php echo $fetch_edit['product_keywords']; ?>" class="input-box">
             <input type="submit" value="update the product" name="update" class="btn">
 			<a href="productpage.php" class="btn">Go back!</a>
-            <input type="hidden" name="id" value=<?php echo $edit_id;?>>
+            <input type="hidden" name="product_id" value="<?php echo $fetch_edit['product_id'];?>">
 			<!--<select name="Category" id="category" class="input-box" placeholder="Category" required>
 			<?php                 
                 /*$sql = "SELECT id, name FROM `category_list`";
