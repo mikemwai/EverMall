@@ -230,22 +230,44 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
             <h3>UPDATE PRODUCT</h3>
 			<input type="text" name="name" id="name" value="<?php echo $fetch_edit['product_name']; ?>" class="input-box" placeholder="Product Name" required>
 			<textarea name="description" id="description" value="" class="input-box" placeholder="Product Description" required><?php echo $fetch_edit['product_description']; ?></textarea>
-			<select type="text" class="input-box" name="subcategory_name">
-            <option value="<?php //echo $row['subcategory_name']; ?>" disabled selected hidden>enter subcategory name</option>
-            <option value="Formal">Formal</option>
-            <option value="Casual">Casual</option>
-            <option value="Sports">Sports</option>
-            <option value="Dogs">Dogs</option>
-            <option value="Cats">Cats</option>
-            <option value="Others">Others</option>
-       </select><br>
-      <select type="text" class="input-box" name="category_name">
-            <option value="<?php //echo $row['category_name']; ?>" disabled selected hidden>enter category name</option>
-            <option value="Men">Men</option>
-            <option value="Women">Women</option>
-            <option value="Children">Children</option>
-            <option value="Pets">Pets</option>
-      </select><br>
+            <select type="text" class="input-box" name="category_name">
+            <option value="" disabled selected hidden>enter category name</option>
+             <?php                 
+                $sql = "SELECT * FROM `tbl_categories`";
+                $all_categories = mysqli_query($conn,$sql);
+                while ($category = mysqli_fetch_array(
+                $all_categories,MYSQLI_ASSOC)):; 
+             ?>
+            <option value="<?php echo $category["category_id"];
+                // The value we usually set is the primary key
+            ?>" >
+             <?php echo $category["category_name"];
+             // To show the category name to the user
+             ?>
+            </option>
+            <?php 
+              endwhile;
+            ?>
+            </select><br>
+            <select type="text" class="input-box" name="subcategory_name" >
+            <option value="" disabled selected hidden>enter subcategory name</option>
+              <?php                 
+                $sql = "SELECT * FROM `tbl_subcategories`";
+                $all_subcategories = mysqli_query($conn,$sql);
+                while ($subcategory = mysqli_fetch_array(
+                $all_subcategories,MYSQLI_ASSOC)):; 
+              ?>
+            <option value="<?php echo $subcategory["subcategory_id"];
+               // The value we usually set is the primary key
+             ?>" >
+             <?php echo $subcategory["subcategory_name"];
+                // To show the category name to the user
+             ?>
+            </option>
+            <?php 
+              endwhile;
+            ?>
+            </select><br>
             <!--<p>Product Image:</p>--->
             <input type= "file" name="image" class="input-box" required>
             <input type="text" name="price" id="price"  value="<?php echo $fetch_edit['unit_price']; ?>"class="input-box" placeholder="Product Price" required>
