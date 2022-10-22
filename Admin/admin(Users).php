@@ -62,7 +62,7 @@ if(!isset($_SESSION['last_name'])){
   
 
 		<ul class="side-menu top">
-			<li class="active">
+			<li>
 			<a href="admin.php">
 			<i class="fa fa-bars"></i>
 		    <span class="text">Admin Dashboard</span>
@@ -75,13 +75,25 @@ if(!isset($_SESSION['last_name'])){
 		    <span class="text"> Products</span>
 		    </a></li>
 
+        <li>
+			<a href="admin(Categories).php">
+      <i class='fa fa-tags'></i>
+			<span class="text">Categories</span>
+		  </a></li>
+
+      <li>
+			<a href="admin(SubCategories).php">
+      <i class='fa fa-tags'></i>
+			<span class="text">Sub Categories</span>
+		  </a></li>
+
 			<li>
 			<a href="admin(Complains).php">
 			<i class="fa fa-bell"></i>
 			<span class="text">Complains</span>
 		    </a></li>
 
-		    <li>
+		    <li class="active">
 			<a href="admin(Users).php">
 			<i class="fa fa-user"></i>
 			<span class="text">Users</span>

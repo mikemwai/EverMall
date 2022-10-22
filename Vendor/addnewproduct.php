@@ -20,7 +20,7 @@ if(isset($_POST['submit'])){
    $product_keywords=$_POST['product_keywords'];
    $filename=$_FILES["product_image"]["name"];
    $tempname = $_FILES["product_image"]["tmp_name"];
-    $folder = "../Admin/uploaded_image/" . $filename;
+   $folder = "../Admin/uploaded_image/" . $filename;
    
 
    if (move_uploaded_file($tempname, $folder)) {

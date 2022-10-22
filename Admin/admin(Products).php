@@ -62,18 +62,30 @@ if(!isset($_SESSION['last_name'])){
   
 
 		<ul class="side-menu top">
-			<li class="active">
+			<li>
 			<a href="admin.php">
 			<i class="fa fa-bars"></i>
 		    <span class="text">Admin Dashboard</span>
 		    </a></li>
 
 
-			<li>
+			<li class="active">
 			<a href="admin(Products).php">
 		    <i class="fa fa-tag"></i>
 		    <span class="text"> Products</span>
 		    </a></li>
+
+      <li>
+			<a href="admin(Categories).php">
+      <i class='fa fa-tags'></i>
+			<span class="text">Categories</span>
+		  </a></li>
+
+      <li>
+			<a href="admin(SubCategories).php">
+      <i class='fa fa-tags'></i>
+			<span class="text">Sub Categories</span>
+		  </a></li>
 
 			<li>
 			<a href="admin(Complains).php">
@@ -165,6 +177,7 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
     <thead>
          <tr>
             <th>Product id</th>
+            <th>Vendor id</th>
             <th>Product image</th>
             <th>Product name</th>
             <th>Product description</th>
@@ -189,6 +202,7 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
             <tr>
         
             <td><?php echo $row["product_id"]?></td>
+            <td><?php echo $row["vendor_id"]?></td>
             <td><img src="uploaded_image/<?php echo $row["product_image"]; ?>" height="100" alt=""></td>
             <td><?php echo $row["product_name"]?></td>
             <td><?php echo $row["product_description"]?></td>

@@ -1,7 +1,6 @@
 <?php
 require("connections.php");
 
-
 if(isset($_GET['delete'])){
     $prod_id=$_GET['delete'];
     mysqli_query($conn,"DELETE FROM tbl_product WHERE product_id=$prod_id");
@@ -89,7 +88,7 @@ if(isset($_GET['delete'])){
                     echo "<option value=' $cat_option' > $cat_option </option>";
 
                      }
-                     ?>
+      ?>
             
        </select><br>
       <input type="text" placeholder="enter product keywords" name="product_keywords" class="box">
@@ -124,7 +123,7 @@ if(isset($_GET['delete'])){
                 
                 while($row = mysqli_fetch_array($sql)){
                     
-                ?>
+         ?>
             <tr>
         
             <td><?php echo $row["product_id"]?></td>--->
