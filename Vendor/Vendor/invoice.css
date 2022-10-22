@@ -1,0 +1,84 @@
+*{
+	font-family: arial;
+	 background-image: radial-gradient(teal,grey);
+}
+.invoice_container{
+	padding: 10px 10px;
+}
+.invoice_header{
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	background: #e7c9c9;
+}
+.logo_container{
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-left: 10px;
+}
+.company_address{
+	margin-right: 10px;
+}
+.invoice_header h2{
+	margin-bottom: 0;
+}
+.invoice_header p{
+	margin-top: 10px;
+}
+.logo_container img{
+	height: 60px;
+}
+.customer_container{
+	padding: 0 10px;
+	display: flex;
+	justify-content: space-between;
+}
+.customer_container h2{
+	margin-bottom: 10px;
+}
+.customer_container h4{
+	margin-bottom: 10px;
+	margin-top: 0;
+}
+.customer_container p{
+	margin: 0;
+}
+.in_details{
+	margin-top: auto;
+	margin-bottom: auto;
+}
+.product_container{
+	padding: 0 10px;
+	margin-top: 10px;
+}
+.item_table{
+	width: 100%;
+    text-align: left;
+}
+.item_table td,th{
+	padding: 5px 10px;
+}
+.invoice_footer{
+	padding: 0 10px;
+	display: flex;
+	justify-content: space-between;
+}
+.invoice_footer h2{
+	margin-bottom: 10px;
+}
+.note{
+	width: 50%;
+}
+.invoice_footer_amount{
+	margin: auto 0;
+	background: #e7c9c9;
+}
+.amount_table td,th{
+	padding: 5px 10px;
+}
+.in_head{
+    margin: 0;
+    text-align: center;
+    background: #e7c9c9;
+    padding: 5px;
+}
