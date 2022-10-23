@@ -1,13 +1,13 @@
 <?php
 require("connections.php");
 
-
 if(isset($_GET['delete'])){
     $prod_id=$_GET['delete'];
     mysqli_query($conn,"DELETE FROM tbl_product WHERE product_id=$prod_id");
     header('location:admin_page(Products).php');
 }
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,7 +17,7 @@ if(isset($_GET['delete'])){
 </head>
 <body>
 
-<!---------Navigation Bar--------->
+<!---------Navigation Bar---------
 <div style="margin: 0 auto" class="header">
    <div class="container1">
         <div class="navbar">
@@ -26,11 +26,11 @@ if(isset($_GET['delete'])){
                 </div>
                 <nav>
                     <ul id="MenuItems">
-                        <li><a href="Logout.php">Logout</a></li>
+                        <li><a href="../Account/Logout.php">Logout</a></li>
                     </ul>
             </nav>
     
-                <!--<img src="../eShopping/images/cart.png" width="30px" height="30px">--->
+                <img src="../eShopping/images/cart.png" width="30px" height="30px">
                 <img src="../eShopping/images/menu.png" class="menu-icon"
                      onclick="menu-toggle()">
             </div>
@@ -46,8 +46,8 @@ if(isset($_GET['delete'])){
         <div style="text-align:center" class="navbar1">
                 <nav>
                     <ul id="MenuItems">
-                        <!--<li><a href="admin.php">Categories</a></li>
-                        <li><a href="admin_page(Subcategory).php">Subcategories</a></li>---->
+                        <li><a href="admin.php">Categories</a></li>
+                        <li><a href="admin_page(Subcategory).php">Subcategories</a></li>
                         <li><a href="admin_page(Products).php">Products</a></li>
                         <li><a href="admin_page(Users).php">Users</a></li>
                         <li><a href="admin_page(Complains).php">Complains</a></li>
@@ -56,7 +56,7 @@ if(isset($_GET['delete'])){
             </div>
         </div>
     </div>
-</div>
+</div>---->
 
 <div style="margin: 0 auto" class="container">
     <div class="admin-product-form-container">
@@ -88,16 +88,17 @@ if(isset($_GET['delete'])){
                     echo "<option value=' $cat_option' > $cat_option </option>";
 
                      }
-                     ?>
+      ?>
             
        </select><br>
       <input type="text" placeholder="enter product keywords" name="product_keywords" class="box">
       <input type="file" accept="image/png, image/jpeg, image/jpg, image/webp" name="product_image" class="box">
-      <input type="submit" class="btn" name="add_product" value="add product">
+      <input type="submit" class="btn" name="add_product" value="Add Product">
+      <a href="admin(Products).php" class="btn">Go back!</a>
      </form>
     </div><br>
 
-   <div style="margin: 0 auto" class="product-display">
+   <!---<div style="margin: 0 auto" class="product-display">
       <table class="product-display-table">
          <thead>
          <tr>
@@ -122,12 +123,12 @@ if(isset($_GET['delete'])){
                 
                 while($row = mysqli_fetch_array($sql)){
                     
-                ?>
+         ?>
             <tr>
         
-            <td><?php echo $row["product_id"]?></td>
-            <td><img src="uploaded_image/<?php echo $row["product_image"]; ?>" height="100" alt=""></td><!------>
-            <td><?php echo $row["product_name"]?></td>
+            <td><?php echo $row["product_id"]?></td>--->
+            <img src="../Admin/uploaded_image/<?php echo $row["product_image"]; ?>" height="100" alt="">
+            <!--<td><?php echo $row["product_name"]?></td>
             <td><?php echo $row["product_description"]?></td>
             <td>Ksh /-<?php echo $row["unit_price"]?></td>
             <td><?php echo $row["subcategory_name"]?></td>
@@ -145,7 +146,7 @@ if(isset($_GET['delete'])){
 
       </table>
    </div>
-</div>
+</div>---->
 
 <!--------------footer------
 <div class="footer">

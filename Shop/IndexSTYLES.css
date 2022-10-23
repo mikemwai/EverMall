@@ -1,0 +1,393 @@
+body{
+	width:100%;
+	background:url("BACKGROUND.png");
+	background-size: cover;
+	background-position:center;
+	padding: 0;
+	margin: 0;
+	overflow-x: hidden;
+	text-align: center;
+	font-family: 'Barlow',sans-serif;
+	box-sizing:border-box;
+}
+
+header{
+	background-color:LightSlateGray;
+	padding: 50px;
+	box-shadow: 20px 15px 15px Gray;
+}
+header li img{
+	width: 180px;
+	float: left;
+	margin-top: -20px;
+}
+header ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+header ul li{
+	float: left;
+	width: 200px;
+	height: 40px;
+	background-color: LightSlateGray;
+	opacity:  .9;
+	line-height: 40px;
+	text-align: center;
+	
+
+}
+header ul li a{
+	color:AntiqueWhite;
+	text-decoration: none;
+	padding: 13px;
+	transition:  .3s ease;
+}
+header ul li a:hover{
+	background-color: Tan;
+}
+header ul li ul li{
+	display: none;
+}
+header ul li:hover ul li{
+	display: block;
+}
+header ul #contact a{
+	color: #fff;
+	background-color: Tan;
+	border-radius:20px;
+	float: right;
+	position: relative;
+	top: -15px;
+	transition:  .3s ease;
+}
+header ul #contact a:hover{
+	background-color:BlanchedAlmond ; 
+}
+
+                  /*CALL TO ACTION*/
+.callToAction{
+	background-image:url("Winning eCommerce Web Design Ideas.jpg");
+	height:100vh;
+	width:100%;
+	background-size:cover;
+	background-position:top 25% right 0;
+	padding:0 80px;
+	display:flex; 
+	flex-direction:column;
+	align-items:flex-start;
+	justify-content:center;
+}
+.callToAction h4{
+	padding-bottom:15px;
+}
+.callToAction h1{
+	color:RoyalBlue;
+	font-size:50px;
+	
+}
+.cta-btn{
+	padding: 11px 40px;
+	line-height:18px;
+	color:#555;
+	text-decoration:none;
+	background:#d63031;
+	text-transform:uppercase;
+	display:block;
+}
+.btn-holder{
+	float:right;
+}
+.cta-btn{
+	padding: 11px 40px;
+	line-height:18px;
+	color:#555;
+	text-decoration:none;
+	background:LightSlateGray;
+	text-transform:uppercase;
+	display:block;
+}
+.cta-btn:hover{
+	background:Tan;
+	border:1px solid Maroon;
+}
+
+                            /*OFFERS & DISCOUNTS*/
+button.white{
+		font-size:13px;
+		font-weight:600;
+		padding:11px 18px;
+		color:LightSlateGray;
+		background-color:transparent;
+		border-radius:4px;
+		cursor:pointer;
+		border:1px solid #fff;
+		outline:none;
+		transition: 0.2s;
+	}
+#sm-banner{
+	display:flex;
+	justify-content:space-around;
+	flex-wrap:wrap;
+}
+
+#sm-banner .banner-box{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:flex-start;
+	background-image:url("Believe In Me Yellow Floral Print Two-Piece Midi Dress.jpg");
+	min-width:580px;
+	height:60vh;
+	background-size:cover;
+	background-position:center;
+	padding:30px;
+	
+}
+#sm-banner h4{
+	color:#fff;
+	font-size:28px;
+	font-weight:800;
+}#sm-banner h2{
+	color:#fff;
+	font-size:28px;
+	font-weight:800;
+}
+#sm-banner span{
+	color:#fff;
+	font-size:14px;
+	font-weight:500;
+	padding-bottom:15px;
+}
+#sm-banner .banner-box:hover button{
+	background:Maroon;
+	border:1px solid Maroon;
+}
+#sm-banner  .banner-box2{
+	background-image:url("LG NeoChef, 42L Smart Inverter Microwave Oven _ LG Australia.jpg");
+}
+
+
+#banner3{
+		display:flex;
+		justify-content:space-around;
+		flex-wrap:wrap;
+		padding:0 60px;	
+	}
+#banner3 h1{
+	font-size:60px;
+	font-weight:800;
+	color:LightSlateGray;
+}
+
+#banner3 .banner-box{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:flex-start;
+	background-image:url("Women's Activewear Leggings & Gym Tights _ P_E Nation.jpg");
+	min-width:30%;
+	height:30vh;
+	background-size:cover;
+	background-position:center;
+	padding:20px;
+	margin-bottom:20px;
+}
+#banner3 .banner-box:hover button{
+	background:Maroon;
+	border:1px solid Maroon;
+}
+#banner3 .banner-box2{
+	background-image:url("Felco Garden Pinchers.jpg");
+
+}
+#banner3 .banner-box3{
+	background-image:url("Review of Drunk Elephant Skincare products - Sarah Tucker.jpg");
+
+}
+
+#banner3 .banner-box4{
+	background-image:url("Preparing for Our Baby Girl_ CYBEX Cloud Q Infant Car Seat.jpg");
+
+}
+#banner3 .banner-box5{
+	background-image:url("office decor.jpg");
+
+}
+#banner3 h2{
+	color:Maroon;
+	font-weight:800;
+	font-size:15px;
+}
+#banner3 h1{
+	color:RoyalBlue;
+	font-weight:800;
+	font-size:15px;
+}
+
+
+
+
+                                 /*------------TESTIMONIALS------------------*/
+.testimonials {
+	width:90%;
+	height:auto;
+	text-align:center;
+}
+.testimonials h1{
+	font-size:60px;
+	color:#555;
+}
+.testimonials h2{
+	font-size:30px;
+	color:#555;
+}
+
+.testimonials hr{
+	width: 15%;
+	height:5px;
+	border:none;
+	background:#26ccca;
+	margin:auto;
+	margin-top:30px;
+	margin-bottom:30px;
+}
+.testimonial-row{
+	width:80%;
+	margin:auto;
+	display:flex;
+	justify-content:space-between;
+	align-items:flex-start;
+	flex-wrap:wrap;
+}
+.testimonial-col{
+	flex-basis:28%;
+	padding:10px;
+	margin-bottom:30px;
+	border-radius:5px;
+	box-shadow:0 10px 20px 3px #00968814;
+	cursor:pointer;
+	transition:transform .5s;
+}
+.testimonial-col p{
+	font-size:14px;
+}
+.user{
+	display:flex;
+	align-items:center;
+	margin:20px 0;
+}
+.user img{
+	width:40px;
+	margin-right:20px;
+	border-radius:3px;
+}
+.user-info .fa{
+	margin-left:10px;
+	color:SaddleBrown;
+	font-size:20px;
+}
+.user-info h4{
+	color:RoyalBlue;
+}
+
+.testimonial-col:hover{
+	transform:translateY(-7px);
+}
+
+
+
+
+                             /*BRANDS*/
+							 
+.client-wrap{
+	width:90%;
+	height:auto;
+	text-align:center;
+}
+.client-wrap h1{
+	font-size:60px;
+	color:LightSlateGray;
+}
+.client-wrap hr{
+	width:15%;
+	height:5px;
+	border:none;
+	background:#26ccca;
+	margin:auto;
+	margin-top:30px;
+	margin-bottom:30px;
+}
+.client-in{
+	width:100%;
+	height:auto;
+}
+.client-in ul{
+	padding:0;
+	margin:0;
+}
+.client-in ul li{
+	list-style:none;
+	display:inline-block;
+	width:150px;
+	height:100px;
+	position:relative;
+	overflow:hidden;
+	cursor:pointer;
+	transition: .5s;
+	box-shadow:0px 0px 0px -7px #555;
+}
+.client-in ul li img{
+	width:100%;
+	height:100%;
+}
+.client-in ul li img:nth-child(1){
+	transform:translateY(0);
+	transition: .5s;
+}
+.client-in ul li img:nth-child(2){
+	transform:translateY(0);
+	transition: .5s;
+}
+/*Hover section*/
+
+.client-in ul li:hover img:nth-child(1){
+	transform:translateY(-100%);
+	transition: .5s;
+}
+.client-in ul li img:nth-child(2){
+	transform:translateY(-100%);
+	transition: .5s;
+}
+
+
+
+       /*---------FOOTER----------*/	 
+.footer {
+	 margin:0;
+	 padding:0;
+	 background-color:LightSlateGray;
+	 padding: 70px;
+ }
+ .footer col{
+	 width: 25%;
+	 padding:0 15px;
+ }
+ .footer-col h4{
+	 font-size:28px;
+	 color: Tan;
+	 text-transform:capitalize;
+	 margin-bottom:30px;
+ }
+ .Copyright{
+	text-align: left;
+} 
+.social-links{
+	font-size:20px;
+	color:Tan;
+}
+	 
+                        
+
+
+        
