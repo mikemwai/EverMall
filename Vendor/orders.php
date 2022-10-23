@@ -46,7 +46,7 @@ if(!isset($_SESSION['last_name'])){
       }
 </style>
 <body>
-    <?php include 'sidebar.php'; ?>
+    <?php include 'sidebar(Orders).php'; ?>
     <!--Sidebar ended-->
 
     <!--Page Content-->

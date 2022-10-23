@@ -63,7 +63,7 @@ if (isset($_GET["shop now"])) {
       }
 </style>
 <body>
-    <?php include 'sidebar.php'; ?>
+<?php include 'sidebar(Orders).php'; ?>
     <!--Sidebar ended-->
 
     <!--Page Content-->

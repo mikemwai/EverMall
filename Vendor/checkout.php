@@ -71,7 +71,7 @@ if(isset($_POST['order_btn'])){
 
 </head>
 <body>
-<?php include 'sidebar.php'; ?>
+<?php include 'sidebar(Cart).php'; ?>
     <!--Sidebar ended-->
 
     <!--Page Content-->

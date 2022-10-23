@@ -70,14 +70,14 @@
            </a>
     
             <ul class="side-menu top">
-                <li class="active">
+                <li>
                 <a href="dashboard.php">
                 <i class="fa fa-bars"></i>
                 <span class="text">Dashboard</span>
                 </a></li>
     
     
-                <li>
+                <li class="active">
                 <a href="productpage.php">
                 <i class="fa fa-tag"></i>
                 <span class="text"> Products</span>

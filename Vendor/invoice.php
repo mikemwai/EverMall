@@ -20,9 +20,6 @@ if (isset($_GET["shop now"])) {
  $id=$GET["shop now"];
  $sql= "SELECT * FROM tbl_order WHERE user_id='$user_id'";
 }
-
-
-
 $conn->close();
 ?>
 <!DOCTYPE html>
@@ -52,10 +49,10 @@ $conn->close();
       }
 
     </style>
-	<link rel="stylesheet" type="text/css" href="dashing.css">
-</head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="dashing.css"></head>
 <body>
-	<?php include 'sidebar.php'; ?>
+	<?php include 'sidebar(Cart).php'; ?>
 
 	<section id="content">
     <!-- NAVBAR -->

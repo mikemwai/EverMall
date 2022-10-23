@@ -73,7 +73,7 @@ if(isset($_GET['delete_all'])){
 </head>
 
 <body>
-	<?php include 'sidebar.php'; ?>
+	<?php include 'sidebar(Cart).php'; ?>
 	<!--Sidebar ended-->
 
 	<!--Page Content-->
