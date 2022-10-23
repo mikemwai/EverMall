@@ -49,22 +49,15 @@ if ($query){
 
    $sql2="INSERT INTO tbl_productimages(product_image)
    VALUES('$p_image')";
- 
-
-
-   $upload= mysqli_query($conn,$sql2);
+    $upload= mysqli_query($conn,$sql2);
    if($upload){
        move_uploaded_file($p_image_tmp_name,$file_type);
        header('location:admin(Products).php');
    }
-
    else{ 
        echo"could not add the product";
    }
-
-
 }
-
 }
 else{
     //http_respose_code(400);
@@ -79,7 +72,6 @@ else{
    <link rel="stylesheet" href="Admin.css">
 </head>
 <body>
-
 <?php
    if(isset($message)){
       foreach($message as $message){
@@ -87,15 +79,11 @@ else{
       }
    }
 ?>
-
 <div class="container">
-
-
 <div class="admin-product-form-container centered">
                <?php
                 $select = mysqli_query($conn,"SELECT * FROM tbl_product WHERE product_id=$prod_id");
-                while($row = mysqli_fetch_assoc($select)){
-                    
+                while($row = mysqli_fetch_assoc($select)){                  
                 ?>
    <form action="<?php $_SERVER['PHP_SELF']?>" method="post" enctype="multipart/form-data"><!-----specifies how form data should be encoded----->
       <h3 class="title">update the product</h3>
@@ -103,20 +91,42 @@ else{
       <input type="int" min="0" class="box" name="product_price" value="<?php echo $row['unit_price'];?>" placeholder="enter the product price">
       <input type="text" placeholder="enter product description" name="product_description" value="<?php echo $row['product_description'];?>" class="box">
       <select type="text" class="box" name="subcategory_name">
-            <option value="" disabled selected hidden>enter subcategory name</option>
-            <option value="Formal">Formal</option>
-            <option value="Casual">Casual</option>
-            <option value="Sports">Sports</option>
-            <option value="Dogs">Dogs</option>
-            <option value="Cats">Cats</option>
-            <option value="Others">Others</option>
+      <option value="" disabled selected hidden>enter category name</option>
+         <?php                 
+            $sql = "SELECT * FROM `tbl_categories`";
+            $all_categories = mysqli_query($conn,$sql);
+            while ($category = mysqli_fetch_array(
+            $all_categories,MYSQLI_ASSOC)):; 
+         ?>
+         <option value="<?php echo $category["category_id"];
+            // The value we usually set is the primary key
+         ?>" >
+         <?php echo $category["category_name"];
+            // To show the category name to the user
+         ?>
+         </option>
+         <?php 
+            endwhile;
+         ?>
        </select><br>
       <select type="text" class="box" name="category_name">
-            <option value="" disabled selected hidden>enter category name</option>
-            <option value="Men">Men</option>
-            <option value="Women">Women</option>
-            <option value="Children">Children</option>
-            <option value="Pets">Pets</option>
+            <option value="" disabled selected hidden>enter subcategory name</option>
+            <?php                 
+            $sql = "SELECT * FROM `tbl_subcategories`";
+            $all_subcategories = mysqli_query($conn,$sql);
+            while ($subcategory = mysqli_fetch_array(
+            $all_subcategories,MYSQLI_ASSOC)):; 
+         ?>
+         <option value="<?php echo $subcategory["subcategory_id"];
+            // The value we usually set is the primary key
+         ?>" >
+         <?php echo $subcategory["subcategory_name"];
+            // To show the category name to the user
+         ?>
+         </option>
+         <?php 
+            endwhile;
+         ?>
       </select><br>
       <input type="int" placeholder="enter available quantity" name="available_quantity" value="<?php echo $row['available_quantity'];?>" class="box">
       <input type="text" placeholder="enter product keywords" name="product_keywords" value="<?php echo $row['product_keywords'];?>" class="box">
@@ -124,8 +134,6 @@ else{
       <input type="submit" value="Update product" name="pdate_product" class="btn">
       <a href="admin(Products).php" class="btn">Go back!</a>
    </form> 
-
-   
  <?php
  };?>
 </div>

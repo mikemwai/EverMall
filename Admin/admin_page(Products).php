@@ -66,30 +66,35 @@ if(isset($_GET['delete'])){
       <input type="int" placeholder="enter product price" name="product_price" class="box">
       <input type="text" placeholder="enter product description" name="product_description" class="box">
       <input type="int" placeholder="enter available quantity" name="available_quantity" class="box">
-      <!----<input type="" placeholder="enter category name" name="category_name" class="box">--->
-      <select type="text" class="box" name="subcategory_name" >
-            <option value="" disabled selected hidden>enter subcategory name</option>
-            <option value="Formal">Formal</option>
-            <option value="Casual">Casual</option>
-            <option value="Sports">Sports</option>
-            <option value="Dogs">Dogs</option>
-            <option value="Cats">Cats</option>
-            <option value="Others">Others</option>
-       </select><br>
       <select type="text" class="box" name="category_name" >
       <option value="" disabled selected hidden>enter category name</option>
       <?php
                     require_once("connections.php");
                     while($row = mysqli_fetch_array($result))
                      {
-                    $cat_option = $row['category_name'];
-                    
-                   
-                    echo "<option value=' $cat_option' > $cat_option </option>";
-
-                     }
+                    $cat_option = $row['category_name'];              
+                   echo "<option value=' $cat_option' > $cat_option </option>";
+                    }
       ?>
-            
+     </select><br>
+      <select type="text" class="box" name="subcategory_name" >
+            <option value="" disabled selected hidden>enter subcategory name</option>
+            <?php                 
+            $sql = "SELECT * FROM `tbl_subcategories`";
+            $all_subcategories = mysqli_query($conn,$sql);
+            while ($subcategory = mysqli_fetch_array(
+            $all_subcategories,MYSQLI_ASSOC)):; 
+         ?>
+         <option value="<?php echo $subcategory["subcategory_id"];
+            // The value we usually set is the primary key
+         ?>" >
+         <?php echo $subcategory["subcategory_name"];
+            // To show the category name to the user
+         ?>
+         </option>
+         <?php 
+            endwhile;
+         ?>
        </select><br>
       <input type="text" placeholder="enter product keywords" name="product_keywords" class="box">
       <input type="file" accept="image/png, image/jpeg, image/jpg, image/webp" name="product_image" class="box">
