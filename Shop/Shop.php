@@ -42,7 +42,7 @@ $all_product = $conn->query($sql);
 	<li><a href="#"> Engage with Us  </a></li>
 </ul>
 			</li>
-			<li><b> <a href="#"> CATEGORY </a></b>
+			<li><b> <a href="Shop.php"> CATEGORIES </a></b>
 <!--<ul>
 	<li><a href="#">Health and Beauty </a></li>
 	<li><a href="#"> Home and Office </a></li>

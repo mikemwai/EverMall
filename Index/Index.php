@@ -5,12 +5,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
 	 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
          
 		<link rel="stylesheet" href="index.css" > 
 		
-		<title> EVERMALL|| IndexPage </title>
+		<title> EVERMALL | IndexPage </title>
 </head>
 	
 <body>
@@ -23,7 +26,7 @@
 
 	 <div class="nav-links" id="navLinks">
 	 <img src="../close.png" class="menu-icon" onclick="hideMenu()">
-	 <li><b> <a href="Index.php"><i class="fa fa-home"></i> HOME </a></b></li>
+	 <li><b> <a href="Index.php"><i class="fa fa-home"></i>HOME</a></b></li>
 	 <li><b> <a href="#"> ABOUT </a></b>
        <!--<ul>
 	       <li><a href="#"> Our Team </a></li>
@@ -31,7 +34,7 @@
 	       <li><a href="#"> Engage with Us  </a></li>
        </ul>--->
 	 </li>
-	<li><b> <a href="../Shop/Shop.php"> CATEGORY </a></b>
+	<li><b> <a href="../Shop/Shop.php">CATEGORIES</a></b>
         <!--<ul>
 	       <li><a href="#">Health</a></li>
 		   <li><a href="#">Beauty</a></li>
@@ -69,7 +72,7 @@
     <h4> <b>We will exceed your expectations...</b></h4>
 
     <div class="btn-holder">
-    <a href="#" class="cta-btn">SHOP NOW</a>
+    <a href="../Shop/Shop.php" class="cta-btn">SHOP NOW</a>
 	 </div>
 </div><br><br>
 		
@@ -80,27 +83,37 @@
 <section id="banner3">
     <div class="banner-box">
         <h1><b>GYM WEAR</b></h1>
+		<a href="../Shop/Sports.php">
         <button class="white"> SPORTS </button>
+        </a>
     </div>
 
     <div class="banner-box banner-box2">
         <h1><b>GARDEN AND OUTDOORS</b></h1>
-        <button class="white"> OUTDOORS </button>
+		<a href="../Shop/Garden&Outdoor.php">
+        <button class="white">TOOLS</button>
+        </a>
     </div>
 
     <div class="banner-box banner-box3">
-        <h1><b>BEAUTY </b></h1>
-        <button class="white"> HEALTH & BEAUTY</button>
+        <h1><b>BEAUTY PRODUCTS</b></h1>
+		<a href="../Shop/Beauty.php">
+        <button class="white">BEAUTY</button>
+        </a>
     </div>
 
     <div class="banner-box banner-box4">
         <h1><b>BABY PRODUCTS </b></h1>
+		<a href="../Shop/BabyProducts.php">
         <button class="white"> KIDS' SECTION </button>
+        </a>
     </div>
 
     <div class="banner-box banner-box5">
-        <h1><b>HOME & OFFICE  </b></h1>
-        <button class="white"> HOME&OFFICE DECOR </button>
+        <h1><b>OFFICE DECOR</b></h1>
+		<a href="../Shop/Office.php">
+        <button class="white">OFFICE</button>
+        </a>
     </div>
 </section>
 </div>
@@ -115,14 +128,18 @@
        <h4>Crazy Deals</h4>
        <h2><b>But 1 get 1 free</b></h2>
        <span><b>Classic skirt suit is on sale at EVERMALL</b></span>
+	   <a href="../Shop/Fashion.php">
        <button class="white"> FASHION </button>
+       </a>
     </div>
 
     <div class="banner-box banner-box2">
        <h4>New Arrivals </h4>
        <h2><b>Quality </b></h2>
        <span><b> The best electricals are on sale at EVERMALL</b></span>
+	   <a href="../Shop/Electricals.php">
        <button class="white"> ELECTRICALS </button>
+       </a>
     </div>
 </section>
 </div><br><br>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width , initial-scale=1.0">
     <title>EverMall | Account</title>
     <link rel="stylesheet" href="Account.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
 <div style="margin: 0 auto" class="hero">
@@ -22,12 +23,12 @@
                 <img src="../close.png" class="menu-icon"
                  onclick="hideMenu()">
                 <ul id="MenuItems">
-                    <li><a href="../Index/Index.php">Home</a></li>
-                    <li><a href="../Homepage/Shoppage.php">Shop</a></li>
+                    <li><a href="../Index/Index.php"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="../Shop/Shop.php">Shop</a></li>
                     <li><a href="../About/About.php">About</a></li>
                     <li><a href="../Contact%20Us/Contact.php">Contact</a></li>
-                    <li><a href="../Account/Account.php">Account</a></li>
-                    <li><a href="../Vendor/Cart.php">Cart</a></li>
+                    <li><a href="../Account/Account.php"><i class="fa fa-user"></i> Account</a></li>
+                    <li><a href="../Vendor/Cart.php"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                 </ul>
                 </div>
                 </nav>
