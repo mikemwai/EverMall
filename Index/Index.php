@@ -33,8 +33,10 @@
 	 </li>
 	<li><b> <a href="../Shop/Shop.php"> CATEGORY </a></b>
         <ul>
-	       <li><a href="#">Health and Beauty </a></li>
-	       <li><a href="#"> Home and Office </a></li>
+	       <li><a href="#">Health</a></li>
+		   <li><a href="#">Beauty</a></li>
+	       <li><a href="#">Home</a></li>
+		   <li><a href="#">Office</a></li>
 	       <li><a href="#">Fashion </a></li>
 		   <li><a href="#">Sports </a></li>
 		   <li><a href="#">Garden and Outdoor </a></li>
