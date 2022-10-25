@@ -32,7 +32,7 @@
        </ul>--->
 	 </li>
 	<li><b> <a href="../Shop/Shop.php"> CATEGORY </a></b>
-        <ul>
+        <!--<ul>
 	       <li><a href="#">Health</a></li>
 		   <li><a href="#">Beauty</a></li>
 	       <li><a href="#">Home</a></li>
@@ -42,7 +42,7 @@
 		   <li><a href="#">Garden and Outdoor </a></li>
 		   <li><a href="#">Baby Products </a></li>
 		   <li><a href="#">Electricals</a></li>
-	    </ul>
+	    </ul>--->
 	</li>
 	<li><b> <a href="#"> NEW ARRIVALS </a></b>
         <ul>

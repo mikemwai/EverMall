@@ -19,7 +19,7 @@ $all_product = $conn->query($sql);
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
 	 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-         <link rel="stylesheet" href="../Index/index.css" > 
+     <link rel="stylesheet" href="../Index/index.css" > 
 		
 		
 </head>
@@ -43,7 +43,7 @@ $all_product = $conn->query($sql);
 </ul>
 			</li>
 			<li><b> <a href="#"> CATEGORY </a></b>
-<ul>
+<!--<ul>
 	<li><a href="#">Health and Beauty </a></li>
 	<li><a href="#"> Home and Office </a></li>
 	<li><a href="#">Fashion </a></li>
@@ -52,7 +52,7 @@ $all_product = $conn->query($sql);
 				<li><a href="#">Baby Products </a></li>
 				<li><a href="#">Electricals</a></li>
 
-	</ul>
+	</ul>--->
 		</li>
 			<li><b> <a href="#"> NEW ARRIVALS </a></b>
             <ul>
@@ -72,25 +72,87 @@ $all_product = $conn->query($sql);
 <!-------Body------>
 <div class="container">
         <div class="crazydeals">
-        <h1> Products </h1>
+        <h1>Shop with Us</h1>
         <hr/>
         </div>
-        <div class="row">
-            
-		<?php
-		while($row=mysqli_fetch_assoc($all_product)){
-		?><div class="col-md-3">
-            <div class="product-top">
-            <img class="image" src="../Admin/uploaded_image/<?php echo $row["product_image"]; ?>" width="200px" height="200px"alt = "product image">
-            <div class="overlay" >
-                <button type="button" class="btn btn-secondary" title="Quick shop">
-                    <i class="fa fa-eye"></i></button>
-                   
-                    <button type="button" class="btn btn-secondary" title="Add to Cart">
-                    <i class="fa fa-shopping-cart"></i></button>
 
-            </div>
-</div>
+        <div class="row">
+		<div class="col-md-3">
+        <div class="product-top" onclick="window.location.href='Health.php';" >
+        <img src="Health.jpg" width="200px" height="200px">
+        <h4>Health</h4>
+        </div>
+        </div>
+
+		<div class="col-md-3">
+        <div class="product-top" onclick="window.location.href='BabyProducts.php';" >
+        <img src="BabyProducts.jpg" width="200px" height="200px">
+        <h4>Baby Products</h4>
+        </div>
+        </div>
+
+		<div class="col-md-3">
+        <div class="product-top" onclick="window.location.href='Beauty.php';">
+        <img src="Beauty.jpg" width="200px" height="200px">
+        <h4>Beauty</h4>
+        </div>
+        </div>
+
+		<div class="col-md-3">
+        <div class="product-top" onclick="window.location.href='Electricals.php';">
+        <img src="Electricals.jpg" width="200px" height="200px">
+        <h4>Electricals</h4>
+        </div>
+        </div>
+
+		<div class="col-md-3">
+        <div class="product-top" onclick="window.location.href='Fashion.php';">
+        <img src="Fashion.jpg" width="200px" height="200px">
+        <h4>Fashion</h4>
+        </div>
+        </div>
+
+		<div class="col-md-3">
+        <div class="product-top" onclick="window.location.href='Garden&Outdoor.php';">
+        <img src="Garden&Outdoor.jpg" width="200px" height="200px">
+        <h4>Garden and Outdoor</h4>
+        </div>
+        </div>
+
+		<div class="col-md-3">
+        <div class="product-top" onclick="window.location.href='Home.php';">
+        <img src="Home.jpg" width="200px" height="200px">
+        <h4>Home</h4>
+        </div>
+        </div>
+
+		<div class="col-md-3">
+        <div class="product-top" onclick="window.location.href='Office.php';">
+        <img src="Office.jpg" width="200px" height="200px">
+        <h4>Office</h4>
+        </div>
+        </div>
+
+		<div class="col-md-3">
+        <div class="product-top" onclick="window.location.href='Sports.php';">
+        <img src="Sports.jpg" width="200px" height="200px">
+        <h4>Sports</h4>
+        </div>
+        </div>
+        </div>
+        </div>
+</div>            
+<?php
+	/*while($row=mysqli_fetch_assoc($all_product)){
+    	?><div class="col-md-3">
+        <div class="product-top">
+        <img class="image" src="../Admin/uploaded_image/<?php echo $row["product_image"]; ?>" width="200px" height="200px"alt = "product image">
+        <div class="overlay" >
+        <button type="button" class="btn btn-secondary" title="Quick shop">
+        <i class="fa fa-eye"></i></button>            
+        <button type="button" class="btn btn-secondary" title="Add to Cart">
+        <i class="fa fa-shopping-cart"></i></button>    
+        </div>
 
 <div class="product-bottom text-center">
 <i class="fa fa-star" ></i>
@@ -101,24 +163,17 @@ $all_product = $conn->query($sql);
 <i class="fa fa-star-o"></i>
 <h3><?php echo $row["product_name"]; ?></h3>
 <h5> Ksh.<?php echo $row["unit_price"]; ?></h5><br>
-
 </div>
 
 </div>
 <?php
-};
+};*/
 ?>
 
-
-
-
-</div>
-</div>
-
 <!------------FOOTER------------------>
-<br><div class="footer">
+<div class="footer">
 	<div class="footer-col"> 
-	   <img class="image" src="../Evermall(White).png" width="0px">
+	   <img class="image" src="../Evermall(White).png">
 	     <p> <i>We are an online store serving you with all quality products from different brands around the world. <br> 
 	     We have all you need to make life comfortable  from original beauty products, clothes,office equipment and many more.<br>Our aim is to provide the best and bring things closer to you and easier to purchase by the click of a button.<br>We have partnered with 
 	     at least 100 brands from Nike, Gucci, Louis Vouton , even thrifting apparels and many more renown brands.</i> </p>
