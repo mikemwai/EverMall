@@ -6,10 +6,6 @@ $prod_id=$_GET['edit'];
 
 
 if (isset($_POST['update_product'])) {
-    
-
-
-
 
 $p_name=$_POST['product_name'];
 
@@ -35,10 +31,6 @@ $p_image= $_FILES['product_image']['name'];
 $p_image_tmp_name = $_FILES['product_image']['tmp_name'];
 $file_type = 'uploaded_image/' .$p_image;
 	//print($file_type);
-
-
-
-
 $sql="UPDATE tbl_product SET product_name= '$p_name' ,product_description= '$p_des' ,product_image = '$p_image' ,available_quantity ='$p_quan' , subcategory_name = '$sub_n',category_name = '$cat_n',product_keywords= '$key' WHERE product_id= $prod_id";
 
 
@@ -90,7 +82,7 @@ else{
       <input type="text" class="box" name="product_name" value="<?php echo $row['product_name'];?>" placeholder="enter the product name">
       <input type="int" min="0" class="box" name="product_price" value="<?php echo $row['unit_price'];?>" placeholder="enter the product price">
       <input type="text" placeholder="enter product description" name="product_description" value="<?php echo $row['product_description'];?>" class="box">
-      <select type="text" class="box" name="subcategory_name">
+      <select type="text" class="box" name="category_name">
       <option value="" disabled selected hidden>enter category name</option>
          <?php                 
             $sql = "SELECT * FROM `tbl_categories`";
@@ -98,7 +90,7 @@ else{
             while ($category = mysqli_fetch_array(
             $all_categories,MYSQLI_ASSOC)):; 
          ?>
-         <option value="<?php echo $category["category_id"];
+         <option value="<?php echo $category["category_name"];
             // The value we usually set is the primary key
          ?>" >
          <?php echo $category["category_name"];
@@ -109,7 +101,7 @@ else{
             endwhile;
          ?>
        </select><br>
-      <select type="text" class="box" name="category_name">
+      <select type="text" class="box" name="subcategory_name">
             <option value="" disabled selected hidden>enter subcategory name</option>
             <?php                 
             $sql = "SELECT * FROM `tbl_subcategories`";
@@ -117,7 +109,7 @@ else{
             while ($subcategory = mysqli_fetch_array(
             $all_subcategories,MYSQLI_ASSOC)):; 
          ?>
-         <option value="<?php echo $subcategory["subcategory_id"];
+         <option value="<?php echo $subcategory["subcategory_name"];
             // The value we usually set is the primary key
          ?>" >
          <?php echo $subcategory["subcategory_name"];
@@ -131,7 +123,7 @@ else{
       <input type="int" placeholder="enter available quantity" name="available_quantity" value="<?php echo $row['available_quantity'];?>" class="box">
       <input type="text" placeholder="enter product keywords" name="product_keywords" value="<?php echo $row['product_keywords'];?>" class="box">
       <input type="file" class="box" name="product_image"  accept="image/png, image/jpeg, image/jpg, image/webp" value="<?php echo $row['product_image'];?>">
-      <input type="submit" value="Update product" name="pdate_product" class="btn">
+      <input type="submit" value="Update product" name="update_product" class="btn">
       <a href="admin(Products).php" class="btn">Go back!</a>
    </form> 
  <?php
