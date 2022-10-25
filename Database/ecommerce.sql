@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2022 at 07:59 PM
+-- Generation Time: Oct 25, 2022 at 10:33 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -361,9 +361,18 @@ CREATE TABLE `tbl_categories` (
 
 INSERT INTO `tbl_categories` (`category_id`, `category_name`, `is_deleted`) VALUES
 (1, 'Men', 0),
-(2, 'Ladies', 0),
+(2, 'Women', 0),
 (3, 'Children', 0),
-(4, 'Pets', 0);
+(4, 'Others', 0),
+(5, 'Health', 0),
+(6, 'Beauty', 0),
+(7, 'Fashion', 0),
+(8, 'Electricals', 0),
+(9, 'Garden&Outdoor', 0),
+(10, 'BabyProducts', 0),
+(11, 'Home', 0),
+(12, 'Office', 0),
+(13, 'Sports', 0);
 
 -- --------------------------------------------------------
 
@@ -487,34 +496,37 @@ CREATE TABLE `tbl_product` (
 --
 
 INSERT INTO `tbl_product` (`product_id`, `vendor_id`, `product_name`, `product_description`, `product_image`, `unit_price`, `available_quantity`, `subcategory_name`, `category_name`, `product_keywords`, `created_at`, `updated_at`, `added_by`, `is_deleted`) VALUES
-(1, 1, 'Blue T-Shirt', 'The shirt is blue in color', 'product-4.jpg', 1200, 25, 'Casual', 'Men', 'blue, t-shirt, casual, ladies', '2022-06-21 22:47:53', '2022-06-21 22:47:53', NULL, NULL),
-(2, 2, 'White T-Shirt', 'The shirt is white in color. A product of Calvin Klein.', '24.jpg', 1500, 20, 'Casual', 'Men', 'white, t-shirt, casual, children', '2022-06-21 22:48:41', '2022-06-21 22:48:41', NULL, NULL),
-(3, 3, 'Purple Trenchcoat', 'The trenchcoat is purple. ', '6.jpg', 3000, 10, 'Formal', 'Children', 'purple, trenchcoat, formal, children', '2022-06-21 22:49:39', '2022-06-21 22:49:39', NULL, NULL),
-(4, 4, 'Dark green T-Shirt', 'The shirt is dark green in color. A product of Lacoste.', '26.jpg', 500, 50, 'Casual', 'Men', 'dark-green, t-shirt, casual, men', '2022-06-21 22:51:25', '2022-06-21 22:51:25', NULL, NULL),
-(5, 5, 'Purple T-shirt', 'The t-shirt is purple in color', '16.jpg', 500, 50, 'Casual', 'Ladies', 'purple, casual, ladies', '2022-06-28 10:47:32', '2022-06-28 10:47:32', NULL, NULL),
-(6, 13, 'Black Sweater', 'The sweater is black in color. A product of polo.', '21.jpg', 2000, 15, 'Formal', 'Men', 'black, sweater, formal, men', '2022-06-28 10:50:59', '2022-06-28 10:50:59', NULL, NULL),
-(7, 21, 'Blue Jacket', 'The puff jacket is blue in color.', '8.jpg', 3000, 25, 'Formal', 'Ladies', 'blue, jacket, formal, ladies', '2022-06-28 10:53:22', '2022-06-28 10:53:22', NULL, NULL),
-(8, 22, 'Black Suit', 'The suit is black in color.', 'pexels-teddy-joseph-2955375.jpg', 5000, 10, 'Formal', 'Men', 'black, suit, formal, men', '2022-06-28 10:55:36', '2022-06-28 10:55:36', NULL, NULL),
-(9, 26, 'Black Socks', 'The socks are black.', 'pexels-ryutaro-tsukata-5746098.jpg', 100, 50, 'Sports', 'Children', 'black, socks, sports, children', '2022-06-28 10:56:48', '2022-06-28 10:56:48', NULL, NULL),
-(10, 27, 'Sweater', 'The sweater is red in color that can be worn by pets.', 'Pets1.jpg', 1000, 20, 'Dogs', 'Pets', 'sweater, dogs, pets', '2022-06-28 10:59:06', '2022-06-28 10:59:06', NULL, NULL),
-(11, 28, 'Cream Shirt', 'The shirt is cream in color. The product is from Lacoste.', 'pexels-brenner-oliveira-10495156.jpg', 1500, 30, 'Formal', 'Men', 'cream, shirt, formal, men', '2022-06-28 12:26:44', '2022-06-28 12:26:44', NULL, NULL),
-(12, 29, 'Blue Sweater', 'The sweater is blue in color.', 'pexels-teddy-tavan-4890733.jpg', 5500, 15, 'Casual', 'Men', 'blue, sweater, casual, men', '2022-06-28 12:27:31', '2022-06-28 12:27:31', NULL, NULL),
-(13, 30, 'Kitenge Shirt', 'The shirt is a kitenge best for hot weather.', 'pexels-mikhail-nilov-7624298.jpg', 800, 35, 'Casual', 'Men', 'kitenge, shirt, casual, men', '2022-06-28 12:29:43', '2022-06-28 12:29:43', NULL, NULL),
-(14, 31, 'Red T-Shirt', 'The red T-shirt is best for sports. Product from Nike.', 'pexels-pnw-production-8979858.jpg', 1300, 20, 'Sports', 'Men', 'red, t-shirt, sports, men', '2022-06-28 12:35:39', '2022-06-28 12:35:39', NULL, NULL),
-(15, 33, 'White Trouser', 'The white trouser is best for hot weather and can be worn in beaches. ', 'pexels-mwabonje-5875803.jpg', 900, 15, 'Casual', 'Men', 'white, trouser, casual, men', '2022-06-28 12:37:53', '2022-06-28 12:37:53', NULL, NULL),
-(16, 34, 'Orange Dress', 'The orange dress is a product from Zara.', 'pexels-mikhail-nilov-7682670.jpg', 1200, 25, 'Casual', 'Ladies', 'orange, dress, casual, ladies', '2022-06-28 12:47:23', '2022-06-28 12:47:23', NULL, NULL),
-(17, 35, 'White Sweatpants', 'The white sweatpants is a product from Nike.', 'pexels-styves-exantus-8514111.jpg', 1100, 30, 'Sports', 'Ladies', 'white, sweatpants, sports, ladies', '2022-06-28 12:48:28', '2022-06-28 12:48:28', NULL, NULL),
-(18, 1, 'White Dress', 'The white dress is best for official environments.', 'WhiteDress.jpg', 2000, 30, 'Formal', 'Ladies', 'white, dress, formal, ladies', '2022-06-28 12:50:38', '2022-06-28 12:50:38', NULL, NULL),
-(19, 2, 'White wedding Gown', 'The wedding gown is white in color.', '4.jpg', 10000, 15, 'Casual', 'Ladies', 'white, wedding, gown, casual, ladies', '2022-06-28 12:58:36', '2022-06-28 12:58:36', NULL, NULL),
-(20, 3, 'White Suit', 'The white suit is best for official environments.', '5.jpg', 5000, 15, 'Formal', 'Ladies', 'white, suit, formal, ladies', '2022-06-28 12:59:43', '2022-06-28 12:59:43', NULL, NULL),
-(21, 4, 'Black Sweatpants', 'The product is from Adidas.', 'product-12.jpg', 2000, 20, 'Casual', 'Children', 'black, sweatpants, casual, children', '2022-06-28 13:02:28', '2022-06-28 13:02:28', NULL, NULL),
-(22, 5, 'Sweater', 'The product is from Polo.', 'pexels-amina-filkins-5559985.jpg', 1300, 50, 'Casual', 'Children', 'sweater, casual, children', '2022-06-28 13:05:45', '2022-06-28 13:05:45', NULL, NULL),
-(23, 4, 'Turquoise T-Shirt', 'The T-Shirt is long sleeved. The product is best for cold weather.', 'pexels-norma-mortenson-7303182.jpg', 2000, 20, 'Casual', 'Children', 'turquoise t-shirt, casual, children', '2022-06-28 13:07:54', '2022-06-28 13:07:54', NULL, NULL),
-(31, 4, 'Black Shirt', 'This shirt is black in colour.', 'user-2.png', 1000, 20, 'Casual', 'Men', 'Black Shirt, Men, Casual', '2022-10-17 11:50:04', '2022-10-17 11:50:04', NULL, NULL),
-(33, 28, 'Pink Marvin', 'The marvin is pink in colour', 'Marvin.jpg', 2000, 20, 'Casual', 'Women', 'Pink, Pink Marvin, Casual, Ladies', '2022-10-17 17:58:34', '2022-10-17 17:58:34', NULL, NULL),
-(34, 33, 'Royal blue shirt', 'The shirt is royal blue in color', 'Professor.jpg', 2000, 5, 'Formal', 'Men', 'Royal Blue, Royal Blue shirt, Casual, Men', '2022-10-17 20:12:27', '2022-10-17 20:12:27', NULL, NULL),
-(35, 33, 'Cod Liver oil', 'The supplement helps children gain great immunity and brain growth.', 'Health.jpg', 2500, 30, 'Others', 'Children', 'Cod Liver oil, Others, Children', '2022-10-17 20:25:18', '2022-10-17 20:25:18', NULL, NULL),
-(36, 33, 'Antibiotics', 'The antibiotics are very strong in treating diseases', 'Health1.jpg', 500, 10, 'Others', 'Children', 'Antibiotics, Children, Others', '2022-10-17 20:29:17', '2022-10-17 20:29:17', NULL, NULL);
+(1, 1, 'Blue T-Shirt', 'The shirt is blue in color', 'product-4.jpg', 1200, 25, 'Casual', 'Health', 'blue, t-shirt, casual, ladies', '2022-06-21 22:47:53', '2022-06-21 22:47:53', NULL, NULL),
+(2, 2, 'White T-Shirt', 'The shirt is white in color. A product of Calvin Klein.', '24.jpg', 1500, 20, 'Formal', 'Health', 'white, t-shirt, casual, children', '2022-06-21 22:48:41', '2022-06-21 22:48:41', NULL, NULL),
+(3, 3, 'Purple Trenchcoat', 'The trenchcoat is purple. ', '6.jpg', 3000, 10, 'Sports', 'Health', 'purple, trenchcoat, formal, children', '2022-06-21 22:49:39', '2022-06-21 22:49:39', NULL, NULL),
+(4, 4, 'Dark green T-Shirt', 'The shirt is dark green in color. A product of Lacoste.', '26.jpg', 500, 50, 'Casual', 'Health', 'dark-green, t-shirt, casual, men', '2022-06-21 22:51:25', '2022-06-21 22:51:25', NULL, NULL),
+(5, 5, 'Purple T-shirt', 'The t-shirt is purple in color', '16.jpg', 500, 50, 'Formal', 'Beauty', 'purple, casual, ladies', '2022-06-28 10:47:32', '2022-06-28 10:47:32', NULL, NULL),
+(6, 13, 'Black Sweater', 'The sweater is black in color. A product of polo.', '21.jpg', 2000, 15, 'Casual', 'Beauty', 'black, sweater, formal, men', '2022-06-28 10:50:59', '2022-06-28 10:50:59', NULL, NULL),
+(7, 21, 'Blue Jacket', 'The puff jacket is blue in color.', '8.jpg', 3000, 25, 'Casual', 'Beauty', 'blue, jacket, formal, ladies', '2022-06-28 10:53:22', '2022-06-28 10:53:22', NULL, NULL),
+(8, 22, 'Black Suit', 'The suit is black in color.', 'pexels-teddy-joseph-2955375.jpg', 5000, 10, 'Formal', 'Beauty', 'black, suit, formal, men', '2022-06-28 10:55:36', '2022-06-28 10:55:36', NULL, NULL),
+(9, 26, 'Black Socks', 'The socks are black.', 'pexels-ryutaro-tsukata-5746098.jpg', 100, 50, 'Casual', 'Fashion', 'black, socks, sports, children', '2022-06-28 10:56:48', '2022-06-28 10:56:48', NULL, NULL),
+(10, 27, 'Sweater', 'The sweater is red in color that can be worn by pets.', 'Pets1.jpg', 1000, 20, 'Dogs', 'Fashion', 'sweater, dogs, pets', '2022-06-28 10:59:06', '2022-06-28 10:59:06', NULL, NULL),
+(11, 28, 'Cream Shirt', 'The shirt is cream in color. The product is from Lacoste.', 'pexels-brenner-oliveira-10495156.jpg', 1500, 30, 'Casual', 'Fashion', 'cream, shirt, formal, men', '2022-06-28 12:26:44', '2022-06-28 12:26:44', NULL, NULL),
+(12, 29, 'Blue Sweater', 'The sweater is blue in color.', 'pexels-teddy-tavan-4890733.jpg', 5500, 15, 'Casual', 'Fashion', 'blue, sweater, casual, men', '2022-06-28 12:27:31', '2022-06-28 12:27:31', NULL, NULL),
+(13, 30, 'Kitenge Shirt', 'The shirt is a kitenge best for hot weather.', 'pexels-mikhail-nilov-7624298.jpg', 800, 35, 'Casual', 'Electricals', 'kitenge, shirt, casual, men', '2022-06-28 12:29:43', '2022-06-28 12:29:43', NULL, NULL),
+(14, 31, 'Red T-Shirt', 'The red T-shirt is best for sports. Product from Nike.', 'pexels-pnw-production-8979858.jpg', 1300, 20, 'Sports', 'Electricals', 'red, t-shirt, sports, men', '2022-06-28 12:35:39', '2022-06-28 12:35:39', NULL, NULL),
+(15, 33, 'White Trouser', 'The white trouser is best for hot weather and can be worn in beaches. ', 'pexels-mwabonje-5875803.jpg', 900, 15, 'Formal', 'Electricals', 'white, trouser, casual, men', '2022-06-28 12:37:53', '2022-06-28 12:37:53', NULL, NULL),
+(16, 34, 'Orange Dress', 'The orange dress is a product from Zara.', 'pexels-mikhail-nilov-7682670.jpg', 1200, 25, 'Casual', 'Electricals', 'orange, dress, casual, ladies', '2022-06-28 12:47:23', '2022-06-28 12:47:23', NULL, NULL),
+(17, 35, 'White Sweatpants', 'The white sweatpants is a product from Nike.', 'pexels-styves-exantus-8514111.jpg', 1100, 30, 'Sports', 'Garden&Outdoor', 'white, sweatpants, sports, ladies', '2022-06-28 12:48:28', '2022-06-28 12:48:28', NULL, NULL),
+(18, 1, 'White Dress', 'The white dress is best for official environments.', 'WhiteDress.jpg', 2000, 30, 'Casual', 'Garden&Outdoor', 'white, dress, formal, ladies', '2022-06-28 12:50:38', '2022-06-28 12:50:38', NULL, NULL),
+(19, 2, 'White wedding Gown', 'The wedding gown is white in color.', '4.jpg', 10000, 15, 'Casual', 'Garden&Outdoor', 'white, wedding, gown, casual, ladies', '2022-06-28 12:58:36', '2022-06-28 12:58:36', NULL, NULL),
+(20, 3, 'White Suit', 'The white suit is best for official environments.', '5.jpg', 5000, 15, 'Formal', 'Garden&Outdoor', 'white, suit, formal, ladies', '2022-06-28 12:59:43', '2022-06-28 12:59:43', NULL, NULL),
+(21, 4, 'Black Sweatpants', 'The product is from Adidas.', 'product-12.jpg', 2000, 20, 'Casual', 'BabyProducts', 'black, sweatpants, casual, children', '2022-06-28 13:02:28', '2022-06-28 13:02:28', NULL, NULL),
+(22, 5, 'Sweater', 'The product is from Polo.', 'pexels-amina-filkins-5559985.jpg', 1300, 50, 'Casual', 'BabyProducts', 'sweater, casual, children', '2022-06-28 13:05:45', '2022-06-28 13:05:45', NULL, NULL),
+(23, 4, 'Turquoise T-Shirt', 'The T-Shirt is long sleeved. The product is best for cold weather.', 'pexels-norma-mortenson-7303182.jpg', 2000, 20, 'Casual', 'BabyProducts', 'turquoise t-shirt, casual, children', '2022-06-28 13:07:54', '2022-06-28 13:07:54', NULL, NULL),
+(31, 4, 'Black Shirt', 'This shirt is black in colour.', 'user-2.png', 1000, 20, 'Casual', 'Home', 'Black Shirt, Men, Casual', '2022-10-17 11:50:04', '2022-10-17 11:50:04', NULL, NULL),
+(33, 28, 'Pink Marvin', 'The marvin is pink in colour', 'Marvin.jpg', 2000, 20, 'Casual', 'BabyProducts', 'Pink, Pink Marvin, Casual, Ladies', '2022-10-17 17:58:34', '2022-10-17 17:58:34', NULL, NULL),
+(34, 33, 'Royal blue shirt', 'The shirt is royal blue in color', 'Professor.jpg', 2000, 5, 'Formal', 'Office', 'Royal Blue, Royal Blue shirt, Casual, Men', '2022-10-17 20:12:27', '2022-10-17 20:12:27', NULL, NULL),
+(35, 33, 'Cod Liver oil', 'The supplement helps children gain great immunity and brain growth.', 'Health.jpg', 2500, 30, 'Others', 'Health', 'Cod Liver oil, Others, Children', '2022-10-17 20:25:18', '2022-10-17 20:25:18', NULL, NULL),
+(36, 33, 'Antibiotics', 'The antibiotics are very strong in treating diseases', 'Health1.jpg', 500, 10, 'Others', 'Health', 'Antibiotics, Children, Others', '2022-10-17 20:29:17', '2022-10-17 20:29:17', NULL, NULL),
+(37, 28, 'Red Dress', 'The dress is red.', 'Dress.jpg', 4500, 30, 'Casual', 'Home', 'Red Dress, Casual, Women', '2022-10-19 08:30:33', '2022-10-19 08:30:33', NULL, NULL),
+(38, 5, 'Halloween Costume', 'The halloween costume is white in colour.', 'Halloween.jpg', 2000, 10, 'Others', 'Sports', 'Halloween Costume, Others, Children', '2022-10-22 09:42:15', '2022-10-22 09:42:15', NULL, NULL),
+(39, 4, 'Black speaker', 'The speaker is black with a lighting mechanism around it.', 'Speaker.jpg', 3500, 2, 'Others', 'Electricals', 'Black speaker, electricals, others', '2022-10-25 23:31:21', '2022-10-25 23:31:21', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -570,7 +582,41 @@ INSERT INTO `tbl_productimages` (`productimages_id`, `product_image`, `product_i
 (31, 'Bicycle1.jpg', 0, '2022-07-13 09:14:06', '2022-07-13 09:14:06', 0, 0),
 (32, 'product-4.jpg', 0, '2022-09-28 08:58:51', '2022-09-28 08:58:51', 0, 0),
 (33, 'product-4.jpg', 0, '2022-09-28 08:59:32', '2022-09-28 08:59:32', 0, 0),
-(34, '24.jpg', 0, '2022-10-04 20:51:30', '2022-10-04 20:51:30', 0, 0);
+(34, '24.jpg', 0, '2022-10-04 20:51:30', '2022-10-04 20:51:30', 0, 0),
+(35, 'Halloween.jpg', 0, '2022-10-22 09:42:15', '2022-10-22 09:42:15', 0, 0),
+(36, 'product-4.jpg', 0, '2022-10-25 22:40:37', '2022-10-25 22:40:37', 0, 0),
+(37, 'product-4.jpg', 0, '2022-10-25 22:41:36', '2022-10-25 22:41:36', 0, 0),
+(38, 'product-4.jpg', 0, '2022-10-25 22:44:14', '2022-10-25 22:44:14', 0, 0),
+(39, 'product-4.jpg', 0, '2022-10-25 22:44:56', '2022-10-25 22:44:56', 0, 0),
+(40, '24.jpg', 0, '2022-10-25 22:45:50', '2022-10-25 22:45:50', 0, 0),
+(41, '6.jpg', 0, '2022-10-25 22:46:10', '2022-10-25 22:46:10', 0, 0),
+(42, '26.jpg', 0, '2022-10-25 22:46:31', '2022-10-25 22:46:31', 0, 0),
+(43, '16.jpg', 0, '2022-10-25 22:46:58', '2022-10-25 22:46:58', 0, 0),
+(44, '21.jpg', 0, '2022-10-25 22:47:24', '2022-10-25 22:47:24', 0, 0),
+(45, '8.jpg', 0, '2022-10-25 22:47:42', '2022-10-25 22:47:42', 0, 0),
+(46, 'pexels-teddy-joseph-2955375.jpg', 0, '2022-10-25 22:48:03', '2022-10-25 22:48:03', 0, 0),
+(47, 'pexels-ryutaro-tsukata-5746098.jpg', 0, '2022-10-25 22:48:26', '2022-10-25 22:48:26', 0, 0),
+(48, 'Pets1.jpg', 0, '2022-10-25 22:48:48', '2022-10-25 22:48:48', 0, 0),
+(49, 'pexels-brenner-oliveira-10495156.jpg', 0, '2022-10-25 22:49:13', '2022-10-25 22:49:13', 0, 0),
+(50, 'pexels-teddy-tavan-4890733.jpg', 0, '2022-10-25 22:49:34', '2022-10-25 22:49:34', 0, 0),
+(51, 'pexels-mikhail-nilov-7624298.jpg', 0, '2022-10-25 22:49:57', '2022-10-25 22:49:57', 0, 0),
+(52, 'pexels-pnw-production-8979858.jpg', 0, '2022-10-25 22:51:05', '2022-10-25 22:51:05', 0, 0),
+(53, 'pexels-mwabonje-5875803.jpg', 0, '2022-10-25 22:51:38', '2022-10-25 22:51:38', 0, 0),
+(54, 'pexels-mikhail-nilov-7682670.jpg', 0, '2022-10-25 22:52:04', '2022-10-25 22:52:04', 0, 0),
+(55, 'pexels-styves-exantus-8514111.jpg', 0, '2022-10-25 23:16:38', '2022-10-25 23:16:38', 0, 0),
+(56, 'WhiteDress.jpg', 0, '2022-10-25 23:17:07', '2022-10-25 23:17:07', 0, 0),
+(57, '4.jpg', 0, '2022-10-25 23:18:56', '2022-10-25 23:18:56', 0, 0),
+(58, '5.jpg', 0, '2022-10-25 23:19:31', '2022-10-25 23:19:31', 0, 0),
+(59, 'product-12.jpg', 0, '2022-10-25 23:19:55', '2022-10-25 23:19:55', 0, 0),
+(60, 'pexels-amina-filkins-5559985.jpg', 0, '2022-10-25 23:20:27', '2022-10-25 23:20:27', 0, 0),
+(61, 'pexels-norma-mortenson-7303182.jpg', 0, '2022-10-25 23:20:48', '2022-10-25 23:20:48', 0, 0),
+(62, 'user-2.png', 0, '2022-10-25 23:21:38', '2022-10-25 23:21:38', 0, 0),
+(63, 'Health.jpg', 0, '2022-10-25 23:22:25', '2022-10-25 23:22:25', 0, 0),
+(64, 'Health1.jpg', 0, '2022-10-25 23:22:44', '2022-10-25 23:22:44', 0, 0),
+(65, 'Marvin.jpg', 0, '2022-10-25 23:23:10', '2022-10-25 23:23:10', 0, 0),
+(66, 'Professor.jpg', 0, '2022-10-25 23:23:28', '2022-10-25 23:23:28', 0, 0),
+(67, 'Dress.jpg', 0, '2022-10-25 23:23:50', '2022-10-25 23:23:50', 0, 0),
+(68, 'Halloween.jpg', 0, '2022-10-25 23:24:12', '2022-10-25 23:24:12', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -602,7 +648,6 @@ INSERT INTO `tbl_roles` (`role_id`, `role_name`, `is_deleted`) VALUES
 CREATE TABLE `tbl_subcategories` (
   `subcategory_id` int(11) NOT NULL,
   `subcategory_name` varchar(25) NOT NULL,
-  `category_id` int(11) NOT NULL,
   `is_deleted` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -610,19 +655,13 @@ CREATE TABLE `tbl_subcategories` (
 -- Dumping data for table `tbl_subcategories`
 --
 
-INSERT INTO `tbl_subcategories` (`subcategory_id`, `subcategory_name`, `category_id`, `is_deleted`) VALUES
-(1, 'Formal', 1, 0),
-(2, 'Casual', 1, 0),
-(3, 'Sports', 1, 0),
-(4, 'Formal', 2, 0),
-(5, 'Casual', 2, 0),
-(6, 'Sports', 2, 0),
-(7, 'Formal', 3, 0),
-(8, 'Casual', 3, 0),
-(9, 'Sports', 3, 0),
-(10, 'Dogs', 4, 0),
-(11, 'Cats', 4, 0),
-(12, 'Others', 4, 0);
+INSERT INTO `tbl_subcategories` (`subcategory_id`, `subcategory_name`, `is_deleted`) VALUES
+(1, 'Formal', 0),
+(2, 'Casual', 0),
+(3, 'Sports', 0),
+(4, 'Dogs', 0),
+(5, 'Cats', 0),
+(6, 'Others', 0);
 
 -- --------------------------------------------------------
 
@@ -1014,7 +1053,7 @@ ALTER TABLE `tbl_cart`
 -- AUTO_INCREMENT for table `tbl_categories`
 --
 ALTER TABLE `tbl_categories`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tbl_complain`
@@ -1038,19 +1077,19 @@ ALTER TABLE `tbl_orderdetails`
 -- AUTO_INCREMENT for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `tbl_productimages`
 --
 ALTER TABLE `tbl_productimages`
-  MODIFY `productimages_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `productimages_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT for table `tbl_subcategories`
 --
 ALTER TABLE `tbl_subcategories`
-  MODIFY `subcategory_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `subcategory_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_userlogins`
