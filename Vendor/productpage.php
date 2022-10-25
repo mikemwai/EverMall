@@ -236,7 +236,7 @@
                     while ($category = mysqli_fetch_array(
                     $all_categories,MYSQLI_ASSOC)):; 
                  ?>
-                <option value="<?php echo $category["category_id"];
+                <option value="<?php echo $category["category_name"];
                     // The value we usually set is the primary key
                 ?>" >
                  <?php echo $category["category_name"];
@@ -255,7 +255,7 @@
                     while ($subcategory = mysqli_fetch_array(
                     $all_subcategories,MYSQLI_ASSOC)):; 
                   ?>
-                <option value="<?php echo $subcategory["subcategory_id"];
+                <option value="<?php echo $subcategory["subcategory_name"];
                    // The value we usually set is the primary key
                  ?>" >
                  <?php echo $subcategory["subcategory_name"];
