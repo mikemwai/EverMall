@@ -73,63 +73,63 @@ $all_product = $conn->query($sql);
         <div class="row">
 		<div class="col-md-3">
         <div class="product-top" onclick="window.location.href='Health.php';" >
-        <img src="Health.jpg" width="200px" height="200px">
+        <img src="Health.jpg" width="200px" height="300px">
         <h4>Health</h4>
         </div>
         </div>
 
 		<div class="col-md-3">
         <div class="product-top" onclick="window.location.href='BabyProducts.php';" >
-        <img src="BabyProducts.jpg" width="200px" height="200px">
+        <img src="BabyProducts.jpg" width="200px" height="300px">
         <h4>Baby Products</h4>
         </div>
         </div>
 
 		<div class="col-md-3">
         <div class="product-top" onclick="window.location.href='Beauty.php';">
-        <img src="Beauty.jpg" width="200px" height="200px">
+        <img src="Beauty.jpg" width="200px" height="300px">
         <h4>Beauty</h4>
         </div>
         </div>
 
 		<div class="col-md-3">
         <div class="product-top" onclick="window.location.href='Electricals.php';">
-        <img src="Electricals.jpg" width="200px" height="200px">
+        <img src="Electricals.jpg" width="200px" height="300px">
         <h4>Electricals</h4>
         </div>
         </div>
 
 		<div class="col-md-3">
         <div class="product-top" onclick="window.location.href='Fashion.php';">
-        <img src="Fashion.jpg" width="200px" height="200px">
+        <img src="Fashion.jpg" width="200px" height="300px">
         <h4>Fashion</h4>
         </div>
         </div>
 
 		<div class="col-md-3">
         <div class="product-top" onclick="window.location.href='Garden&Outdoor.php';">
-        <img src="Garden&Outdoor.jpg" width="200px" height="200px">
+        <img src="Garden&Outdoor.jpg" width="200px" height="300px">
         <h4>Garden and Outdoor</h4>
         </div>
         </div>
 
 		<div class="col-md-3">
         <div class="product-top" onclick="window.location.href='Home.php';">
-        <img src="Home.jpg" width="200px" height="200px">
+        <img src="Home.jpg" width="200px" height="300px">
         <h4>Home</h4>
         </div>
         </div>
 
 		<div class="col-md-3">
         <div class="product-top" onclick="window.location.href='Office.php';">
-        <img src="Office.jpg" width="200px" height="200px">
+        <img src="Office.jpg" width="200px" height="300px">
         <h4>Office</h4>
         </div>
         </div>
 
 		<div class="col-md-3">
         <div class="product-top" onclick="window.location.href='Sports.php';">
-        <img src="Sports.jpg" width="200px" height="200px">
+        <img src="Sports.jpg" width="200px" height="300px">
         <h4>Sports</h4>
         </div>
         </div>
