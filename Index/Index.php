@@ -13,7 +13,7 @@
          
 		<link rel="stylesheet" href="index.css" > 
 		
-		<title> EVERMALL | IndexPage </title>
+		<title> EverMall | IndexPage </title>
 </head>
 	
 <body>
@@ -26,7 +26,7 @@
 
 	 <div class="nav-links" id="navLinks">
 	 <img src="../close.png" class="menu-icon" onclick="hideMenu()">
-	 <li><b> <a href="Index.php"><i class="fa fa-home"></i>HOME</a></b></li>
+	 <li><b> <a href="Index.php"><i class="fa fa-home"></i> HOME</a></b></li>
 	 <li><b> <a href="#"> ABOUT </a></b>
        <!--<ul>
 	       <li><a href="#"> Our Team </a></li>
@@ -52,7 +52,7 @@
            	<li><a href="#"> COMING SOON... </a></li>
         </ul>
 	</li>
-	<li><b> <a href="../Account/Account.php"><i class="fa fa-user"></i> ACCOUNT </a></b>
+	<li><b> <a href="../Account/Account.php"><i class="fa fa-user"></i> ACCOUNT</a></b>
         <ul>
 	       <li><a href="../Vendor/productpage.php"> Vendor </a></li>
 	       <li><a href="../Vendor/Cart.php"> Cart </a></li>

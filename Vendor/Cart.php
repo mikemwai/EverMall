@@ -139,7 +139,7 @@ if (is_numeric($fetch_cart['quantity']) && is_numeric($fetch_cart['price'])) {
           ?>
           <tr class="table-bottom">
           
-            <td><a href="products.php" class="btn" >Continue shopping</a></td>
+            <td><a href="../Shop/Shop.php" class="btn" >Continue shopping</a></td>
             <td colspan="3">grand total</td>
             <td><?php echo $grand_total;?></td>
               <td><a href="Cart.php?delete_all" class="btn" onclick="return confirm('are you sure you want to delete all?')">DELETE ALL</a></td>

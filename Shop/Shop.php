@@ -1,18 +1,12 @@
 <?php
-
-
 require_once('../Admin/connections.php');
-
-
 $sql="SELECT * FROM tbl_product";
 $all_product = $conn->query($sql);
-
-
 ?>
 
 <html>
     <head>
-        <title>Evermall Product page</title>
+        <title>EverMall | Product page</title>
         <link rel="stylesheet" href="product2.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
