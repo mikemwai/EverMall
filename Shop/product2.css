@@ -115,7 +115,7 @@ transition: 0.5s;
 }*/
 
 .message{
-    background-color: blue;
+    /*background-color: blue;*/
     position: sticky;
     top:0; left:0;
     z-index: 10000;
@@ -123,11 +123,13 @@ transition: 0.5s;
     background-color: #eee;
     padding:1.5rem 2rem;
     margin:0 auto;
-    max-width: 1200px;
+    max-width: 1000px;
     display: flex;
     align-items: center;
+    text-align: center;
     justify-content: space-between;
     gap:1.5rem;
+    margin-top: 5%;
  }
  
  .message span{
