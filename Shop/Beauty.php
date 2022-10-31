@@ -70,7 +70,7 @@ $all_product = $conn->query($sql);
 </header>
 
 <!-------Body------>
-<div class="container">
+<div class="small-container">
         <div class="crazydeals">
         <h1>Beauty</h1>
         <hr/>
@@ -82,7 +82,7 @@ $all_product = $conn->query($sql);
     	?>
         <div class="col-md-3">
         <div class="product-top">
-        <img class="" src="../Admin/uploaded_image/<?php echo $row["product_image"]; ?>" width="150px" height="350px"alt = "product image">
+        <img class="image" src="../Admin/uploaded_image/<?php echo $row["product_image"]; ?>" height="100" alt = "product image">
 
         <div class="overlay" >
         <button type="button" class="btn btn-secondary" title="Quick shop">
