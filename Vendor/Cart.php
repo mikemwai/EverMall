@@ -27,12 +27,12 @@ if(isset($_POST['update_btn'])){
 
 if(isset($_GET['remove'])){
   $remove_id=$_GET['remove'];
-  mysqli_query($conn, "DELETE FROM `cart` WHERE id='$remove_id'");
+  mysqli_query($conn, "DELETE FROM `tbl_cart` WHERE id='$remove_id'");
   header('location: Cart.php');
 };
 
 if(isset($_GET['delete_all'])){
-   mysqli_query($conn, "DELETE FROM `cart`");
+   mysqli_query($conn, "DELETE FROM `tbl_cart`");
    header('location:Cart.php');
 }
 
@@ -44,7 +44,7 @@ if(isset($_GET['delete_all'])){
 	<meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>EVERMALL SELLER DASHBOARD</title>	
+	<title>EverMall | Shopping Cart</title>	
 	<style>
      button {
         display: inline-block;
@@ -84,17 +84,15 @@ if(isset($_GET['delete_all'])){
 	        </div>
 
 <!--Main Body-->
-			<!-- main Section -->
+<!-- main Section -->
 <table class="table" style= "width: 100%" alt="No product in cart">
 			<thead>
-            <th>user_id</th>
-            <th>product_id</th>
-            <th>product name</th>          
-            <th>product price</th>
-            <th>product image</th>           
-            <th>quantity</th>
-		 <th>sub-Total</th>           
-            <th>action</th>
+            <th>Product image</th>  
+            <th>Product name</th>          
+            <th>Product price</th>     
+            <th>Quantity</th>
+		 <th>Sub-Total</th>           
+            <th>Action</th>
 			</thead>
 <tbody>
 				 <?php
@@ -102,21 +100,19 @@ if(isset($_GET['delete_all'])){
             $grand_total = 0;
             if(mysqli_num_rows($select_cart)>0){
               while($fetch_cart=mysqli_fetch_assoc($select_cart)){
-              ?>
+         ?>
               <tr>
 <tr>
-		    <td> <?php echo $fetch_cart['user_id'];?></td>
-		    <td> <?php echo $fetch_cart['product_id'];?></td>
-		    <td> <?php echo $fetch_cart['name'];?></td>
-		    <td> Ksh <?php echo number_format($fetch_cart['price']);?> /-</td>
-        <td><img src="./image/<?php echo $fetch_cart['image'];?>"alt="" height="100"></td>
+        <td><img src="../Admin/uploaded_image/<?php echo $fetch_cart['image'];?>"alt="" height="100"></td>
+		    <td><?php echo $fetch_cart['name'];?></td>
+		    <td>Ksh <?php echo number_format($fetch_cart['price']);?> /-</td>
         <td><form action="" method="post">
         <input type="hidden" name="update_quantity_id" value="<?php echo $fetch_cart['id'];?>">
         <input type="number" name="update_quantity" min="1" value="<?php echo $fetch_cart['quantity'];?>">
-        <input type="submit" value="update" name="update_btn">
+        <input type="submit" value="Update" name="update_btn" class="btn">
         </form>
         <td><?php echo $sub_total =number_format($fetch_cart['price'] * $fetch_cart['quantity']);?></td>
-        <td><a href="Cart.php?remove=<?php echo $fetch_cart['id'];?>" class="btn" onclick="return confirm('remove item from cart?')">REMOVE</a></td>
+        <td><a href="Cart.php?remove=<?php echo $fetch_cart['id'];?>" class="btn" onclick="return confirm('Remove item from cart?')">REMOVE</a></td>
 </tr>
 <?php
 if (is_numeric($fetch_cart['quantity']) && is_numeric($fetch_cart['price'])) {
@@ -132,11 +128,11 @@ if (is_numeric($fetch_cart['quantity']) && is_numeric($fetch_cart['price'])) {
           ?>
           <tr class="table-bottom">
           
-            <td><a href="../Shop/Shop.php" class="btn" >Continue shopping</a></td>
-            <td colspan="3">grand total</td>
-            <td><?php echo $grand_total;?></td>
-              <td><a href="Cart.php?delete_all" class="btn" onclick="return confirm('are you sure you want to delete all?')">DELETE ALL</a></td>
-              <td colspan="2">  <a href="checkout.php" class="btn <?=($grand_total >1)?'': 'disabled';?>">Proceed to checkout</a></td>
+            <td><a href="../Shop/Shop.php" class="btn" >Continue<br>Shopping</a></td>
+            <td colspan="3">Grand Total</td>
+            <td>Ksh <?php echo $grand_total;?> /-</td>
+              <td><a href="Cart.php?delete_all" class="btn" onclick="return confirm('Are you sure you want to delete all?')">DELETE ALL</a><br>
+                  <a href="checkout.php" class="btn <?=($grand_total >1)?'': 'disabled';?>">Checkout</a></td>
 
           </tr>
         </tbody>   

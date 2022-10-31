@@ -28,7 +28,7 @@ $conn->close();
 	<meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Invoice</title>
+	<title>EverMall | Invoice</title>
 	<style>
      button {
         display: inline-block;
@@ -60,50 +60,47 @@ $conn->close();
 <div>
 				<button type="button" onclick="window.location.href='cart.php';">BACK TO CART</button>
 	        </div>
-	<div class="invoice_container">
+	<div class="">
 		
-		<div class="customer_container">
+		<!--<div class="customer_container">
 			<div>
-				<h2>BILLING TO : </h2>
+				<h2>Billing To: </h2>
 				<h4>
-<?php echo"  "; echo $_SESSION['first_name']; echo" "; echo $_SESSION['last_name']?>					
+       <?php //echo"  "; echo $_SESSION['first_name']; echo" "; echo $_SESSION['last_name']?>					
 				</h4>
 			</div>
-			
-		</div>
-		<div class="product_container">
-			<table class="item_table" border="1" cellspacing="0">
-				<tr>
-            <th>order id</th>
-            <th>user id</th>
-            <th>total_products</th>
-            <th>order_amount</th>
-            <th>order_status</th>
+		</div>---->
+
+		<div class="">
+			<table class="table">
+				<thead>
+            <!--<th>Order id</th>
+            <th>User id</th>--->
+            <th>Total_products</th>
+            <th>Order_amount</th>
+            <th>Order_status</th>
             <th>Date Ordered</th>
             <th>Payment Mode</th>
-			</tr>
-			<?php
+        </thead>
+			  <?php
 				require_once("invoice.php");
 				 foreach($result as $key =>$value)
 				{
 					?>
 				<tr>
-					<td><?php echo $value['order_id']; ?></td>
-                    <td><?php echo $value['user_id']; ?></td>
-                    <td><?php echo $value['total_products']; ?></td>
-                    <td>Ksh<?php echo $value['order_amount']; ?>/-</td>
-                    <td><?php echo $value['order_status']; ?></td>
-                    <td><?php echo $value['created_at']; ?></td>
-                    <td><?php echo $value['payment_type']; ?></td>
+					<!--<td><?php //echo $value['order_id']; ?></td>
+          <td><?php //echo $value['user_id']; ?></td>--->
+          <td><?php echo $value['total_products']; ?></td>
+          <td>Ksh <?php echo $value['order_amount']; ?> /-</td>
+          <td><?php echo $value['order_status']; ?></td>
+          <td><?php echo $value['created_at']; ?></td>
+          <td><?php echo $value['payment_type']; ?></td>
 				</tr>
 				<?php
-					}    
-            
+					};     
 				?>
-			
 			</table>
 		</div>
-		
 	</div>
 </body>
 </html>        

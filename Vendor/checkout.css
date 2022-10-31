@@ -10,6 +10,15 @@
    --dark-bg:rgba(0,0,0,.7);
    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
    --border:.1rem solid #999;
+   --light: #F9F9F9;
+	--blue: #3C91E6;
+	--light-blue: #CFE8FF;
+	--grey: #eee;
+	--dark-grey: #AAAAAA;
+	--dark: #342E37;
+	--yellow: #FFCE26;
+	--light-yellow: #FFF2C6;
+	--light-orange: #FFE0D3;
 }
 
 *{
@@ -44,6 +53,26 @@ section{
    text-transform: uppercase;
    color:var(--black);
    margin-bottom: 2rem;
+}
+
+.btn1
+{
+   display: block;
+   width: 100%;
+   cursor: pointer;
+   border-radius: .5rem;
+   margin-top: 1rem;
+   font-size: 1.7rem;
+   padding:1rem 6rem;
+   background:#778899;
+   color:var(--white);
+   text-align: center;
+   border:none;
+}
+
+.btn1:hover
+{
+   background: var(--black);
 }
 
 .btn,
