@@ -1,3 +1,100 @@
+<?php
+$conn=mysqli_connect("localhost","root","","ecommerce");
+if($conn == false){
+    die("ERROR:Could not connect.".mysqli_connect_error());
+}
+
+if(isset($_POST["Register"]))
+{
+  $fname=$_POST['first_name'];
+  $lname=$_POST['last_name'];
+  $email=$_POST['email'];
+  $pwd=$_POST['password'];
+  $sex=$_POST['gender'];
+
+$sql="INSERT INTO tbl_users(first_name,last_name,email,password,gender) VALUES('$fname','$lname','$email','$pwd','$sex')";
+$select=" SELECT * from tbl_users WHERE email='$email' && password='$pwd' ";
+
+$result=mysqli_query($conn,$select);
+
+if(mysqli_num_rows($result)>0)
+{
+    if(empty($fname) || empty($lname) || empty($email) || empty($pwd) || empty($sex))
+    {
+    $error[] = 'Please fill out all details!';
+    }
+    else
+    {
+    $error[]='User already exists!';
+    }
+}
+else
+{
+    if(mysqli_query($conn,$sql))
+   {
+    header('location:../Account/Account.php');
+   }
+  else
+   {
+    $error[]='please fill out all details';
+   }
+}
+};
+?>
+
+<?php
+$conn= mysqli_connect("localhost","root","","ecommerce");
+if ($conn==false){
+    die("ERROR:Could not connect.".mysqli_connect_error());
+}
+
+session_start();
+
+if (isset($_POST["Login"]))
+{
+
+   $email=$_POST['Email'];
+   $pass=$_POST['password'];
+
+   if(empty($email) || empty($pass))
+   {
+      $error[] = 'Please fill out all details!';
+   }
+   else
+   {
+   $sql=" SELECT * from tbl_users WHERE email='$email' && password='$pass' ";
+
+   $result=mysqli_query($conn,$sql);
+
+   if(mysqli_num_rows($result) > 0)
+   {
+    //$sql="SELECT * FROM tbl_users WHERE email='".$email."'AND password='".$pass."' limit 1";
+    
+    //$result=mysqli_query($conn,$sql);
+    $row = mysqli_fetch_array($result);
+    if($row['role'] == '1')
+    {
+      $_SESSION['first_name'] = $row['first_name'];
+      $_SESSION['last_name'] = $row['last_name'];
+      $_SESSION['user_id']=$row['user_id'];
+       header('location:../Admin/admin.php');
+    }
+    elseif($row['role'] == '3')
+    {
+       $_SESSION['first_name'] = $row['first_name'];
+       $_SESSION['last_name'] = $row['last_name'];
+       $_SESSION['user_id']=$row['user_id'];
+       header('location:../Vendor/dashboard.php'); 
+    }
+   }
+   else
+   {
+      $error[] = 'Incorrect email or password!';
+   }
+   }
+};
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,10 +162,10 @@
         </div>--->
 
         <!------------Login Form-------------->
-        <form id="login" action="Account(login).php" method="post" class="input-group">              
+        <form id="login" action="" method="post" class="input-group">              
                   <input type="email" id="Email" name="Email" placeholder="Email" class="input-field"></p>
                   <input type="password" id="password" name="password" placeholder="Password" class="input-field"></p>
-                   <input type="submit" value="Login" name="Login" class="submit-btn"><br>
+                  <input type="submit" value="Login" name="Login" class="submit-btn"><br>
                    <!--<p>Forgotten Password?</p>
                    <a href="Account_update.php?edit=<?php //echo $row['user_id']; ?>">
                    <p>Reset Password</p>--->
@@ -77,7 +174,7 @@
         </form>
 
         <!-----------Registration Form------->
-        <form id="register" action="Account(register).php" method="" class="input-group">    
+        <form id="register" action="" method="post" class="input-group">    
              <input type="text" id="fname" name="first_name" placeholder="FirstName" class="input-field"><p>
              <input type="varchar" id="lname" name="last_name" placeholder="LastName" class="input-field"></p>
              <input type="email" id="Email" name="email" placeholder="Email" class="input-field"><p>
@@ -85,7 +182,7 @@
              <input type="varchar" id="sex" name="gender" placeholder="Gender" class="input-field"></p>
              <!--<input type="checkbox" class="chech-box">I agree to the Terms and Conditions--->
    
-             <input type="submit" value="Register" name="registration" class="submit-btn"><br></br>
+             <input type="submit" value="Register" name="Register" class="submit-btn"><br></br>
        </form>
 
     </div>

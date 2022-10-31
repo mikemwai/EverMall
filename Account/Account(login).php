@@ -8,19 +8,24 @@ session_start();
 
 if (isset($_POST["Login"]))
 {
-      
-    $email=$_POST['Email'];
-    $pass=$_POST['password'];
+   $email=$_POST['Email'];
+   $pass=$_POST['password'];
 
-    $sql="SELECT * FROM tbl_users WHERE email='".$email."'AND password='".$pass."' limit 1";
+   $sql=" SELECT * from tbl_users WHERE email='$email' && password='$pass' ";
+
+   $result=mysqli_query($conn,$sql);
+
+   if(mysqli_num_rows($result) > 0)
+   {
+    //$sql="SELECT * FROM tbl_users WHERE email='".$email."'AND password='".$pass."' limit 1";
     
-    $result=mysqli_query($conn,$sql);
+    //$result=mysqli_query($conn,$sql);
 
     $row = mysqli_fetch_array($result);
 
     if(empty($email) || empty($pass))
     {
-       $error[] = 'Please fill out all details!';
+       $message[] = 'Please fill out all details!';
     }
     else
     {
@@ -37,8 +42,12 @@ if (isset($_POST["Login"]))
        $_SESSION['last_name'] = $row['last_name'];
        $_SESSION['user_id']=$row['user_id'];
        header('location:../Vendor/dashboard.php'); 
-
     }
     }
+   }
+   else
+   {
+      $message[] = 'Incorrect email or password!';
+   }
 }
 ?>
