@@ -7,6 +7,37 @@ require_once('../Admin/connections.php');
 $sql="SELECT * FROM tbl_product WHERE category_name='Fashion'";
 $all_product = $conn->query($sql);
 
+if(isset($_POST['add_to_cart']))
+{
+
+    session_start();
+
+    $user_id=$_SESSION['user_id'];
+
+   if(!isset($_SESSION['user_id'])){
+    header('location:../Account/Account.php');
+    }
+
+    $product_id=$_POST['product_id'];
+    $product_name = $_POST['product_name'];
+    $product_price = $_POST['unit_price'];
+    $product_image = $_POST['product_image'];
+    $product_quantity = 1;
+ 
+    $select_cart = mysqli_query($conn, "SELECT * FROM tbl_cart WHERE name = '$product_name' AND user_id='$user_id'");
+ 
+    if(mysqli_num_rows($select_cart) > 0)
+    {
+       $message[] = 'Product already added to cart!';
+    }
+    else
+    {
+       $insert_product = mysqli_query($conn, "INSERT INTO tbl_cart(name, user_id, product_id, price, image, quantity) 
+       VALUES('$product_name', '$user_id', '$product_id', '$product_price', '$product_image', '$product_quantity')");
+       $message[] = 'Product added to cart succesfully!';
+    }
+ 
+};
 
 ?>
 
@@ -69,6 +100,16 @@ $all_product = $conn->query($sql);
 </ul>
 </header>
 
+<?php
+
+if(isset($message)){
+   foreach($message as $message){
+      echo '<div class="message"><span>'.$message.'</span> </div>';
+   };
+};
+
+?>
+
 <!-------Body------>
 <div class="small-container">
         <div class="crazydeals">
@@ -79,32 +120,39 @@ $all_product = $conn->query($sql);
         <div class="row">
 <?php
 	while($row=mysqli_fetch_assoc($all_product)){
-    	?>
+?>
+
         <div class="col-md-3">
         <div class="product-top">
         <img class="image" src="../Admin/uploaded_image/<?php echo $row["product_image"]; ?>" height="100" alt = "product image">
 
         <div class="overlay" >
         <button type="button" class="btn btn-secondary" title="Quick shop">
-        <i class="fa fa-eye"></i></button>            
-        <button type="button" class="btn btn-secondary" title="Add to Cart">
+        <i class="fa fa-eye"></i></button>    
+        <form action="" method="post">      
+		<input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>">
+        <input type="hidden" name="product_name" value="<?php echo $row['product_name']; ?>">
+        <input type="hidden" name="unit_price" value="<?php echo $row['unit_price']; ?>">
+        <input type="hidden" name="product_image" value="<?php echo $row['product_image']; ?>">
+        <input type="hidden" name="product_description" value="<?php echo $row['product_description']; ?>">
+        <button type="submit" class="btn btn-secondary" name="add_to_cart" title="Add to Cart">
         <i class="fa fa-shopping-cart"></i></button>    
         </div>
+        </form>
 
-<div class="product-bottom text-center">
-<i class="fa fa-star" ></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star" ></i>
-<i class="fa fa-star" ></i>
-<i class="fa fa-star-half-o" ></i>
-<i class="fa fa-star-o"></i>
-<h3><?php echo $row["product_name"]; ?></h3>
-<h5> Ksh.<?php echo $row["unit_price"]; ?></h5><br>
-</div>
+       <div class="product-bottom text-center">
+       <i class="fa fa-star" ></i>
+       <i class="fa fa-star"></i>
+       <i class="fa fa-star" ></i>
+       <i class="fa fa-star" ></i>
+       <i class="fa fa-star-half-o" ></i>
+       <i class="fa fa-star-o"></i>
+       <h3><?php echo $row["product_name"]; ?></h3>
+       <h5> Ksh.<?php echo $row["unit_price"]; ?></h5><br>
+       </div>
 
-</div>
-</div>
-
+       </div>
+       </div>
 <?php
 };
 ?>

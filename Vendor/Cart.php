@@ -14,9 +14,7 @@ if(!isset($_SESSION['last_name'])){
  if(!isset($_SESSION['user_id'])){
     header('location:../Account/Account.php');
  }
- ?>
- <?php
-
+ 
 require("connection.php");
 if(isset($_POST['update_btn'])){
   $update_value=$_POST['update_quantity'];
@@ -110,21 +108,16 @@ if(isset($_GET['delete_all'])){
 		    <td> <?php echo $fetch_cart['user_id'];?></td>
 		    <td> <?php echo $fetch_cart['product_id'];?></td>
 		    <td> <?php echo $fetch_cart['name'];?></td>
-		    <td> $<?php echo number_format($fetch_cart['price']);?></td>
-                <td><img src="./image/<?php echo $fetch_cart['image'];?>"alt="" height="100"></td>
-                <td><form action="" method="post">
-                  <input type="hidden" name="update_quantity_id" value="<?php echo $fetch_cart['id'];?>">
-
-                  <input type="number" name="update_quantity" min="1" value="<?php echo $fetch_cart['quantity'];?>">
-
-                  
-                  <input type="submit" value="update" name="update_btn">
-                </form>
-                <td><?php echo $sub_total =number_format($fetch_cart['price'] * $fetch_cart['quantity']);?></td>
-                <td><a href="Cart.php?remove=<?php echo $fetch_cart['id'];?>" class="btn" onclick="return confirm('remove item from cart?')">REMOVE</a></td>
-
-
-              </tr>
+		    <td> Ksh <?php echo number_format($fetch_cart['price']);?> /-</td>
+        <td><img src="./image/<?php echo $fetch_cart['image'];?>"alt="" height="100"></td>
+        <td><form action="" method="post">
+        <input type="hidden" name="update_quantity_id" value="<?php echo $fetch_cart['id'];?>">
+        <input type="number" name="update_quantity" min="1" value="<?php echo $fetch_cart['quantity'];?>">
+        <input type="submit" value="update" name="update_btn">
+        </form>
+        <td><?php echo $sub_total =number_format($fetch_cart['price'] * $fetch_cart['quantity']);?></td>
+        <td><a href="Cart.php?remove=<?php echo $fetch_cart['id'];?>" class="btn" onclick="return confirm('remove item from cart?')">REMOVE</a></td>
+</tr>
 <?php
 if (is_numeric($fetch_cart['quantity']) && is_numeric($fetch_cart['price'])) {
   $grand_total += ((int)$fetch_cart['quantity'] * (int)$fetch_cart['price']);

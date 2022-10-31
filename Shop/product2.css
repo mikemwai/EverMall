@@ -107,3 +107,40 @@ transition: 0.5s;
     width:209px !important;
     height:313px !important;
 }
+
+/*form
+{
+    width:229px !important;
+    height: 578.2px;
+}*/
+
+.message{
+    background-color: blue;
+    position: sticky;
+    top:0; left:0;
+    z-index: 10000;
+    border-radius: .5rem;
+    background-color: #eee;
+    padding:1.5rem 2rem;
+    margin:0 auto;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap:1.5rem;
+ }
+ 
+ .message span{
+    font-size: 2rem;
+    color:black;
+ }
+ 
+ .message i{
+    font-size: 2.5rem;
+    color:black;
+    cursor: pointer;
+ }
+ 
+ .message i:hover{
+    color:crimson;
+ }
