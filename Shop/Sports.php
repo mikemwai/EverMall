@@ -124,7 +124,7 @@ if(isset($message)){
 
         <div class="col-md-3">
         <div class="product-top">
-        <img class="image" src="../Admin/uploaded_image/<?php echo $row["product_image"]; ?>" height="100" alt = "product image">
+        <img class="" src="../Admin/uploaded_image/<?php echo $row["product_image"]; ?>" width="100%" height="300" alt = "product image">
 
         <div class="overlay" >
         <button type="button" class="btn btn-secondary" title="Quick shop">

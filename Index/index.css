@@ -330,8 +330,8 @@ button.white{
 }
 
 .image {
-    width:209px;
-    height: 313px;
+    width:300px !important;
+    height: 200px !important;
 }
 
 .col-4:hover {
