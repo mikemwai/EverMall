@@ -20,6 +20,7 @@ if(isset($_POST['add_to_cart']))
 
     $product_id=$_POST['product_id'];
     $product_name = $_POST['product_name'];
+    $vendor_id=$_POST['vendor_id'];
     $product_price = $_POST['unit_price'];
     $product_image = $_POST['product_image'];
     $product_quantity = 1;
@@ -32,8 +33,8 @@ if(isset($_POST['add_to_cart']))
     }
     else
     {
-       $insert_product = mysqli_query($conn, "INSERT INTO tbl_cart(name, user_id, product_id, price, image, quantity) 
-       VALUES('$product_name', '$user_id', '$product_id', '$product_price', '$product_image', '$product_quantity')");
+        $insert_product = mysqli_query($conn, "INSERT INTO tbl_cart(name, user_id,vendor_id,product_id, price, image, quantity) 
+        VALUES('$product_name', '$user_id', '$vendor_id','$product_id', '$product_price', '$product_image', '$product_quantity')");
        $message[] = 'Product added to cart succesfully!';
     }
  
@@ -130,6 +131,7 @@ if(isset($message)){
         <i class="fa fa-eye"></i></button>    
         <form action="" method="post">      
 		<input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>">
+        <input type="hidden" name="vendor_id" value="<?php echo $row['vendor_id']; ?>">
         <input type="hidden" name="product_name" value="<?php echo $row['product_name']; ?>">
         <input type="hidden" name="unit_price" value="<?php echo $row['unit_price']; ?>">
         <input type="hidden" name="product_image" value="<?php echo $row['product_image']; ?>">
