@@ -19,6 +19,6 @@ require("connections.php");
       <a href="admin(Categories).php" class="btn">Go back!</a>
      </form>
     </div>
-</div>---->
+</div>
 </body>
 </html>

@@ -7,10 +7,8 @@ $all_product = $conn->query($sql);
 
 if(isset($_POST['order_btn']))
 {
-    
-
    $user_id=$_SESSION['user_id'];
-   $vendor_id=$_POST['vendor_id'];
+   //$vendor_id=$_POST['vendor_id'];
    $method = $_POST['paymentmethod'];
    $phone = $_POST['phone'];
    $address= $_POST['address'];
@@ -19,12 +17,13 @@ if(isset($_POST['order_btn']))
    $price_total = 0;
    if(mysqli_num_rows($cart_query) > 0){
       while($product_item = mysqli_fetch_assoc($cart_query)){
-         $product_name[] = $product_item['name'] .' ('. $product_item['quantity'] .') ';
+         $product_name[] = $product_item['product_id'] .' '. $product_item['name'] .' ('. $product_item['quantity'] .') ';
+         $total_vendors[]=$product_item['vendor_id'];
          $product_price = number_format($product_item['price'] * $product_item['quantity']);
-         if (is_numeric($product_item['quantity']) && is_numeric($product_item['price'])) {
+         if (is_numeric($product_item['quantity']) && is_numeric($product_item['price'])) 
+         {
          $price_total += ((int)$product_item['quantity'] * (int)$product_item['price']);
          }
-        
    };
    }else
    {
@@ -32,12 +31,12 @@ if(isset($_POST['order_btn']))
    }
    ;
    $total_product = implode(', ',$product_name);
-   $detail_query=mysqli_query($conn,"INSERT INTO `tbl_order`( `user_id`,`vendor_id`,`phone`,`address`, `total_products`, `order_amount`, `order_status`,`payment_type`) VALUES ('$user_id','$vendor_id','$phone','$address', '$total_product','$price_total','Paid','$method')") or die('query failed');
+   $vendor_id = implode(', ',$total_vendors);
+   $detail_query=mysqli_query($conn,"INSERT INTO `tbl_order`( `user_id`,`vendor_id`,`phone`,`address`, `total_products`, `order_amount`, `order_status`,`payment_type`) 
+   VALUES ('$user_id','$vendor_id','$phone','$address', '$total_product','$price_total','Paid','$method')") or die('query failed');
    if($cart_query && $detail_query){
-
-      
       header('Location: ../M-pesa/checkout.php');
-      
+      mysqli_query($conn, "DELETE FROM `tbl_cart` WHERE user_id='$user_id'");
    }
 }
 ?>
@@ -74,7 +73,7 @@ if(isset($_POST['order_btn']))
          <?php
    while($row=mysqli_fetch_assoc($all_product)){
 ?>
-      <input type="hidden" name="vendor_id" value="<?php echo $row['vendor_id']; ?>">
+      <!--<input type="hidden" name="vendor_id" value="<?php //echo $row['vendor_id']; ?>">--->
 
 <?php
 };

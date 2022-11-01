@@ -89,6 +89,12 @@ if(!isset($_SESSION['last_name'])){
 			<span class="text">Sub Categories</span>
 		  </a></li>
 
+      <li>
+			<a href="admin(Orders).php">
+      <i class='fa fa-bell'></i>
+			<span class="text">Orders</span>
+		  </a></li>
+
 			<li class="active">
 			<a href="admin(Complains).php">
 			<i class="fa fa-bell"></i>

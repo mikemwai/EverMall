@@ -59,25 +59,21 @@ if(!isset($_SESSION['last_name'])){
 
 
         <div class="card-header">
-            <!--<h1>ORDER LIST</h1>--->
+            <!--<h1>ORDER LIST</h1>---
             
             <button type="button" onclick="window.location.href='orders.php';">All</button>
             <button type="button" onclick="window.location.href='pending.php';">Pending</button>
             <button type="button" onclick="window.location.href='orderconfirmed.php';">Confirmed</button>
             <button type="button" onclick="window.location.href='orderpickup.php';">Pickup</button>
             <button type="button" onclick="window.location.href='ordercompleted.php';">Completed</button>
-            <button type="button" onclick="window.location.href='cancelledorders.php';">Cancelled</button>
+            <button type="button" onclick="window.location.href='cancelledorders.php';">Cancelled</button>--->
         </div>
         <table class="table" style= "width: 100%">
             <thead>
-                <th>Order#</th>
-                <th>Total Products</th>
-                <th>Total Amount</th>
-                <th>Order Status</th>
-                <th>Paid by</th>
-
-                <th>Order Date</th>               
-                
+                <th>Order id</th>
+                <th>Product id</th>
+                <th>Product name</th>
+                <th>Needed quantity</th>                        
                 <th>Action</th>
             </thead>
         
@@ -88,15 +84,13 @@ if(!isset($_SESSION['last_name'])){
                 {
                     ?>
                     <tr>
-                        <td><?php echo $value["order_id"] ?></td>
-                        <td><?php echo $value["total_products"] ?></td>
-                        <td><?php echo $value["order_amount"] ?></td>
-                        <td><?php echo $value["order_status"] ?></td>
-                        <td><?php echo $value["payment_type"] ?></td>
-                        <td><?php echo $value["created_at"] ?></td>                        
-                         <!--<td> <a href="productpage.php?edit=<?php echo $value['id']; ?>"  onClick="edit(this);" title="Edit" >  <input type="image" src="Images/edit.png" title="Edit"> </a></td>
+                        <td><?php echo $value["id"] ?></td>
+                        <td><?php echo $value["product_id"] ?></td>
+                        <td><?php echo $value["product_name"] ?></td>
+                        <td><?php echo $value["needed_quantity"] ?></td>                      
+                         <!--<td> <a href="productpage.php?edit=<?php //echo $value['id']; ?>"  onClick="edit(this);" title="Edit" >  <input type="image" src="Images/edit.png" title="Edit"> </a></td>
 
-                        <td><a href="productpage.php?delete=<?php echo $value['id']; ?>" onclick="return confirm('are your sure you want to delete this?');" title="Delete" ><input type="image" src="Images/trash.png" title="Trash">  </a></td>-->
+                        <td><a href="productpage.php?delete=<?php //echo $value['id']; ?>" onclick="return confirm('are your sure you want to delete this?');" title="Delete" ><input type="image" src="Images/trash.png" title="Trash">  </a></td>-->
 
                         <td>
                             <button type="button" class="btn btn-flat border btn-light btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">

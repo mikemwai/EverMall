@@ -6,7 +6,7 @@ if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
 
-  $sql= "SELECT id,product_id,product_name,needed_quantity FROM tbl_orders WHERE vendor_id=$user_id";
+  $sql= "SELECT order_id,vendor_id,total_products,order_amount,order_status,payment_type,created_at FROM tbl_order";
 
   $result= $conn->query($sql);
 
