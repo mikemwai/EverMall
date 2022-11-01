@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 25, 2022 at 10:33 PM
+-- Generation Time: Nov 01, 2022 at 03:24 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -166,6 +166,7 @@ CREATE TABLE `order_items` (
 --
 
 INSERT INTO `order_items` (`order_id`, `product_id`, `quantity`, `price`, `date_created`) VALUES
+(1, 1, 3, 1500, '2022-02-10 09:56:49'),
 (1, 1, 3, 1500, '2022-02-10 09:56:49');
 
 -- --------------------------------------------------------
@@ -286,6 +287,49 @@ INSERT INTO `shop_type_list` (`id`, `name`, `status`, `delete_flag`, `date_creat
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `stkpush`
+--
+
+CREATE TABLE `stkpush` (
+  `id` int(11) NOT NULL,
+  `OrderNo` int(11) NOT NULL,
+  `Amount` int(250) NOT NULL,
+  `Phone` varchar(250) NOT NULL,
+  `CheckoutRequestID` varchar(250) NOT NULL,
+  `MerchantRequestID` varchar(250) NOT NULL,
+  `mpesaReceiptNumber` varchar(250) NOT NULL,
+  `datecreated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `stkpush`
+--
+
+INSERT INTO `stkpush` (`id`, `OrderNo`, `Amount`, `Phone`, `CheckoutRequestID`, `MerchantRequestID`, `mpesaReceiptNumber`, `datecreated`) VALUES
+(1, 0, 1, '254799373855', 'ws_CO_01112022131505635799373855', '28884-44125095-1', '', '2022-11-01 10:21:19'),
+(2, 0, 1, '254799373855', 'ws_CO_01112022133044747799373855', '536-48735420-2', '', '2022-11-01 10:30:46'),
+(3, 0, 1, '254799373855', 'ws_CO_01112022133102929799373855', '536-48735420-3', '', '2022-11-01 10:31:04'),
+(4, 0, 1, '254799373855', 'ws_CO_01112022133657057799373855', '7389-36993281-1', '', '2022-11-01 10:36:58'),
+(5, 0, 1, '254799373855', 'ws_CO_01112022133714186799373855', '105459-58576977-1', '', '2022-11-01 10:37:15'),
+(6, 0, 1, '254799373855', 'ws_CO_01112022133845758799373855', '528-48758310-1', '', '2022-11-01 10:38:47'),
+(7, 0, 1, '254799373855', 'ws_CO_01112022134000780799373855', '518-48761835-1', '', '2022-11-01 10:40:02'),
+(8, 0, 1, '254799373855', 'ws_CO_01112022134227248799373855', '7105-39159044-1', '', '2022-11-01 10:42:28'),
+(9, 0, 1, '254799373855', 'ws_CO_01112022134430151799373855', '31693-44753299-1', '', '2022-11-01 10:44:31'),
+(10, 0, 1, '254799373855', 'ws_CO_01112022160559357799373855', '18560-58225419-2', '', '2022-11-01 13:06:01'),
+(11, 0, 1, '254726231519', 'ws_CO_01112022160949645726231519', '68443-79102667-1', '', '2022-11-01 13:09:51'),
+(12, 0, 1, '254799373855', 'ws_CO_01112022161152262799373855', '120570-52749171-1', '', '2022-11-01 13:11:54'),
+(13, 0, 1, '254799373855', 'ws_CO_01112022161321041799373855', '18555-58246048-1', '', '2022-11-01 13:13:22'),
+(14, 0, 1, '254799373855', 'ws_CO_01112022164706399799373855', '7111-39677236-1', '', '2022-11-01 13:47:08'),
+(15, 0, 1, '254799373855', 'ws_CO_01112022165606635799373855', '522-49336729-1', '', '2022-11-01 13:56:08'),
+(16, 0, 1, '254799373855', 'ws_CO_01112022170200094799373855', '7112-39721760-1', '', '2022-11-01 14:02:02'),
+(17, 0, 1, '254799373855', 'ws_CO_01112022170337111799373855', '18556-58392451-1', '', '2022-11-01 14:03:40'),
+(18, 0, 1, '254799373855', 'ws_CO_01112022171411940799373855', '28888-44820353-1', '', '2022-11-01 14:14:13'),
+(19, 0, 1, '254799373855', 'ws_CO_01112022171549858799373855', '31692-45376842-1', '', '2022-11-01 14:15:51'),
+(20, 0, 1, '254799373855', 'ws_CO_01112022171633378799373855', '7111-39766396-1', '', '2022-11-01 14:16:35');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `suppliers`
 --
 
@@ -329,6 +373,7 @@ INSERT INTO `system_info` (`id`, `meta_field`, `meta_value`) VALUES
 CREATE TABLE `tbl_cart` (
   `id` int(255) NOT NULL,
   `user_id` int(11) NOT NULL,
+  `vendor_id` int(10) NOT NULL,
   `product_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `price` varchar(255) NOT NULL,
@@ -340,8 +385,9 @@ CREATE TABLE `tbl_cart` (
 -- Dumping data for table `tbl_cart`
 --
 
-INSERT INTO `tbl_cart` (`id`, `user_id`, `product_id`, `name`, `price`, `image`, `quantity`) VALUES
-(88, 0, 4, 'Dark green T-Shirt', '500', '26.jpg', 1);
+INSERT INTO `tbl_cart` (`id`, `user_id`, `vendor_id`, `product_id`, `name`, `price`, `image`, `quantity`) VALUES
+(113, 33, 5, 5, 'Purple T-shirt', '500', '16.jpg', 1),
+(114, 22, 22, 8, 'Black Suit', '5000', 'pexels-teddy-joseph-2955375.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -403,6 +449,9 @@ INSERT INTO `tbl_complain` (`complain_id`, `user_id`, `complain`, `responce`) VA
 CREATE TABLE `tbl_order` (
   `order_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
+  `vendor_id` int(10) NOT NULL,
+  `phone` varchar(10) NOT NULL,
+  `address` varchar(40) NOT NULL,
   `total_products` varchar(255) NOT NULL,
   `order_amount` double NOT NULL,
   `order_status` enum('Pending','Paid','Delivered') NOT NULL DEFAULT 'Pending',
@@ -416,14 +465,22 @@ CREATE TABLE `tbl_order` (
 -- Dumping data for table `tbl_order`
 --
 
-INSERT INTO `tbl_order` (`order_id`, `user_id`, `total_products`, `order_amount`, `order_status`, `created_at`, `payment_type`, `updated_at`, `is_deleted`) VALUES
-(1, 4, 'White Suit ( 1 ), White Dress ( 2 )', 9000, 'Delivered', '2022-07-12 17:37:00', 'Cash on Delivery', '2022-07-12 17:37:00', 0),
-(2, 4, 'Purple T-shirt ( 1 )', 500, 'Delivered', '2022-07-12 18:08:20', 'M-Pesa', '2022-07-12 18:08:20', 0),
-(3, 28, 'White Sweatpants ( 1 ), Blue T-Shirt ( 1 )', 2300, 'Delivered', '2022-07-13 08:32:02', 'M-Pesa', '2022-07-13 08:32:02', 0),
-(4, 32, 'Bicycle ( 1 )', 10000, 'Delivered', '2022-07-13 09:19:59', 'M-Pesa', '2022-07-13 09:19:59', 0),
-(5, 4, 'Purple T-shirt ( 1 )', 500, 'Delivered', '2022-08-23 16:19:09', 'M-Pesa', '2022-08-23 16:19:09', 0),
-(6, 4, 'Dark green T-Shirt ( 4 )', 2000, 'Delivered', '2022-08-23 16:45:56', 'M-Pesa', '2022-08-23 16:45:56', 0),
-(7, 4, 'Dark green T-Shirt ( 2 )', 1000, 'Pending', '2022-08-23 16:47:15', 'M-Pesa', '2022-08-23 16:47:15', 0);
+INSERT INTO `tbl_order` (`order_id`, `user_id`, `vendor_id`, `phone`, `address`, `total_products`, `order_amount`, `order_status`, `created_at`, `payment_type`, `updated_at`, `is_deleted`) VALUES
+(1, 4, 1, '', '', 'White Suit ( 1 ), White Dress ( 2 )', 9000, 'Delivered', '2022-07-12 17:37:00', 'Cash on Delivery', '2022-07-12 17:37:00', 0),
+(2, 4, 2, '', '', 'Purple T-shirt ( 1 )', 500, 'Delivered', '2022-07-12 18:08:20', 'M-Pesa', '2022-07-12 18:08:20', 0),
+(3, 28, 33, '', '', 'White Sweatpants ( 1 ), Blue T-Shirt ( 1 )', 2300, 'Delivered', '2022-07-13 08:32:02', 'M-Pesa', '2022-07-13 08:32:02', 0),
+(4, 32, 2, '', '', 'Bicycle ( 1 )', 10000, 'Delivered', '2022-07-13 09:19:59', 'M-Pesa', '2022-07-13 09:19:59', 0),
+(34, 33, 2, '0799373855', '766', 'Black Suit (12) , Black Sweatpants (1) , Purple T-shirt (1) ', 62500, 'Pending', '2022-11-01 13:26:32', 'M-Pesa', '2022-11-01 13:26:32', 0),
+(35, 33, 3, '0799373855', '766', 'Black Suit (12) , Black Sweatpants (1) , Purple T-shirt (1) ', 62500, 'Pending', '2022-11-01 13:27:58', 'M-Pesa', '2022-11-01 13:27:58', 0),
+(47, 1, 0, '0799373855', '766', 'Purple T-shirt (1) , Black Sweater (1) ', 2500, 'Paid', '2022-11-01 15:57:48', 'M-Pesa', '2022-11-01 15:57:48', 0),
+(48, 1, 0, '0799373855', '766', 'Black Sweater (1) ', 2000, 'Paid', '2022-11-01 16:05:54', 'M-Pesa', '2022-11-01 16:05:54', 0),
+(49, 1, 0, '0799373855', '766', 'Black Sweater (1) ', 2000, 'Paid', '2022-11-01 16:13:16', 'M-Pesa', '2022-11-01 16:13:16', 0),
+(50, 1, 4, '0799373855', '766', 'Black Sweater (1) ', 2000, 'Paid', '2022-11-01 16:46:59', 'M-Pesa', '2022-11-01 16:46:59', 0),
+(51, 33, 4, '0799373855', '766', 'Blue Jacket (1) , Black Suit (1) ', 8000, 'Paid', '2022-11-01 16:55:59', 'M-Pesa', '2022-11-01 16:55:59', 0),
+(52, 33, 4, '0799373855', '766', 'Blue Jacket (1) , Black Suit (1) ', 8000, 'Paid', '2022-11-01 17:01:55', 'M-Pesa', '2022-11-01 17:01:55', 0),
+(53, 33, 5, '0799373855', '766', 'Purple T-shirt (1) ', 500, 'Paid', '2022-11-01 17:03:32', 'M-Pesa', '2022-11-01 17:03:32', 0),
+(54, 33, 5, '0799373855', '766', 'Purple T-shirt (1) ', 500, 'Paid', '2022-11-01 17:14:07', 'M-Pesa', '2022-11-01 17:14:07', 0),
+(55, 33, 5, '0799373855', '766', 'Purple T-shirt (1) ', 500, 'Paid', '2022-11-01 17:16:21', 'M-Pesa', '2022-11-01 17:16:21', 0);
 
 -- --------------------------------------------------------
 
@@ -883,6 +940,12 @@ ALTER TABLE `shop_type_list`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `stkpush`
+--
+ALTER TABLE `stkpush`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `suppliers`
 --
 ALTER TABLE `suppliers`
@@ -917,7 +980,8 @@ ALTER TABLE `tbl_complain`
 -- Indexes for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  ADD PRIMARY KEY (`order_id`);
+  ADD PRIMARY KEY (`order_id`),
+  ADD KEY `tbl_order_fk` (`vendor_id`);
 
 --
 -- Indexes for table `tbl_orderdetails`
@@ -1038,6 +1102,12 @@ ALTER TABLE `shop_type_list`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `stkpush`
+--
+ALTER TABLE `stkpush`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
 -- AUTO_INCREMENT for table `system_info`
 --
 ALTER TABLE `system_info`
@@ -1047,7 +1117,7 @@ ALTER TABLE `system_info`
 -- AUTO_INCREMENT for table `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
 
 --
 -- AUTO_INCREMENT for table `tbl_categories`
@@ -1065,7 +1135,7 @@ ALTER TABLE `tbl_complain`
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `tbl_orderdetails`
