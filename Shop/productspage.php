@@ -1,10 +1,6 @@
 <?php
-
-
 require_once('../Admin/connections.php');
-
-
-$sql="SELECT * FROM tbl_product WHERE category_name='Office'";
+$sql="SELECT * FROM tbl_product";
 $all_product = $conn->query($sql);
 
 if(isset($_POST['add_to_cart']))
@@ -19,10 +15,10 @@ if(isset($_POST['add_to_cart']))
     }
 
     $product_id=$_POST['product_id'];
-    $product_name = $_POST['product_name'];
+    $product_name = $_POST['name'];
     $vendor_id=$_POST['vendor_id'];
-    $product_price = $_POST['unit_price'];
-    $product_image = $_POST['product_image'];
+    $product_price = $_POST['price'];
+    $product_image = $_POST['image'];
     $product_quantity = 1;
  
     $select_cart = mysqli_query($conn, "SELECT * FROM tbl_cart WHERE name = '$product_name' AND user_id='$user_id'");
@@ -40,28 +36,11 @@ if(isset($_POST['add_to_cart']))
  
 };
 
-if(isset($_POST['add_to_product']))
-{
-    $product_id=$_POST['product_id'];
-    $product_name = $_POST['product_name'];
-    $product_price = $_POST['unit_price'];
-    $product_image = $_POST['product_image'];
-    $product_details= $_POST['product_description'];
-    $product_quantity = 1;
-
-    $delete=mysqli_query($conn,"DELETE FROM product");
-
-    $insert_product = mysqli_query($conn, "INSERT INTO product(name, product_id, price, image, product_details) 
-       VALUES('$product_name','$product_id', '$product_price', '$product_image', '$product_details')");
-
-    header('location:Productspage.php');
-};
-
 ?>
 
 <html>
     <head>
-        <title>Evermall Product page</title>
+        <title>EverMall | Product page</title>
         <link rel="stylesheet" href="product2.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -120,62 +99,51 @@ if(isset($_POST['add_to_product']))
 
 <?php
 
-if(isset($message)){
-   foreach($message as $message){
-      echo '<div class="message"><span>'.$message.'</span> </div>';
-   };
-};
-
-?>
-
-<!-------Body------>
-<div class="small-container">
-        <div class="crazydeals">
-        <h1>Office</h1>
-        <hr/>
-        </div>
+   $select = mysqli_query($conn, "SELECT * FROM product");
   
-        <div class="row">
-<?php
-	while($row=mysqli_fetch_assoc($all_product)){
 ?>
 
-        <div class="col-md-3">
-        <div class="product-top">
-        <img class="" src="../Admin/uploaded_image/<?php echo $row["product_image"]; ?>" width="100%" height="300" alt = "product image">
+<!-------------Single product details----------------->
+<div class="small-container">
+    <div class="crazydeals">
+        <h1>Product Details</h1>
+        <hr/>
+    </div>
 
-        <div class="overlay" >   
-        <form action="" method="post">      
-		<input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>">
-        <input type="hidden" name="vendor_id" value="<?php echo $row['vendor_id']; ?>">
-        <input type="hidden" name="product_name" value="<?php echo $row['product_name']; ?>">
-        <input type="hidden" name="unit_price" value="<?php echo $row['unit_price']; ?>">
-        <input type="hidden" name="product_image" value="<?php echo $row['product_image']; ?>">
-        <input type="hidden" name="product_description" value="<?php echo $row['product_description']; ?>">
-        <button type="submit" class="btn btn-secondary" name="add_to_product" title="View Product Details">
-        <i class="fa fa-eye"></i></button> 
-        <button type="submit" class="btn btn-secondary" name="add_to_cart" title="Add to Cart">
-        <i class="fa fa-shopping-cart"></i></button>    
+   <div class="row1">
+       <?php while($row = mysqli_fetch_assoc($select)){ ?>
+
+       <div class="col-md-3">
+       <div class="product-top">
+        <img class="" src="../Admin/uploaded_image/<?php echo $row["image"]; ?>" width="100%" height="300" alt = "product image">
+
+       <div class="overlay">
+       <form action="" method="post">
+            <input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>">
+            <input type="hidden" name="product_name" value="<?php echo $row['name']; ?>">
+            <input type="hidden" name="unit_price" value="<?php echo $row['price']; ?>">
+            <input type="hidden" name="product_image" value="<?php echo $row['image']; ?>">
+            <button type="submit" class="btn btn-secondary" name="add_to_cart" title="Add to Cart">
+            <i class="fa fa-shopping-cart"></i></button>    
         </div>
         </form>
 
-       <div class="product-bottom text-center">
-       <i class="fa fa-star" ></i>
-       <i class="fa fa-star"></i>
-       <i class="fa fa-star" ></i>
-       <i class="fa fa-star" ></i>
-       <i class="fa fa-star-half-o" ></i>
-       <i class="fa fa-star-o"></i>
-       <h3><?php echo $row["product_name"]; ?></h3>
-       <h5> Ksh.<?php echo $row["unit_price"]; ?></h5><br>
-       </div>
+        <div class="product-bottom text-center">
+           <i class="fa fa-star" ></i>
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star" ></i>
+           <i class="fa fa-star" ></i>
+           <i class="fa fa-star-half-o" ></i>
+           <i class="fa fa-star-o"></i>
+            <h3><?php echo $row['name']; ?></h3>
+            <h5>Ksh <?php echo $row['price']; ?>/-</h5>
+            <p><?php echo $row['product_details']; ?></p>
+        </div>
 
        </div>
        </div>
-<?php
-};
-?>
-</div>
+        <?php } ?>
+    </div>
 </div>
 
 <!------------FOOTER------------------>

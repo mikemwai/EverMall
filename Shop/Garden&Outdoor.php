@@ -40,6 +40,23 @@ if(isset($_POST['add_to_cart']))
  
 };
 
+if(isset($_POST['add_to_product']))
+{
+    $product_id=$_POST['product_id'];
+    $product_name = $_POST['product_name'];
+    $product_price = $_POST['unit_price'];
+    $product_image = $_POST['product_image'];
+    $product_details= $_POST['product_description'];
+    $product_quantity = 1;
+
+    $delete=mysqli_query($conn,"DELETE FROM product");
+
+    $insert_product = mysqli_query($conn, "INSERT INTO product(name, product_id, price, image, product_details) 
+       VALUES('$product_name','$product_id', '$product_price', '$product_image', '$product_details')");
+
+    header('location:Productspage.php');
+};
+
 ?>
 
 <html>
@@ -127,9 +144,7 @@ if(isset($message)){
         <div class="product-top">
         <img class="" src="../Admin/uploaded_image/<?php echo $row["product_image"]; ?>" width="100%" height="300" alt = "product image">
 
-        <div class="overlay" >
-        <button type="button" class="btn btn-secondary" title="Quick shop">
-        <i class="fa fa-eye"></i></button>    
+        <div class="overlay" >   
         <form action="" method="post">      
 		<input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>">
         <input type="hidden" name="vendor_id" value="<?php echo $row['vendor_id']; ?>">
@@ -137,6 +152,8 @@ if(isset($message)){
         <input type="hidden" name="unit_price" value="<?php echo $row['unit_price']; ?>">
         <input type="hidden" name="product_image" value="<?php echo $row['product_image']; ?>">
         <input type="hidden" name="product_description" value="<?php echo $row['product_description']; ?>">
+        <button type="submit" class="btn btn-secondary" name="add_to_product" title="View Product Details">
+        <i class="fa fa-eye"></i></button> 
         <button type="submit" class="btn btn-secondary" name="add_to_cart" title="Add to Cart">
         <i class="fa fa-shopping-cart"></i></button>    
         </div>

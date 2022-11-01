@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 01, 2022 at 03:24 PM
+-- Generation Time: Nov 01, 2022 at 10:38 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -212,6 +212,13 @@ CREATE TABLE `product` (
   `product_details` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`id`, `product_id`, `name`, `price`, `image`, `product_details`) VALUES
+(81, 34, 'Royal blue shirt', '2000', 'Professor.jpg', 'The shirt is royal blue in color');
+
 -- --------------------------------------------------------
 
 --
@@ -325,7 +332,17 @@ INSERT INTO `stkpush` (`id`, `OrderNo`, `Amount`, `Phone`, `CheckoutRequestID`, 
 (17, 0, 1, '254799373855', 'ws_CO_01112022170337111799373855', '18556-58392451-1', '', '2022-11-01 14:03:40'),
 (18, 0, 1, '254799373855', 'ws_CO_01112022171411940799373855', '28888-44820353-1', '', '2022-11-01 14:14:13'),
 (19, 0, 1, '254799373855', 'ws_CO_01112022171549858799373855', '31692-45376842-1', '', '2022-11-01 14:15:51'),
-(20, 0, 1, '254799373855', 'ws_CO_01112022171633378799373855', '7111-39766396-1', '', '2022-11-01 14:16:35');
+(20, 0, 1, '254799373855', 'ws_CO_01112022171633378799373855', '7111-39766396-1', '', '2022-11-01 14:16:35'),
+(21, 0, 1, '254726231519', 'ws_CO_01112022210155687726231519', '7382-38423110-1', '', '2022-11-01 18:01:55'),
+(22, 0, 1, '254726231519', 'ws_CO_01112022211202756726231519', '528-50259769-1', '', '2022-11-01 18:12:02'),
+(23, 0, 1, '254726231519', 'ws_CO_01112022211601287726231519', '28895-45691236-1', '', '2022-11-01 18:16:03'),
+(24, 0, 1, '254726231519', 'ws_CO_01112022211905739726231519', '120576-53803848-1', '', '2022-11-01 18:19:05'),
+(25, 0, 1, '254726231519', 'ws_CO_01112022212531495726231519', '28894-45719677-1', '', '2022-11-01 18:25:31'),
+(26, 0, 1, '254726231519', 'ws_CO_01112022213020562726231519', '105445-60110032-1', '', '2022-11-01 18:30:23'),
+(27, 0, 1, '254722176197', 'ws_CO_01112022214142042722176197', '518-50348294-1', '', '2022-11-01 18:41:44'),
+(28, 0, 1, '254726231519', 'ws_CO_01112022222907335726231519', '7376-38659661-1', '', '2022-11-01 19:29:09'),
+(29, 0, 1, '254726231519', 'ws_CO_01112022223225496726231519', '11226-46648267-1', '', '2022-11-01 19:32:25'),
+(30, 0, 1, '254726231519', 'ws_CO_01112022225145095726231519', '28893-45933622-1', '', '2022-11-01 19:51:47');
 
 -- --------------------------------------------------------
 
@@ -387,7 +404,9 @@ CREATE TABLE `tbl_cart` (
 
 INSERT INTO `tbl_cart` (`id`, `user_id`, `vendor_id`, `product_id`, `name`, `price`, `image`, `quantity`) VALUES
 (113, 33, 5, 5, 'Purple T-shirt', '500', '16.jpg', 1),
-(114, 22, 22, 8, 'Black Suit', '5000', 'pexels-teddy-joseph-2955375.jpg', 1);
+(114, 22, 22, 8, 'Black Suit', '5000', 'pexels-teddy-joseph-2955375.jpg', 1),
+(115, 0, 0, 1, 'Blue T-Shirt', '1200', 'product-4.jpg', 1),
+(133, 26, 2, 2, 'White T-Shirt', '1500', '24.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -449,7 +468,7 @@ INSERT INTO `tbl_complain` (`complain_id`, `user_id`, `complain`, `responce`) VA
 CREATE TABLE `tbl_order` (
   `order_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `vendor_id` int(10) NOT NULL,
+  `vendor_id` varchar(255) NOT NULL,
   `phone` varchar(10) NOT NULL,
   `address` varchar(40) NOT NULL,
   `total_products` varchar(255) NOT NULL,
@@ -466,21 +485,31 @@ CREATE TABLE `tbl_order` (
 --
 
 INSERT INTO `tbl_order` (`order_id`, `user_id`, `vendor_id`, `phone`, `address`, `total_products`, `order_amount`, `order_status`, `created_at`, `payment_type`, `updated_at`, `is_deleted`) VALUES
-(1, 4, 1, '', '', 'White Suit ( 1 ), White Dress ( 2 )', 9000, 'Delivered', '2022-07-12 17:37:00', 'Cash on Delivery', '2022-07-12 17:37:00', 0),
-(2, 4, 2, '', '', 'Purple T-shirt ( 1 )', 500, 'Delivered', '2022-07-12 18:08:20', 'M-Pesa', '2022-07-12 18:08:20', 0),
-(3, 28, 33, '', '', 'White Sweatpants ( 1 ), Blue T-Shirt ( 1 )', 2300, 'Delivered', '2022-07-13 08:32:02', 'M-Pesa', '2022-07-13 08:32:02', 0),
-(4, 32, 2, '', '', 'Bicycle ( 1 )', 10000, 'Delivered', '2022-07-13 09:19:59', 'M-Pesa', '2022-07-13 09:19:59', 0),
-(34, 33, 2, '0799373855', '766', 'Black Suit (12) , Black Sweatpants (1) , Purple T-shirt (1) ', 62500, 'Pending', '2022-11-01 13:26:32', 'M-Pesa', '2022-11-01 13:26:32', 0),
-(35, 33, 3, '0799373855', '766', 'Black Suit (12) , Black Sweatpants (1) , Purple T-shirt (1) ', 62500, 'Pending', '2022-11-01 13:27:58', 'M-Pesa', '2022-11-01 13:27:58', 0),
-(47, 1, 0, '0799373855', '766', 'Purple T-shirt (1) , Black Sweater (1) ', 2500, 'Paid', '2022-11-01 15:57:48', 'M-Pesa', '2022-11-01 15:57:48', 0),
-(48, 1, 0, '0799373855', '766', 'Black Sweater (1) ', 2000, 'Paid', '2022-11-01 16:05:54', 'M-Pesa', '2022-11-01 16:05:54', 0),
-(49, 1, 0, '0799373855', '766', 'Black Sweater (1) ', 2000, 'Paid', '2022-11-01 16:13:16', 'M-Pesa', '2022-11-01 16:13:16', 0),
-(50, 1, 4, '0799373855', '766', 'Black Sweater (1) ', 2000, 'Paid', '2022-11-01 16:46:59', 'M-Pesa', '2022-11-01 16:46:59', 0),
-(51, 33, 4, '0799373855', '766', 'Blue Jacket (1) , Black Suit (1) ', 8000, 'Paid', '2022-11-01 16:55:59', 'M-Pesa', '2022-11-01 16:55:59', 0),
-(52, 33, 4, '0799373855', '766', 'Blue Jacket (1) , Black Suit (1) ', 8000, 'Paid', '2022-11-01 17:01:55', 'M-Pesa', '2022-11-01 17:01:55', 0),
-(53, 33, 5, '0799373855', '766', 'Purple T-shirt (1) ', 500, 'Paid', '2022-11-01 17:03:32', 'M-Pesa', '2022-11-01 17:03:32', 0),
-(54, 33, 5, '0799373855', '766', 'Purple T-shirt (1) ', 500, 'Paid', '2022-11-01 17:14:07', 'M-Pesa', '2022-11-01 17:14:07', 0),
-(55, 33, 5, '0799373855', '766', 'Purple T-shirt (1) ', 500, 'Paid', '2022-11-01 17:16:21', 'M-Pesa', '2022-11-01 17:16:21', 0);
+(1, 4, '1', '', '', 'White Suit ( 1 ), White Dress ( 2 )', 9000, 'Delivered', '2022-07-12 17:37:00', 'Cash on Delivery', '2022-07-12 17:37:00', 0),
+(2, 4, '2', '', '', 'Purple T-shirt ( 1 )', 500, 'Delivered', '2022-07-12 18:08:20', 'M-Pesa', '2022-07-12 18:08:20', 0),
+(3, 28, '33', '', '', 'White Sweatpants ( 1 ), Blue T-Shirt ( 1 )', 2300, 'Delivered', '2022-07-13 08:32:02', 'M-Pesa', '2022-07-13 08:32:02', 0),
+(4, 32, '2', '', '', 'Bicycle ( 1 )', 10000, 'Delivered', '2022-07-13 09:19:59', 'M-Pesa', '2022-07-13 09:19:59', 0),
+(34, 33, '2', '0799373855', '766', 'Black Suit (12) , Black Sweatpants (1) , Purple T-shirt (1) ', 62500, 'Pending', '2022-11-01 13:26:32', 'M-Pesa', '2022-11-01 13:26:32', 0),
+(35, 33, '3', '0799373855', '766', 'Black Suit (12) , Black Sweatpants (1) , Purple T-shirt (1) ', 62500, 'Pending', '2022-11-01 13:27:58', 'M-Pesa', '2022-11-01 13:27:58', 0),
+(47, 1, '0', '0799373855', '766', 'Purple T-shirt (1) , Black Sweater (1) ', 2500, 'Paid', '2022-11-01 15:57:48', 'M-Pesa', '2022-11-01 15:57:48', 0),
+(48, 1, '0', '0799373855', '766', 'Black Sweater (1) ', 2000, 'Paid', '2022-11-01 16:05:54', 'M-Pesa', '2022-11-01 16:05:54', 0),
+(49, 1, '0', '0799373855', '766', 'Black Sweater (1) ', 2000, 'Paid', '2022-11-01 16:13:16', 'M-Pesa', '2022-11-01 16:13:16', 0),
+(50, 1, '4', '0799373855', '766', 'Black Sweater (1) ', 2000, 'Paid', '2022-11-01 16:46:59', 'M-Pesa', '2022-11-01 16:46:59', 0),
+(51, 33, '4', '0799373855', '766', 'Blue Jacket (1) , Black Suit (1) ', 8000, 'Paid', '2022-11-01 16:55:59', 'M-Pesa', '2022-11-01 16:55:59', 0),
+(52, 33, '4', '0799373855', '766', 'Blue Jacket (1) , Black Suit (1) ', 8000, 'Paid', '2022-11-01 17:01:55', 'M-Pesa', '2022-11-01 17:01:55', 0),
+(53, 33, '5', '0799373855', '766', 'Purple T-shirt (1) ', 500, 'Paid', '2022-11-01 17:03:32', 'M-Pesa', '2022-11-01 17:03:32', 0),
+(54, 33, '5', '0799373855', '766', 'Purple T-shirt (1) ', 500, 'Paid', '2022-11-01 17:14:07', 'M-Pesa', '2022-11-01 17:14:07', 0),
+(55, 33, '5', '0799373855', '766', 'Purple T-shirt (1) ', 500, 'Paid', '2022-11-01 17:16:21', 'M-Pesa', '2022-11-01 17:16:21', 0),
+(56, 31, '28', '0726231519', '5026', 'Blue T-Shirt (1) , Red Dress (1) ', 5700, 'Paid', '2022-11-01 21:01:11', 'M-Pesa', '2022-11-01 21:01:11', 0),
+(57, 31, '28', '0726231519', '5026', 'Blue T-Shirt (1) , Red Dress (1) ', 5700, 'Paid', '2022-11-01 21:11:54', 'M-Pesa', '2022-11-01 21:11:54', 0),
+(58, 28, '4', '0726231519', '5026', 'Pink Marvin (1) , Turquoise T-Shirt (1) ', 4000, 'Paid', '2022-11-01 21:15:55', 'M-Pesa', '2022-11-01 21:15:55', 0),
+(59, 28, '34', '0726231519', '5026', 'Black speaker (1) , Orange Dress (1) ', 4700, 'Paid', '2022-11-01 21:18:58', 'M-Pesa', '2022-11-01 21:18:58', 0),
+(60, 28, '33', '0726231519', '5026', 'Royal blue shirt (1) , Halloween Costume (1) ', 4000, 'Paid', '2022-11-01 21:25:24', 'M-Pesa', '2022-11-01 21:25:24', 0),
+(61, 28, '27', '0726231519', '5026', 'Sweater (1) , Blue Sweater (1) ', 6500, 'Paid', '2022-11-01 21:30:16', 'M-Pesa', '2022-11-01 21:30:16', 0),
+(62, 28, '21, 13', '0726231519', '5026', 'Blue Jacket (1) , Black Sweater (1) ', 5000, 'Paid', '2022-11-01 21:41:30', 'M-Pesa', '2022-11-01 21:41:30', 0),
+(63, 4, '2, 1', '0726231519', '5026', '19 White wedding Gown (1) , 18 White Dress (1) ', 12000, 'Paid', '2022-11-01 22:29:03', 'M-Pesa', '2022-11-01 22:29:03', 0),
+(64, 4, '26, 29', '0726231519', '5026', '9 Black Socks (1) , 12 Blue Sweater (1) ', 5600, 'Paid', '2022-11-01 22:32:17', 'M-Pesa', '2022-11-01 22:32:17', 0),
+(65, 28, '26', '0726231519', '5026', '9 Black Socks (1) ', 100, 'Paid', '2022-11-01 22:51:40', 'M-Pesa', '2022-11-01 22:51:40', 0);
 
 -- --------------------------------------------------------
 
@@ -511,6 +540,29 @@ CREATE TABLE `tbl_orderdetails` (
 
 INSERT INTO `tbl_orderdetails` (`orderdetails_id`, `order_id`, `user_id`, `product_id`, `product_name`, `product_image`, `product_price`, `order_quantity`, `order_status`, `payment_type`, `orderdetails_total`, `created_at`, `updated_at`, `is_deleted`) VALUES
 (1, 65, 4, 18, 'White Dress', 'WhiteDress.jpg', 2000, 2, 'Pending', 'Cash on Delivery', 4000, '2022-07-12 17:36:59', '2022-07-12 17:36:59', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_orders`
+--
+
+CREATE TABLE `tbl_orders` (
+  `id` int(11) NOT NULL,
+  `vendor_id` varchar(25) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `product_name` varchar(255) NOT NULL,
+  `needed_quantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_orders`
+--
+
+INSERT INTO `tbl_orders` (`id`, `vendor_id`, `product_id`, `product_name`, `needed_quantity`) VALUES
+(1, '26', 9, 'Black Socks', 1),
+(2, '26', 9, 'Black Socks', 1),
+(3, '26', 9, 'Black Socks', 1);
 
 -- --------------------------------------------------------
 
@@ -990,6 +1042,12 @@ ALTER TABLE `tbl_orderdetails`
   ADD PRIMARY KEY (`orderdetails_id`);
 
 --
+-- Indexes for table `tbl_orders`
+--
+ALTER TABLE `tbl_orders`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_paymenttypes`
 --
 ALTER TABLE `tbl_paymenttypes`
@@ -1087,7 +1145,7 @@ ALTER TABLE `order_list`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `product_list`
@@ -1105,7 +1163,7 @@ ALTER TABLE `shop_type_list`
 -- AUTO_INCREMENT for table `stkpush`
 --
 ALTER TABLE `stkpush`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `system_info`
@@ -1117,7 +1175,7 @@ ALTER TABLE `system_info`
 -- AUTO_INCREMENT for table `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
 
 --
 -- AUTO_INCREMENT for table `tbl_categories`
@@ -1135,13 +1193,19 @@ ALTER TABLE `tbl_complain`
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `tbl_orderdetails`
 --
 ALTER TABLE `tbl_orderdetails`
   MODIFY `orderdetails_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tbl_orders`
+--
+ALTER TABLE `tbl_orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_product`

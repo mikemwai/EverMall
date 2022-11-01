@@ -38,6 +38,14 @@
     margin-top: 30px;
 }
 
+.row1
+{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
 img{
     width: 100%;
 
