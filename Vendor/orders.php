@@ -68,7 +68,7 @@ if(!isset($_SESSION['last_name'])){
             <button type="button" onclick="window.location.href='ordercompleted.php';">Completed</button>
             <button type="button" onclick="window.location.href='cancelledorders.php';">Cancelled</button>--->
         </div>
-        <table class="table" style= "width: 100%">
+        <table class="table" style= "width: 100%" alt="No order yet">
             <thead>
                 <th>Order id</th>
                 <th>Product id</th>

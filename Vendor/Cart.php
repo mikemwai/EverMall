@@ -79,13 +79,13 @@ if(isset($_GET['delete_all'])){
     <!-- NAVBAR -->
    <?php include 'header.php'; ?>
 
-<div>
-        <button type="button" onclick="window.location.href='invoice.php';">VIEW PREVIOUS ORDERS</button>
-          </div>
+      <div>
+         <button type="button" onclick="window.location.href='invoice.php';">VIEW PREVIOUS ORDERS</button>
+      </div>
 
 <!--Main Body-->
 <!-- main Section -->
-<table class="table" style= "width: 100%" alt="No product in cart">
+   <table class="table" style= "width: 100%" alt="No product in cart">
       <thead>
             
             <th>Product image</th>  
@@ -95,7 +95,7 @@ if(isset($_GET['delete_all'])){
      <th>Sub-Total</th>           
             <th>Action</th>
       </thead>
-<tbody>
+      <tbody>
          <?php
          $select_cart = mysqli_query($conn, "SELECT * FROM `tbl_cart` WHERE user_id='$user_id'");
             $grand_total = 0;
@@ -103,7 +103,7 @@ if(isset($_GET['delete_all'])){
               while($fetch_cart=mysqli_fetch_assoc($select_cart)){
          ?>
               <tr>
-<tr>
+      <tr>
         <td><img src="../Admin/uploaded_image/<?php echo $fetch_cart['image'];?>"alt="" height="100"></td>
         <td><?php echo $fetch_cart['name'];?></td>
         <td>Ksh <?php echo number_format($fetch_cart['price']);?> /-</td>
@@ -115,31 +115,26 @@ if(isset($_GET['delete_all'])){
         </form>
         <td><?php echo $sub_total =number_format($fetch_cart['price'] * $fetch_cart['quantity']);?></td>
         <td><a href="Cart.php?remove=<?php echo $fetch_cart['id'];?>" class="btn" onclick="return confirm('Remove item from cart?')">REMOVE</a></td>
-</tr>
-<?php
-if (is_numeric($fetch_cart['quantity']) && is_numeric($fetch_cart['price'])) {
-  $grand_total += ((int)$fetch_cart['quantity'] * (int)$fetch_cart['price']);
-}
- 
-  
-              };
-            }else{
-               $grand_total = 0;
-            };
-
+      </tr>
+          <?php
+                if (is_numeric($fetch_cart['quantity']) && is_numeric($fetch_cart['price'])) 
+                {
+                       $grand_total += ((int)$fetch_cart['quantity'] * (int)$fetch_cart['price']);
+                } 
+                  };
+                }else{
+                     $grand_total = 0;
+                };
           ?>
-          <tr class="table-bottom">
-          
+          <tr class="table-bottom">         
             <td><a href="../Shop/Shop.php" class="btn" >Continue<br>Shopping</a></td>
             <td colspan="3">Grand Total</td>
             <td>Ksh <?php echo $grand_total;?> /-</td>
               <td><a href="Cart.php?delete_all" class="btn" onclick="return confirm('Are you sure you want to delete all?')">DELETE ALL</a><br>
                   <a href="checkout.php" class="btn <?=($grand_total >1)?'': 'disabled';?>">Checkout</a></td>
-
           </tr>
-        </tbody>   
-      </table>
-       
+      </tbody>   
+    </table>     
   </section>
 </body>
 </html>
