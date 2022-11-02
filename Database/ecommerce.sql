@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 01, 2022 at 10:38 PM
+-- Generation Time: Nov 02, 2022 at 06:18 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -217,7 +217,7 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `product_id`, `name`, `price`, `image`, `product_details`) VALUES
-(81, 34, 'Royal blue shirt', '2000', 'Professor.jpg', 'The shirt is royal blue in color');
+(82, 39, 'Black speaker', '3500', 'Speaker.jpg', 'The speaker is black with a lighting mechanism around it.');
 
 -- --------------------------------------------------------
 
@@ -397,16 +397,6 @@ CREATE TABLE `tbl_cart` (
   `image` varchar(255) NOT NULL,
   `quantity` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tbl_cart`
---
-
-INSERT INTO `tbl_cart` (`id`, `user_id`, `vendor_id`, `product_id`, `name`, `price`, `image`, `quantity`) VALUES
-(113, 33, 5, 5, 'Purple T-shirt', '500', '16.jpg', 1),
-(114, 22, 22, 8, 'Black Suit', '5000', 'pexels-teddy-joseph-2955375.jpg', 1),
-(115, 0, 0, 1, 'Blue T-Shirt', '1200', 'product-4.jpg', 1),
-(133, 26, 2, 2, 'White T-Shirt', '1500', '24.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -1145,7 +1135,7 @@ ALTER TABLE `order_list`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT for table `product_list`
