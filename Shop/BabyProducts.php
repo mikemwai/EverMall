@@ -44,6 +44,7 @@ if(isset($_POST['add_to_product']))
 {
     $product_id=$_POST['product_id'];
     $product_name = $_POST['product_name'];
+    $vendor_id=$_POST['vendor_id'];
     $product_price = $_POST['unit_price'];
     $product_image = $_POST['product_image'];
     $product_details= $_POST['product_description'];
@@ -51,8 +52,8 @@ if(isset($_POST['add_to_product']))
 
     $delete=mysqli_query($conn,"DELETE FROM product");
 
-    $insert_product = mysqli_query($conn, "INSERT INTO product(name, product_id, price, image, product_details) 
-       VALUES('$product_name','$product_id', '$product_price', '$product_image', '$product_details')");
+    $insert_product = mysqli_query($conn, "INSERT INTO product(user_id, name, product_id, vendor_id, price, image, product_details, quantity) 
+       VALUES('$user_id', '$product_name','$product_id', '$vendor_id', '$product_price', '$product_image', '$product_details', '$product_quantity')");
 
     header('location:Productspage.php');
 };
@@ -140,11 +141,11 @@ if(isset($message)){
 	while($row=mysqli_fetch_assoc($all_product)){
 ?>
 
-        <div class="col-md-3">
+    <div class="col-md-3">
         <div class="product-top">
         <img class="" src="../Admin/uploaded_image/<?php echo $row["product_image"]; ?>" width="100%" height="300" alt = "product image">
 
-        <div class="overlay" >   
+        <div class="overlay" >  
         <form action="" method="post">      
 		<input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>">
         <input type="hidden" name="vendor_id" value="<?php echo $row['vendor_id']; ?>">
@@ -171,7 +172,7 @@ if(isset($message)){
        </div>
 
        </div>
-       </div>
+    </div>
 
 <?php
 };

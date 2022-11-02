@@ -15,10 +15,10 @@ if(isset($_POST['add_to_cart']))
     }
 
     $product_id=$_POST['product_id'];
-    $product_name = $_POST['name'];
+    $product_name=$_POST['name'];
     $vendor_id=$_POST['vendor_id'];
-    $product_price = $_POST['price'];
-    $product_image = $_POST['image'];
+    $product_price=$_POST['price'];
+    $product_image=$_POST['image'];
     $product_quantity = 1;
  
     $select_cart = mysqli_query($conn, "SELECT * FROM tbl_cart WHERE name = '$product_name' AND user_id='$user_id'");
@@ -99,6 +99,16 @@ if(isset($_POST['add_to_cart']))
 
 <?php
 
+if(isset($message)){
+   foreach($message as $message){
+      echo '<div class="message"><span>'.$message.'</span> </div>';
+   };
+};
+
+?>
+
+<?php
+
    $select = mysqli_query($conn, "SELECT * FROM product");
   
 ?>
@@ -120,9 +130,10 @@ if(isset($_POST['add_to_cart']))
        <div class="overlay">
        <form action="" method="post">
             <input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>">
-            <input type="hidden" name="product_name" value="<?php echo $row['name']; ?>">
-            <input type="hidden" name="unit_price" value="<?php echo $row['price']; ?>">
-            <input type="hidden" name="product_image" value="<?php echo $row['image']; ?>">
+            <input type="hidden" name="vendor_id" value="<?php echo $row['vendor_id']; ?>">
+            <input type="hidden" name="name" value="<?php echo $row['name']; ?>">
+            <input type="hidden" name="price" value="<?php echo $row['price']; ?>">
+            <input type="hidden" name="image" value="<?php echo $row['image']; ?>">
             <button type="submit" class="btn btn-secondary" name="add_to_cart" title="Add to Cart">
             <i class="fa fa-shopping-cart"></i></button>    
         </div>
