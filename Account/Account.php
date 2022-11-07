@@ -123,7 +123,7 @@ if (isset($_POST["Login"]))
                     <li><a href="../Index/Index.php"><i class="fa fa-home"></i> Home</a></li>
                     <li><a href="../Shop/Shop.php">Shop</a></li>
                     <li><a href="../About/About.php">About</a></li>
-                    <li><a href="../Contact%20Us/Contact.php">Contact</a></li>
+                    <li><a href="../Contact/Contact.php">Contact</a></li>
                     <li><a href="../Account/Account.php"><i class="fa fa-user"></i> Account</a></li>
                     <li><a href="../Vendor/Cart.php"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                 </ul>

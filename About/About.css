@@ -1,0 +1,13 @@
+.row {
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    justify-content: space-around !important;
+}
+
+.col-2 {
+    margin-top: 0%;
+    flex-basis: 50%;
+    min-width: 300px;
+    margin-bottom: 5%;
+}

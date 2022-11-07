@@ -18,53 +18,48 @@
 	
 <body>
 <!----Navigation Bar---->
-<header>	
-  <ul>
-	<a href="Index.php">
-	 <li><img src="../Evermall(White).png" width="300px"></li>
-    </a>
+<header>
+			
+			<ul>
+			<a href="../Index/Index.php">
+            <li><img src="../Evermall(White).png" width="300px"></li>
+            </a>
 
-	 <div class="nav-links" id="navLinks">
-	 <img src="../close.png" class="menu-icon" onclick="hideMenu()">
-	 <li><b> <a href="Index.php"><i class="fa fa-home"></i> HOME</a></b></li>
-	 <li><b> <a href="#"> ABOUT </a></b>
-       <!--<ul>
-	       <li><a href="#"> Our Team </a></li>
-	       <li><a href="#"> Mission and Vision</a></li>
-	       <li><a href="#"> Engage with Us  </a></li>
-       </ul>--->
-	 </li>
-	<li><b> <a href="../Shop/Shop.php">CATEGORIES</a></b>
-        <!--<ul>
-	       <li><a href="#">Health</a></li>
-		   <li><a href="#">Beauty</a></li>
-	       <li><a href="#">Home</a></li>
-		   <li><a href="#">Office</a></li>
-	       <li><a href="#">Fashion </a></li>
-		   <li><a href="#">Sports </a></li>
-		   <li><a href="#">Garden and Outdoor </a></li>
-		   <li><a href="#">Baby Products </a></li>
-		   <li><a href="#">Electricals</a></li>
-	    </ul>--->
-	</li>
-	<li><b> <a href="#"> NEW ARRIVALS </a></b>
-        <ul>
-           	<li><a href="#"> COMING SOON... </a></li>
-        </ul>
-	</li>
-	<li><b> <a href="../Account/Account.php"><i class="fa fa-user"></i> ACCOUNT</a></b>
+			<li><b> <a href="../Index/Index.php"><i class="fa fa-home"></i> HOME </a></b>
+
+			<li><b> <a href="../About/About.php"> ABOUT US </a></b>
+<ul>
+	<!--<li><a href="#"> Our Team </a></li>
+	<li><a href="#"> Mission and Vision</a></li>
+	<li><a href="#"> Engage with Us  </a></li>-->
+</ul>
+			</li>
+			<li><b> <a href="../Shop/Shop.php"> CATEGORIES </a></b>
+<!--<ul>
+	<li><a href="#">Health and Beauty </a></li>
+	<li><a href="#"> Home and Office </a></li>
+	<li><a href="#">Fashion </a></li>
+		<li><a href="#">Sports </a></li>
+			<li><a href="#">Garden and Outdoor </a></li>
+				<li><a href="#">Baby Products </a></li>
+				<li><a href="#">Electricals</a></li>
+
+	</ul>--->
+		</li>
+			<li><b> <a href="#"> NEW ARRIVALS </a></b>
+            <ul>
+            	<li><a href="#"> COMING SOON... </a></li>
+            </ul>
+			</li>
+	 <li><b> <a href="../Account/Account.php"><i class="fa fa-user"></i> ACCOUNT </a></b>
         <ul>
 	       <li><a href="../Vendor/productpage.php"> Vendor </a></li>
 	       <li><a href="../Vendor/Cart.php"> Cart </a></li>
         </ul>
-	</li>
-	<li id="contact"><b> <a href="#"> CONTACT US  </a></b></li>
-    </div>
- </ul>
- <img src="../menu.png" class="menu-icon" onclick="showMenu()">
-</header><br>
-		
-		
+	 </li>
+	<li id="contact"><b> <a href="../Contact/Contact.php"> CONTACT US  </a></b></li>
+</ul>
+</header>		
 		
 <!----------------CALL TO ACTION--------------->
 <div class="callToAction">

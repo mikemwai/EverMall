@@ -29,14 +29,14 @@ $all_product = $conn->query($sql);
 
 			<li><b> <a href="../Index/Index.php"><i class="fa fa-home"></i> HOME </a></b>
 
-			<li><b> <a href="#"> ABOUT </a></b>
+			<li><b> <a href="../About/About.php"> ABOUT US </a></b>
 <ul>
-	<li><a href="#"> Our Team </a></li>
+	<!--<li><a href="#"> Our Team </a></li>
 	<li><a href="#"> Mission and Vision</a></li>
-	<li><a href="#"> Engage with Us  </a></li>
+	<li><a href="#"> Engage with Us  </a></li>-->
 </ul>
 			</li>
-			<li><b> <a href="Shop.php"> CATEGORIES </a></b>
+			<li><b> <a href="../Shop/Shop.php"> CATEGORIES </a></b>
 <!--<ul>
 	<li><a href="#">Health and Beauty </a></li>
 	<li><a href="#"> Home and Office </a></li>
@@ -59,7 +59,7 @@ $all_product = $conn->query($sql);
 	       <li><a href="../Vendor/Cart.php"> Cart </a></li>
         </ul>
 	 </li>
-	<li id="contact"><b> <a href="#"> CONTACT US  </a></b></li>
+	<li id="contact"><b> <a href="../Contact/Contact.php"> CONTACT US  </a></b></li>
 </ul>
 </header>
 
