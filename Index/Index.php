@@ -46,10 +46,10 @@
 
 	</ul>--->
 		</li>
-			<li><b> <a href="#"> NEW ARRIVALS </a></b>
-            <ul>
+			<li><b> <a href="../Shop/resultspage.php"><i class="fa fa-search"></i> SEARCH </a></b>
+            <!--<ul>
             	<li><a href="#"> COMING SOON... </a></li>
-            </ul>
+            </ul>--->
 			</li>
 	 <li><b> <a href="../Account/Account.php"><i class="fa fa-user"></i> ACCOUNT </a></b>
         <ul>

@@ -104,10 +104,10 @@ if(isset($_POST['add_to_product']))
 
 	</ul>--->
 		</li>
-			<li><b> <a href="#"> NEW ARRIVALS </a></b>
-            <ul>
+			<li><b> <a href="../Shop/resultspage.php"><i class="fa fa-search"></i> SEARCH </a></b>
+            <!--<ul>
             	<li><a href="#"> COMING SOON... </a></li>
-            </ul>
+            </ul>--->
 			</li>
 	 <li><b> <a href="../Account/Account.php"><i class="fa fa-user"></i> ACCOUNT </a></b>
         <ul>
@@ -136,7 +136,7 @@ if(isset($message)){
         <hr/>
         </div>
   
-        <div class="row">
+<div class="row">
 <?php
 	while($row=mysqli_fetch_assoc($all_product)){
 ?>
@@ -168,7 +168,7 @@ if(isset($message)){
        <i class="fa fa-star-half-o" ></i>
        <i class="fa fa-star-o"></i>
        <h3><?php echo $row["product_name"]; ?></h3>
-       <h5> Ksh.<?php echo $row["unit_price"]; ?></h5><br>
+       <h5> Ksh <?php echo $row["unit_price"]; ?> /-</h5><br>
        </div>
 
        </div>

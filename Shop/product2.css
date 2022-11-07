@@ -46,6 +46,29 @@
     justify-content: space-around;
 }
 
+.searchbar
+{
+    width:200px;
+    height: 100px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.btn2
+{
+    background-color: #fff;
+    border: none;
+    text-decoration: none;
+}
+
+.icon
+{
+    height: 20px;
+    width: 25px;
+    margin-left:0px;
+    margin-right: 12px;
+}
+
 img{
     width: 100%;
 

@@ -4,7 +4,7 @@
 require_once('../Admin/connections.php');
 
 
-$sql="SELECT * FROM tbl_product WHERE category_name='Office'";
+$sql="SELECT * FROM tbl_product WHERE category_name='Sports'";
 $all_product = $conn->query($sql);
 
 if(isset($_POST['add_to_cart']))
@@ -62,16 +62,15 @@ if(isset($_POST['add_to_product']))
 
 <html>
     <head>
-        <title>Evermall Product page</title>
+        <title>EverMall | Results page</title>
         <link rel="stylesheet" href="product2.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
 	 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-     <link rel="stylesheet" href="../Index/index.css" > 
-		
-		
+     <link rel="stylesheet" href="../Index/index.css" >
+     <link rel="stylesheet" href="../Shop/resultspage.css" > 	
 </head>
 <body>
 
@@ -119,29 +118,50 @@ if(isset($_POST['add_to_product']))
 </ul>
 </header>
 
-<?php
-
-if(isset($message)){
-   foreach($message as $message){
-      echo '<div class="message"><span>'.$message.'</span> </div>';
-   };
-};
-
-?>
-
 <!-------Body------>
 <div class="small-container">
         <div class="crazydeals">
-        <h1>Office</h1>
+        <h1>Results</h1>
         <hr/>
-        </div>
-  
-        <div class="row">
-<?php
-	while($row=mysqli_fetch_assoc($all_product)){
-?>
 
-    <div class="col-md-3">
+<div class="admin-product-form-container">
+
+<form action="" class="search" method="get">
+    <div class="column">
+    <input type="search" name="user_query" placeholder="Search here..." class="box"><br>
+    <br><button type="submit" name="search" class="btn">Search</button>
+    </div>
+</form> 
+</div>
+
+<?php
+require("../Admin/connections.php");
+
+if(isset($_GET['search']))
+{
+    $searchquery=$_GET['user_query'];
+    $getproducts="SELECT * FROM tbl_product WHERE product_keywords LIKE '%$searchquery%'";
+    $runproducts=mysqli_query($conn,$getproducts);
+
+    if(empty($getproducts))
+    {
+        $message[] = 'Product not found!';
+
+        if(isset($message)){
+            foreach($message as $message){
+               echo '<div class="message"><span>'.$message.'</span> </div>';
+            };
+         };
+        //echo "Product not found!";
+    }
+    else
+    {
+    ?>
+    <div class="row">
+    <?php
+	while($row=mysqli_fetch_assoc($runproducts)){
+    ?>
+        <div class="col-md-3">
         <div class="product-top">
         <img class="" src="../Admin/uploaded_image/<?php echo $row["product_image"]; ?>" width="100%" height="300" alt = "product image">
 
@@ -168,14 +188,19 @@ if(isset($message)){
        <i class="fa fa-star-half-o" ></i>
        <i class="fa fa-star-o"></i>
        <h3><?php echo $row["product_name"]; ?></h3>
-       <h5> Ksh <?php echo $row["unit_price"]; ?> /-</h5><br>
+       <h5> Ksh <?php echo $row["unit_price"]; ?>/-</h5><br>
        </div>
 
        </div>
-    </div>
+       </div>
 <?php
-};
+}
+  }
+}
 ?>
+</div>
+
+</div>
 </div>
 </div>
 
