@@ -166,6 +166,8 @@ if (isset($_POST["Login"]))
                   <input type="email" id="Email" name="Email" placeholder="Email" class="input-field"></p>
                   <input type="password" id="password" name="password" placeholder="Password" class="input-field"></p>
                   <input type="submit" value="Login" name="Login" class="submit-btn"><br>
+    <p>Forgotten Password?</p>
+                  <a href="forgot_password.php">Reset link</a>
                    <!--<p>Forgotten Password?</p>
                    <a href="Account_update.php?edit=<?php //echo $row['user_id']; ?>">
                    <p>Reset Password</p>--->
