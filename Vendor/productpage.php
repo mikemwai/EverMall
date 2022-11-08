@@ -167,7 +167,7 @@
             <table class="table" style= "width: 100%">
                 <thead>
                 <th>product id</th>
-                <th>vendor id</th>
+               <!--<th>vendor id</th>-->
                 <th>product image</th>
                 <th>product name</th>
                 <th>product description</th>
@@ -186,7 +186,7 @@
                         ?>
                         <tr>
                         <td><?php echo $value['product_id']; ?></td>
-                        <td><?php echo $value['vendor_id']; ?></td>
+                        <!--<td><?php //echo $value['vendor_id']; ?></td>-->
                         <td><img src="../Admin/uploaded_image/<?php echo $value['product_image']; ?>" height="100" alt=""></td><!------>
                         <td><?php echo $value['product_name']; ?></td>
                         <td><?php echo $value['product_description']; ?></td>
