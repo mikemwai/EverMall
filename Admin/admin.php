@@ -73,7 +73,7 @@ if(!isset($_SESSION['last_name'])){
 		    </a></li>
 
 		    <li>
-			<a href="admin(Users)">
+			<a href="admin(Users).php">
 			<i class="fa fa-user"></i>
 			<span class="text">Users</span>
 		    </a></li>
