@@ -159,8 +159,18 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
         <li>
           <i class='' ></i>
           <span class="text">
-          	 <p>Total Orders</p>           
-            <h3>#</h3> 
+          	 <p>Total Orders</p> 
+		   <?php
+             $dash_order="SELECT * FROM tbl_order WHERE vendor_id='$user_id'";
+             $run=mysqli_query($conn,$dash_order);
+             if($order_total=mysqli_num_rows($run)){
+              echo '<h3> '.$order_total.' </h3>';
+             }else{
+              echo '<h4> No data </h4>';
+
+             }
+             ?>
+       
           </span>
         </li>
 
@@ -168,7 +178,17 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
           <i class='' ></i>
           <span class="text">
           	<p>Orders awaiting processing</p>
-            <h3>#</h3>
+		  <?php
+             $dash_order="SELECT * FROM tbl_order WHERE vendor_id='$user_id' AND order_status='Pending' ";
+             $run=mysqli_query($conn,$dash_order);
+             if($order_total=mysqli_num_rows($run)){
+              echo '<h3> '.$order_total.' </h3>';
+             }else{
+              echo '<h4> No data </h4>';
+
+             }
+             ?>
+            
           </span>
         </li>
 
@@ -176,7 +196,17 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
           <i class='' ></i>
           <span class="text">
           	<p>Orders Processing</p>
-            <h3>#</h3>           
+		  <?php
+             $dash_order="SELECT * FROM tbl_order WHERE vendor_id='$user_id' AND order_status='Pending' ";
+             $run=mysqli_query($conn,$dash_order);
+             if($order_total=mysqli_num_rows($run)){
+              echo '<h3> '.$order_total.' </h3>';
+             }else{
+              echo '<h4> No data </h4>';
+
+             }
+             ?>
+                      
           </span>
         </li>
 
@@ -184,7 +214,17 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
           <i class='' ></i>
           <span class="text">
           	<p>Ready for pickup</p>
-            <h3>#</h3>           
+		  <?php
+             $dash_order="SELECT * FROM tbl_order WHERE vendor_id='$user_id' AND order_status='Paid' ";
+             $run=mysqli_query($conn,$dash_order);
+             if($order_total=mysqli_num_rows($run)){
+              echo '<h3> '.$order_total.' </h3>';
+             }else{
+              echo '<h4> No data </h4>';
+
+             }
+             ?>
+                    
           </span>
         </li>
 
@@ -192,7 +232,17 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
           <i class='' ></i>
           <span class="text">
           	<p>Orders completed</p>
-            <h3>#</h3>           
+		  <?php
+             $dash_order="SELECT * FROM tbl_order WHERE vendor_id='$user_id' AND order_status='Delivered' ";
+             $run=mysqli_query($conn,$dash_order);
+             if($order_total=mysqli_num_rows($run)){
+              echo '<h3> '.$order_total.' </h3>';
+             }else{
+              echo '<h4> No data </h4>';
+
+             }
+             ?>
+                 
           </span>
         </li>
 
@@ -200,7 +250,17 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
           <i class='' ></i>
           <span class="text">
           	<p>Orders Cancelled</p>
-            <h3>#</h3>           
+		  <?php
+             $dash_order="SELECT * FROM tbl_order WHERE vendor_id='$user_id' AND order_status='Cancelled' ";
+             $run=mysqli_query($conn,$dash_order);
+             if($order_total=mysqli_num_rows($run)){
+              echo '<h3> '.$order_total.' </h3>';
+             }else{
+              echo '<h4> No data </h4>';
+
+             }
+             ?>    
+                      
           </span>
         </li>
 
@@ -208,7 +268,17 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
           <i class='' ></i>
           <span class="text">
           	<p>Published products</p>
-            <h3>#</h3>           
+		  <?php
+             $dash_order="SELECT * FROM tbl_product WHERE vendor_id='$user_id' ";
+             $run=mysqli_query($conn,$dash_order);
+             if($order_total=mysqli_num_rows($run)){
+              echo '<h3> '.$order_total.' </h3>';
+             }else{
+              echo '<h4> No data </h4>';
+
+             }
+             ?>    
+                     
           </span>
         </li>
 
@@ -216,11 +286,22 @@ $select = mysqli_query($conn, "SELECT * FROM tbl_users");
           <i class='' ></i>
           <span class="text">
           	<p>Review &amp; Ratings</p>
-            <h3>#</h3>           
+		  <?php
+             $dash_order="SELECT * FROM tbl_complain WHERE user_id='$user_id'  ";
+             $run=mysqli_query($conn,$dash_order);
+             if($order_total=mysqli_num_rows($run)){
+              echo '<h3> '.$order_total.' </h3>';
+             }else{
+              echo '<h4> No data </h4>';
+
+             }
+             ?>   
+                    
           </span>
         </li>
       </ul>
-   </main>
+
+</main>
 </section>
 </body>
 </html>
