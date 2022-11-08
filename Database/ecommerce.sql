@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2022 at 06:18 AM
+-- Generation Time: Nov 08, 2022 at 05:57 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -205,19 +205,22 @@ INSERT INTO `order_list` (`id`, `code`, `client_id`, `vendor_id`, `total_amount`
 
 CREATE TABLE `product` (
   `id` int(25) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
+  `vendor_id` int(30) NOT NULL,
   `name` varchar(25) NOT NULL,
   `price` varchar(25) NOT NULL,
   `image` varchar(255) NOT NULL,
-  `product_details` text NOT NULL
+  `product_details` text NOT NULL,
+  `quantity` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `product_id`, `name`, `price`, `image`, `product_details`) VALUES
-(82, 39, 'Black speaker', '3500', 'Speaker.jpg', 'The speaker is black with a lighting mechanism around it.');
+INSERT INTO `product` (`id`, `user_id`, `product_id`, `vendor_id`, `name`, `price`, `image`, `product_details`, `quantity`) VALUES
+(92, 0, 7, 21, 'Blue Jacket', '3000', '8.jpg', 'The puff jacket is blue in color.', 1);
 
 -- --------------------------------------------------------
 
@@ -342,7 +345,9 @@ INSERT INTO `stkpush` (`id`, `OrderNo`, `Amount`, `Phone`, `CheckoutRequestID`, 
 (27, 0, 1, '254722176197', 'ws_CO_01112022214142042722176197', '518-50348294-1', '', '2022-11-01 18:41:44'),
 (28, 0, 1, '254726231519', 'ws_CO_01112022222907335726231519', '7376-38659661-1', '', '2022-11-01 19:29:09'),
 (29, 0, 1, '254726231519', 'ws_CO_01112022223225496726231519', '11226-46648267-1', '', '2022-11-01 19:32:25'),
-(30, 0, 1, '254726231519', 'ws_CO_01112022225145095726231519', '28893-45933622-1', '', '2022-11-01 19:51:47');
+(30, 0, 1, '254726231519', 'ws_CO_01112022225145095726231519', '28893-45933622-1', '', '2022-11-01 19:51:47'),
+(31, 0, 1, '254726231519', 'ws_CO_02112022085524039726231519', '11223-47380203-1', '', '2022-11-02 05:55:24'),
+(32, 0, 1, '254726231519', 'ws_CO_02112022090103794726231519', '517-51201097-1', '', '2022-11-02 06:01:04');
 
 -- --------------------------------------------------------
 
@@ -475,10 +480,6 @@ CREATE TABLE `tbl_order` (
 --
 
 INSERT INTO `tbl_order` (`order_id`, `user_id`, `vendor_id`, `phone`, `address`, `total_products`, `order_amount`, `order_status`, `created_at`, `payment_type`, `updated_at`, `is_deleted`) VALUES
-(1, 4, '1', '', '', 'White Suit ( 1 ), White Dress ( 2 )', 9000, 'Delivered', '2022-07-12 17:37:00', 'Cash on Delivery', '2022-07-12 17:37:00', 0),
-(2, 4, '2', '', '', 'Purple T-shirt ( 1 )', 500, 'Delivered', '2022-07-12 18:08:20', 'M-Pesa', '2022-07-12 18:08:20', 0),
-(3, 28, '33', '', '', 'White Sweatpants ( 1 ), Blue T-Shirt ( 1 )', 2300, 'Delivered', '2022-07-13 08:32:02', 'M-Pesa', '2022-07-13 08:32:02', 0),
-(4, 32, '2', '', '', 'Bicycle ( 1 )', 10000, 'Delivered', '2022-07-13 09:19:59', 'M-Pesa', '2022-07-13 09:19:59', 0),
 (34, 33, '2', '0799373855', '766', 'Black Suit (12) , Black Sweatpants (1) , Purple T-shirt (1) ', 62500, 'Pending', '2022-11-01 13:26:32', 'M-Pesa', '2022-11-01 13:26:32', 0),
 (35, 33, '3', '0799373855', '766', 'Black Suit (12) , Black Sweatpants (1) , Purple T-shirt (1) ', 62500, 'Pending', '2022-11-01 13:27:58', 'M-Pesa', '2022-11-01 13:27:58', 0),
 (47, 1, '0', '0799373855', '766', 'Purple T-shirt (1) , Black Sweater (1) ', 2500, 'Paid', '2022-11-01 15:57:48', 'M-Pesa', '2022-11-01 15:57:48', 0),
@@ -499,7 +500,9 @@ INSERT INTO `tbl_order` (`order_id`, `user_id`, `vendor_id`, `phone`, `address`,
 (62, 28, '21, 13', '0726231519', '5026', 'Blue Jacket (1) , Black Sweater (1) ', 5000, 'Paid', '2022-11-01 21:41:30', 'M-Pesa', '2022-11-01 21:41:30', 0),
 (63, 4, '2, 1', '0726231519', '5026', '19 White wedding Gown (1) , 18 White Dress (1) ', 12000, 'Paid', '2022-11-01 22:29:03', 'M-Pesa', '2022-11-01 22:29:03', 0),
 (64, 4, '26, 29', '0726231519', '5026', '9 Black Socks (1) , 12 Blue Sweater (1) ', 5600, 'Paid', '2022-11-01 22:32:17', 'M-Pesa', '2022-11-01 22:32:17', 0),
-(65, 28, '26', '0726231519', '5026', '9 Black Socks (1) ', 100, 'Paid', '2022-11-01 22:51:40', 'M-Pesa', '2022-11-01 22:51:40', 0);
+(65, 28, '26', '0726231519', '5026', '9 Black Socks (1) ', 100, 'Paid', '2022-11-01 22:51:40', 'M-Pesa', '2022-11-01 22:51:40', 0),
+(66, 33, '22, 13', '0726231519', '5026', '8 Black Suit (1) , 6 Black Sweater (1) ', 7000, 'Paid', '2022-11-02 08:55:16', 'M-Pesa', '2022-11-02 08:55:16', 0),
+(67, 33, '1', '0726231519', '5026', '1 Blue T-Shirt (2) ', 2400, 'Paid', '2022-11-02 09:00:48', 'M-Pesa', '2022-11-02 09:00:48', 0);
 
 -- --------------------------------------------------------
 
@@ -550,9 +553,7 @@ CREATE TABLE `tbl_orders` (
 --
 
 INSERT INTO `tbl_orders` (`id`, `vendor_id`, `product_id`, `product_name`, `needed_quantity`) VALUES
-(1, '26', 9, 'Black Socks', 1),
-(2, '26', 9, 'Black Socks', 1),
-(3, '26', 9, 'Black Socks', 1);
+(1, '26', 9, 'Black Socks', 1);
 
 -- --------------------------------------------------------
 
@@ -1135,7 +1136,7 @@ ALTER TABLE `order_list`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT for table `product_list`
@@ -1153,7 +1154,7 @@ ALTER TABLE `shop_type_list`
 -- AUTO_INCREMENT for table `stkpush`
 --
 ALTER TABLE `stkpush`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `system_info`
@@ -1165,7 +1166,7 @@ ALTER TABLE `system_info`
 -- AUTO_INCREMENT for table `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
 
 --
 -- AUTO_INCREMENT for table `tbl_categories`
@@ -1183,7 +1184,7 @@ ALTER TABLE `tbl_complain`
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `tbl_orderdetails`
