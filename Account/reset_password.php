@@ -29,6 +29,7 @@ if(isset($_POST["reset-pass"]))
 
             if(mail($to,$subject,$message,$headers)){
                 echo "Password link is sent to your email";
+                header('location:../Account/Account.php');
             }else{
                 echo "Failed to send";
             }
