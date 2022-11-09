@@ -256,16 +256,13 @@ INSERT INTO `product_list` (`id`, `vendor_id`, `category_id`, `name`, `descripti
 -- --------------------------------------------------------
 
 --
--- Table structure for table `purchases`
+-- Table structure for table `forgot password`
 --
 
-CREATE TABLE `purchases` (
-  `PurchaseNo` int(10) NOT NULL,
-  `UserNo` int(10) NOT NULL,
-  `EmployeeNo` int(10) NOT NULL,
-  `ClothName` varchar(25) NOT NULL,
-  `Price` int(10) NOT NULL,
-  `PurchaseStatus` varchar(25) NOT NULL
+CREATE TABLE `forgot_password` (
+  `id` int(50) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `token` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
