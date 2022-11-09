@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2022 at 10:08 PM
+-- Generation Time: Nov 09, 2022 at 05:48 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -136,6 +136,18 @@ CREATE TABLE `employees` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `forgot_password`
+--
+
+CREATE TABLE `forgot_password` (
+  `id` int(50) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `token` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `orders`
 --
 
@@ -256,13 +268,16 @@ INSERT INTO `product_list` (`id`, `vendor_id`, `category_id`, `name`, `descripti
 -- --------------------------------------------------------
 
 --
--- Table structure for table `forgot password`
+-- Table structure for table `purchases`
 --
 
-CREATE TABLE `forgot_password` (
-  `id` int(50) NOT NULL,
-  `email` varchar(250) NOT NULL,
-  `token` varchar(250) NOT NULL
+CREATE TABLE `purchases` (
+  `PurchaseNo` int(10) NOT NULL,
+  `UserNo` int(10) NOT NULL,
+  `EmployeeNo` int(10) NOT NULL,
+  `ClothName` varchar(25) NOT NULL,
+  `Price` int(10) NOT NULL,
+  `PurchaseStatus` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
